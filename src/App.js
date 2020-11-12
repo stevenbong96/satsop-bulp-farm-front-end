@@ -1,9 +1,10 @@
 import React from "react";
+import UserDashboard from './pages/User Dashboard/UserDashboard';
 
 function App() {
   return (
     <div className="App">
-      <h1>HELLLOOO</h1>
+      <UserDashboard />
     </div>
   );
 }
