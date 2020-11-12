@@ -1,4 +1,6 @@
 import React from "react";
+// import AboutUpdate from "./pages/AboutUpdate"
+import BasicInfoUpdate from "./pages/BasicInfoUpdate"
 
 function App() {
   return (
