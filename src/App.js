@@ -4,10 +4,9 @@ import BasicInfoUpdate from "./pages/BasicInfoUpdate"
 
 function App() {
   return (
-    // <div className="App">
-    //   <h1>HELLLOOO</h1>
-    // </div>
-    <BasicInfoUpdate />
+    <div className="App">
+      <h1>HELLLOOO</h1>
+    </div>
   );
 }
 
