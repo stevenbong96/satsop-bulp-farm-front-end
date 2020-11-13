@@ -22,12 +22,12 @@ function Navbar() {
                     </a>
 
                     <a className="navbar-item">
-                        <Link to="/direction">Directions</Link>
+                        <Link to="/faq">FAQ</Link>
                     </a>
 
-                    <a className="navbar-item">
+                    {/* <a className="navbar-item">
                         <Link to="/contact">Contact</Link>
-                    </a>
+                    </a> */}
 
                     {/* <a className="navbar-item">
                         <Link to="/productdetails">Search</Link>
