@@ -7,7 +7,7 @@ function Contact() {
             <div className="field">
                 <label className="label">First Name</label>
                 <div className="control has-icons-left has-icons-right">
-                    <input className="input" type="text" placeholder="Text input" value="First Name" />
+                    <input className="input" type="text" placeholder="Text input" />
                     <span className="icon is-small is-left">
                         <i className="fas fa-user"></i>
                     </span>
@@ -17,7 +17,7 @@ function Contact() {
             <div className="field">
                 <label className="label">Last Name</label>
                 <div className="control has-icons-left has-icons-right">
-                    <input className="input" type="text" placeholder="Text input" value="Last Name" />
+                    <input className="input" type="text" placeholder="Text input" />
                     <span className="icon is-small is-left">
                         <i className="fas fa-user"></i>
                     </span>
@@ -27,7 +27,7 @@ function Contact() {
             <div className="field">
                 <label className="label">Email</label>
                 <div className="control has-icons-left has-icons-right">
-                    <input className="input" type="email" placeholder="Email input" value="hello@hello.com" />
+                    <input className="input" type="email" placeholder="Email input" />
                     <span className="icon is-small is-left">
                         <i className="fas fa-envelope"></i>
                     </span>
@@ -37,7 +37,7 @@ function Contact() {
             <div className="field">
                 <label className="label">Subject</label>
                 <div className="control">
-                    <input className="input" type="email" placeholder="Inquiries" value="Bulb" />
+                    <input className="input" type="email" placeholder="Inquiries" />
                 </div>
             </div>
 
