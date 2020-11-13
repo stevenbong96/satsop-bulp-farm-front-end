@@ -1,0 +1,15 @@
+.aboutStyle{
+    /* border: 1px solid black; */
+    max-width: 65%;
+    margin: 0 auto;
+}
+
+.pictureStyle{
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+p{
+    margin-bottom: 5%;
+}
