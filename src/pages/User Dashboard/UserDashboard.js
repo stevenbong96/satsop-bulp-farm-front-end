@@ -4,6 +4,7 @@ import Home from "./Home/Home";
 import Product from "./Product/Product";
 import Navbar from "../../components/User Dashboard/Navbar/Navbar";
 import Header from "./Header/Header";
+import Footer from "../../components/User Dashboard/Footer/Footer";
 
 function UserDashboard() {
     return (
@@ -21,6 +22,7 @@ function UserDashboard() {
           <Search/>
         </Route> */}
             </Switch>
+            <Footer />
         </Router>
     );
 }
