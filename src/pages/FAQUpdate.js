@@ -87,6 +87,7 @@ export default function FAQUpdate() {
     }
     
     const handleNewQuestionSubmit = (newQuestion) => {
+        console.log(newQuestion)
         // send new question info to server
         API.createFAQ(newQuestion).then(res => {
             // close modal

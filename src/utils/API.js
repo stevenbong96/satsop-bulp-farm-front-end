@@ -19,8 +19,8 @@ export default {
     updateFAQ: function(id) {
         return axios.put('https://calm-brook-21723.herokuapp.com/api/faqText/' + id)
     },
-    createFAQ: function() {
-        return axios.post('https://calm-brook-21723.herokuapp.com/api/faqText')
+    createFAQ: function(newQuestion) {
+        return axios.post('https://calm-brook-21723.herokuapp.com/api/faqText', newQuestion)
     },
     deleteFAQ: function(id) {
         return axios.delete('https://calm-brook-21723.herokuapp.com/api/faqText/' + id)
