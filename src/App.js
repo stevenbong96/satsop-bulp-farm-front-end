@@ -7,7 +7,7 @@ import FAQUpdate from './pages/FAQUpdate'
 function App() {
   return (
     <div className="App">
-      <UserDashboard />
+      <FAQUpdate />
     </div>
   );
 }
