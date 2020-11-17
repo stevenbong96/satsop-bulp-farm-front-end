@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default {
     updateBasicInfo: function (info) {
-        return axios.put('/user', info)
+        return axios.put('https://calm-brook-21723.herokuapp.com/api/user', info)
     },
     getBasicInfo: function () {
         return axios.get('/user')
@@ -17,8 +17,6 @@ export default {
         return axios.get('https://calm-brook-21723.herokuapp.com/api/faqText')
     },
     updateFAQ: function(id, questionObj) {
-        console.log(id)
-        console.log(questionObj)
         return axios.put('https://calm-brook-21723.herokuapp.com/api/faqText/' + id, questionObj)
     },
     createFAQ: function(newQuestion) {
