@@ -1,21 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./faq.css";
+import API from "../../../utils/User/userAPI";
+import FaqResult from "./FaqResult";
 
 function Faq() {
+    const [currentResult, setCurrentResultState] = useState({
+        result:""
+    })
+
+    useEffect(() => {
+        loadAllFAQ();
+    },[])
+
+    function loadAllFAQ(){
+        API.getAllFAQ()
+        .then(res => {
+            // console.log(res.data);
+            setCurrentResultState(res.data);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
+
     return (
-        <div className="faqStyle is-justify-content-center">
-            <div className="field">
-                <label className="label">Question</label>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
-            </div>
-
-            <div className="field">
-                <label className="label">Answers</label>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
-            </div>
-
-            <hr />
-        </div>
+        <>
+            {currentResult.map(resultObj => {
+                return <FaqResult question={resultObj.question} answer={resultObj.answer}/>
+            })}
+        </>
     )
 }
 
