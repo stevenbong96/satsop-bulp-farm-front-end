@@ -8,7 +8,7 @@ import HomeUpdate from './pages/HomeUpdate'
 function App() {
   return (
     <div className="App">
-      <FAQUpdate />
+      <HomeUpdate />
     </div>
   );
 }

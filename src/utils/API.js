@@ -1,16 +1,28 @@
 import axios from 'axios'
 
 export default {
-    updateBasicInfo: function (info) {
-        return axios.put('https://calm-brook-21723.herokuapp.com/api/user', info)
-    },
     getBasicInfo: function () {
         return axios.get('/user')
     },
-    getAboutInfo: function () {
-        // return axios.get('/aboutText')
+    updateBasicInfo: function (info) {
+        return axios.put('https://calm-brook-21723.herokuapp.com/api/user', info)
+    },
+    getHomePageText: function () {
+        return axios.get('https://calm-brook-21723.herokuapp.com/api/homeText/')
+    },
+    updateHomePageText: function (id, text) {
+        return axios.put('https://calm-brook-21723.herokuapp.com/api/homeText/' + id, text)
     },
     getProducts: function () {
+        // return axios.get('/products)
+    },
+    getProduct: function () {
+        // return axios.get('/products)
+    },
+    updateProduct: function () {
+        // return axios.get('/products)
+    },
+    deleteProduct: function () {
         // return axios.get('/products)
     },
     getFAQ: function () {
