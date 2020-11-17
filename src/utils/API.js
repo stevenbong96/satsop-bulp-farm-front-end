@@ -16,8 +16,10 @@ export default {
     getFAQ: function () {
         return axios.get('https://calm-brook-21723.herokuapp.com/api/faqText')
     },
-    updateFAQ: function(id) {
-        return axios.put('https://calm-brook-21723.herokuapp.com/api/faqText/' + id)
+    updateFAQ: function(id, questionObj) {
+        console.log(id)
+        console.log(questionObj)
+        return axios.put('https://calm-brook-21723.herokuapp.com/api/faqText/' + id, questionObj)
     },
     createFAQ: function(newQuestion) {
         return axios.post('https://calm-brook-21723.herokuapp.com/api/faqText', newQuestion)
@@ -26,4 +28,3 @@ export default {
         return axios.delete('https://calm-brook-21723.herokuapp.com/api/faqText/' + id)
     }
 }
-

@@ -12,8 +12,6 @@ import NewQuestionModal from '../components/NewQuestionModal'
 export default function FAQUpdate() {
     const [questions, setQuestions] = useState([])
 
-    const [questionsToDelete, setQuestionsToDelete] = useState([])
-
     // on load, get all questions from server
     useEffect(() => {
         API.getFAQ().then(res => {
@@ -53,25 +51,23 @@ export default function FAQUpdate() {
             newQuestions.splice(questionIndex, 1)
             // update state with new array
             setQuestions(newQuestions)
-    
-            // add id of deleted quetsions to array of deleted questions
-            setQuestionsToDelete([...questionsToDelete, questionId])
         })
 
     }
 
     const handleQuestionUpdate = (event) => {
-        // make request to update questions in db
-        API.updateFAQ(questions).then(function (res) {
-            // if user has deleted any questions, make request to have them removed from db
-            if (questionsToDelete.length >= 1) {
-                API.deleteFAQ(questionsToDelete).then(function (res) {
-
-                })
-            } else {
-
-            }
-        })
+        // grab index of question in state to update
+        const questionIndex = event.target.getAttribute('data-index')
+        // grab id of question to update
+        const questionId = questions[questionIndex]._id
+        // object to be sent to server
+        const questionObj = {
+            question: questions[questionIndex].question,
+            answer: questions[questionIndex].answer
+        }
+        
+        // make request to update selected question
+        API.updateFAQ(questionId, questionObj)
     }
 
     
@@ -82,8 +78,6 @@ export default function FAQUpdate() {
             setQuestions(res.data)
             window.scrollTo(0, 0)
         })
-        // reset array of questions to delete to empty array
-        setQuestionsToDelete([])
     }
     
     const handleNewQuestionSubmit = (newQuestion) => {
