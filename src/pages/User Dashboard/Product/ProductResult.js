@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     },
 });
 
-function ProductResult() {
+function ProductResult(props) {
     const classes = useStyles();
 
     return (
@@ -33,7 +33,19 @@ function ProductResult() {
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        Name of Product
+                        {props.name}
+                    </Typography>
+                    <Typography gutterBottom variant="h6" component="h2">
+                        Color = {props.color}
+                    </Typography>
+                    <Typography gutterBottom variant="h6" component="h2">
+                        Season = {props.season}
+                    </Typography>
+                    <Typography gutterBottom variant="h6" component="h2">
+                        Planting = {props.planting}
+                    </Typography>
+                    <Typography gutterBottom variant="h6" component="h2">
+                        Price = {props.price}
                     </Typography>
                 </CardContent>
             </CardActionArea>
