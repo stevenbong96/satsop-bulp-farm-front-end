@@ -6,34 +6,18 @@ import SaveBtn from '../components/SaveBtn'
 import CancelBtn from '../components/CancelBtn'
 import NewQuestionBtn from '../components/NewQuestionBtn'
 import DeleteBtn from '../components/DeleteBtn'
+import UpdateBtn from '../components/UpdateBtn'
+import NewQuestionModal from '../components/NewQuestionModal'
 
 export default function FAQUpdate() {
-    const [questions, setQuestions] = useState([
-        {
-            id: '3049tukjdf',
-            q: 'This is my first question?',
-            a: 'This is my first answer'
-        },
-        {
-            id: 'as;dlkfj;eoijf',
-            q: 'This is my second question',
-            a: "This is my second answer"
-        },
-        {
-            id: 'a;sdlfjiie',
-            q: "This is my third question",
-            a: "This is my third answer"
-        }
-    ])
-
-    const [questionsToDelete, setQuestionsToDelete] = useState([])
+    const [questions, setQuestions] = useState([])
 
     // on load, get all questions from server
     useEffect(() => {
-        // API.getFAQ().then(res => {
-        //     setQuestions(res)
-        // })
-    })
+        API.getFAQ().then(res => {
+            setQuestions(res.data)
+        })
+    }, [])
 
     const handleInputChange = (event) => {
         // grab index of changed question in state
@@ -51,50 +35,58 @@ export default function FAQUpdate() {
         setQuestions(newState)
     }
 
-    const handleNewQuestion = (event) => {
-        setQuestions([
-            ...questions,
-            {
-                q: '',
-                a: ''
-            }
-        ])
+    const showModal = (event) => {
+        document.querySelector('.modal').className = "modal is-active"
     }
 
     const handleQuestionDelete = (event) => {
         // grab index of question to delete
         const questionIndex = event.target.getAttribute('data-index')
-        const questionId = questions[questionIndex].id
+        const questionId = questions[questionIndex]._id
 
-        // create copied array of state and splice questions to be removed
-        const newQuestions = [...questions]
-        newQuestions.splice(questionIndex, 1)
-        // update state with new array
-        setQuestions(newQuestions)
+        // make request to delete question
+        API.deleteFAQ(questionId).then(res => {
+            // create copied array of state and splice questions to be removed
+            const newQuestions = [...questions]
+            newQuestions.splice(questionIndex, 1)
+            // update state with new array
+            setQuestions(newQuestions)
+        })
 
-        // add id of deleted quetsions to array of deleted questions
-        setQuestionsToDelete([...questionsToDelete, questionId])
     }
 
-    const handleSave = (event) => {
-        // make request to update questions in db
-        // API.updateFAQ(questions).then(function(res) {
-            // if user has deleted any questions, make request to have them removed from db
-            // if (questionsToDelete.length >= 1) {
-                // API.deleteFAQ(questionsToDelete).then(function(res) {
-
-        //         })
-        //     }
-        // })
+    const handleQuestionUpdate = (event) => {
+        // grab index of question in state to update
+        const questionIndex = event.target.getAttribute('data-index')
+        // grab id of question to update
+        const questionId = questions[questionIndex]._id
+        // object to be sent to server
+        const questionObj = {
+            question: questions[questionIndex].question,
+            answer: questions[questionIndex].answer
+        }
+        
+        // make request to update selected question
+        API.updateFAQ(questionId, questionObj)
     }
 
+    
     const handleCancel = (event) => {
         // grab original questions/answers from server
-        // API.getFAQ().then(res => {
-            // set states back to original
-        //     setQuestions(res)
-        // })
-        setQuestionsToDelete([])
+        API.getFAQ().then(res => {
+            // set states back to original and scroll to top of screen
+            setQuestions(res.data)
+            window.scrollTo(0, 0)
+        })
+    }
+    
+    const handleNewQuestionSubmit = (newQuestion) => {
+        console.log(newQuestion)
+        // send new question info to server
+        API.createFAQ(newQuestion).then(res => {
+            // close modal
+            document.querySelector('.modal').className='modal'
+        })
     }
 
     return (
@@ -102,19 +94,21 @@ export default function FAQUpdate() {
             <div className='questions-container'>
                 {questions.map((question, index) => {
                     return (
-                        <>
-                            <QuestionInput text={question.q} handleInputChange={handleInputChange} index={index} />
-                            <AnswerTextarea text={question.a} handleInputChange={handleInputChange} index={index} />
+                        <div>
+                            <QuestionInput text={question.question} handleInputChange={handleInputChange} index={index} />
+                            <AnswerTextarea text={question.answer} handleInputChange={handleInputChange} index={index} />
+                            <UpdateBtn index={index} handleQuestionUpdate={handleQuestionUpdate} />
                             <DeleteBtn index={index} handleQuestionDelete={handleQuestionDelete} />
-                        </>
+                        </div>
                     )
                 })}
             </div>
             <div>
-                <NewQuestionBtn handleNewQuestion={handleNewQuestion} />
-                <SaveBtn handleSave={handleSave}></SaveBtn>
+                <NewQuestionBtn handleNewQuestion={showModal} />
+                {/* <SaveBtn handleSave={handleSave}></SaveBtn> */}
                 <CancelBtn handleCancel={handleCancel}></CancelBtn>
             </div>
+            <NewQuestionModal handleNewQuestionSubmit={handleNewQuestionSubmit} />
         </div>
     )
 }
