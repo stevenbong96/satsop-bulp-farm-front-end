@@ -12,7 +12,7 @@ export default function BasicInfo() {
         phone: '(360) 482-5566',
         email: 'info@satsopbulbfarm.com',
         address: '930 Monte Elma Rd',
-        zip: '98541',
+        zipCode: '98541',
         city: 'Elma',
         state: 'WA',
         hours: {
@@ -28,11 +28,11 @@ export default function BasicInfo() {
     })
 
     // on load, make request to server for basic info
-    // useEffect(() => {
-    //     API.getBasicInfo().then(function (res) {
-    //         setBasicInfo(res)
-    //     })
-    // })
+    useEffect(() => {
+        API.getBasicInfo().then(function (res) {
+            setBasicInfo(res)
+        })
+    })
 
     // update state when user changes an input field
     const handleInputChange = (event) => {
@@ -82,7 +82,7 @@ export default function BasicInfo() {
                 <UpdateInput type='text' text={basicInfo.address} label='Address' name='address' handleInputChange={handleInputChange} />
                 <UpdateInput type='text' text={basicInfo.city} label='City' name='city' handleInputChange={handleInputChange} />
                 <UpdateInput type='text' text={basicInfo.state} label='State' name='state' handleInputChange={handleInputChange} />
-                <UpdateInput type='text' text={basicInfo.zip} label='Zip' name='zip' handleInputChange={handleInputChange} />
+                <UpdateInput type='text' text={basicInfo.zipCode} label='zipCode' name='zipCode' handleInputChange={handleInputChange} />
                 <h2>Business Hours</h2>
                 <UpdateInput type='text' text={basicInfo.hours.monday} label='Monday' name='monday' handleInputChange={handleInputChange} />
                 <UpdateInput type='text' text={basicInfo.hours.tuesday} label='Tuesday' name='tuesday' handleInputChange={handleInputChange} />
