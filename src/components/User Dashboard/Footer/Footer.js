@@ -1,14 +1,34 @@
 import React from "react";
+import "./footer.css";
 
 function Footer() {
     return (
-        <footer className="footer">
+        <footer className="footer footerStyle">
             <div className="content has-text-centered">
-                <p>
-                    <strong>Satsop Bulb Farm</strong> by Brandon Phillips, Emily Goeres, Jae Mclain, Joshua Jainga, Steven Bong. <br /> The source code is licensed by
-                    <a href="http://opensource.org/licenses/mit-license.php"> MIT</a>. The website content
-                    is licensed by <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-                </p>
+                <div className="columns">
+                    <div class="column"><h1>Satsop Bulb Farm</h1></div>
+                </div>
+                <div className="columns">
+                    <div class="column is-3">
+                        <div class="column">
+                            Connect Us on Facebook
+                        </div>
+                        <div className="columns">
+                            <div class="column"><a href="https://www.facebook.com/Satsop-Bulb-Farm-287080364304/" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a></div>
+                        </div>
+                    </div>
+                    <div class="column">Home</div>
+                    <div class="column">Products</div>
+                    <div class="column">Frequently Asked Questions</div>
+                </div>
+                <div className="columns">
+                    <div class="column">
+                        <p>
+                            &copy; 2020 Satsop Bulb Farm
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </footer>
     )
