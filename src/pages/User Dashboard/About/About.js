@@ -6,7 +6,7 @@ function About() {
         <div className="row aboutStyle">
             <div className="column is-12">
                 <div className="row pictureStyle">
-                    <figure classname="image is-128x128">
+                    <figure className="image is-128x128">
                         <img src="https://bulma.io/images/placeholders/256x256.png" />
                     </figure>
                 </div>

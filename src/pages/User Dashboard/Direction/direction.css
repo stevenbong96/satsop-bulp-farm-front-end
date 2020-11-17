@@ -13,3 +13,13 @@ img {
     height: 300px;
     width: 300px;
 }
+
+#mapid { 
+    height: 100px; 
+}
+
+.leaflet-container {
+    height: 300px;
+    width: 80%;
+    margin: 0 auto;
+}

@@ -10,6 +10,15 @@ function Home() {
         <div className="homeStyle">
             <About />
             <Direction />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <Contact />
         </div>
     )
