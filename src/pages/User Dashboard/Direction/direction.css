@@ -3,15 +3,16 @@
     text-align: center;
     max-width: 65%;
     margin: 0 auto;
+    margin-top: 3%;
+    margin-bottom: 7%;
+}
+
+.storeInfo{
+    margin-left: 2%;
 }
 
 .mapStyle{
-    margin-top: 3%;
-}
-
-img {
-    height: 300px;
-    width: 300px;
+    margin-left: 2%;
 }
 
 #mapid { 

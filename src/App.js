@@ -32,6 +32,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <UserDashboard />
     </div>
   );
 }

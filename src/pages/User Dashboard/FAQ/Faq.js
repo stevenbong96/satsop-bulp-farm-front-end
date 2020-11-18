@@ -4,9 +4,7 @@ import API from "../../../utils/User/userAPI";
 import FaqResult from "./FaqResult";
 
 function Faq() {
-    const [currentResult, setCurrentResultState] = useState({
-        result:""
-    })
+    const [currentResult, setCurrentResultState] = useState([])
 
     useEffect(() => {
         loadAllFAQ();
@@ -25,9 +23,9 @@ function Faq() {
 
     return (
         <>
-            {currentResult.map(resultObj => {
+            {currentResult.length>0? currentResult.map(resultObj => {
                 return <FaqResult question={resultObj.question} answer={resultObj.answer}/>
-            })}
+            }) : <h1>Loading!</h1>}
         </>
     )
 }
