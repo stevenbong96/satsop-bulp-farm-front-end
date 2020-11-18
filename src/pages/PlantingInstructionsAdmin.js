@@ -3,6 +3,8 @@ import API from '../utils/API'
 import InstructionsInput from '../components/InstructionsInput'
 import MoreInfoInput from '../components/MoreInfoInput'
 import SaveBtn from '../components/SaveBtn'
+import AdminDashUpdateFields from '../components/AdminDashUpdateFields'
+import AdminNav from '../components/AdminNav'
 
 export default function PlantingInstructionsAdmin() {
 
@@ -79,7 +81,7 @@ export default function PlantingInstructionsAdmin() {
         } else {
             id = moreInfo[place].id
         }
-        
+
         // grab values to be changed and make request to update in db
         const newTextObj = {
             title: headingNode.value,
@@ -91,37 +93,40 @@ export default function PlantingInstructionsAdmin() {
     }
 
     return (
-        <div>
-            <h1>Planting Instructions</h1>
-            {Object.keys(instructions).map((place) => {
-                const instruction = instructions[place]
-                return (
-                    <div>
-                        <InstructionsInput
-                            place={place}
-                            heading={instruction.title}
-                            text={instruction.text}
-                            handleInputChange={handleInputChange}
-                        />
-                        <SaveBtn handleSave={handleSave} />
-                    </div>
-                )
-            })}
-            <h2>More Info</h2>
-            {Object.keys(moreInfo).map(place => {
-                const infoSection = moreInfo[place]
-                return (
-                    <div>
-                        <MoreInfoInput
-                            place={place}
-                            heading={infoSection.title}
-                            text={infoSection.text}
-                            handleInputChange={handleMoreInfoInputChange}
-                        />
-                        <SaveBtn handleSave={handleSave} />
-                    </div>
-                )
-            })}
-        </div>
+        <>
+            <AdminNav />
+            <AdminDashUpdateFields>
+                <h1>Planting Instructions</h1>
+                {Object.keys(instructions).map((place) => {
+                    const instruction = instructions[place]
+                    return (
+                        <div>
+                            <InstructionsInput
+                                place={place}
+                                heading={instruction.title}
+                                text={instruction.text}
+                                handleInputChange={handleInputChange}
+                            />
+                            <SaveBtn handleSave={handleSave} />
+                        </div>
+                    )
+                })}
+                <h2>More Info</h2>
+                {Object.keys(moreInfo).map(place => {
+                    const infoSection = moreInfo[place]
+                    return (
+                        <div>
+                            <MoreInfoInput
+                                place={place}
+                                heading={infoSection.title}
+                                text={infoSection.text}
+                                handleInputChange={handleMoreInfoInputChange}
+                            />
+                            <SaveBtn handleSave={handleSave} />
+                        </div>
+                    )
+                })}
+            </AdminDashUpdateFields>
+        </>
     )
 }

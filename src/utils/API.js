@@ -14,7 +14,7 @@ export default {
         return axios.put('https://calm-brook-21723.herokuapp.com/api/homeText/' + id, text)
     },
     getProducts: function () {
-        // return axios.get('https://calm-brook-21723.herokuapp.com/api/products)
+        return axios.get('https://calm-brook-21723.herokuapp.com/api/products')
     },
     postProduct: function (productObj) {
         // return axios.post('https://calm-brook-21723.herokuapp.com/api/product', productObj)
