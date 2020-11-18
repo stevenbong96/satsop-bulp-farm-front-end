@@ -14,27 +14,30 @@ export default {
         return axios.put('https://calm-brook-21723.herokuapp.com/api/homeText/' + id, text)
     },
     getProducts: function () {
-        // return axios.get('/products)
+        // return axios.get('https://calm-brook-21723.herokuapp.com/api/products)
     },
-    getProduct: function () {
-        // return axios.get('/products)
+    postProduct: function (productObj) {
+        // return axios.post('https://calm-brook-21723.herokuapp.com/api/product', productObj)
     },
-    updateProduct: function () {
-        // return axios.get('/products)
+    updateProduct: function (id, productObj) {
+        // return axios.update('https://calm-brook-21723.herokuapp.com/api/product/ + id, productObj)
     },
-    deleteProduct: function () {
-        // return axios.get('/products)
+    deleteProduct: function (id) {
+        // return axios.delete('https://calm-brook-21723.herokuapp.com/api/product/' + id)
     },
     getFAQ: function () {
         return axios.get('https://calm-brook-21723.herokuapp.com/api/faqText')
     },
-    updateFAQ: function(id, questionObj) {
-        return axios.put('https://calm-brook-21723.herokuapp.com/api/faqText/' + id, questionObj)
-    },
-    createFAQ: function(newQuestion) {
+    createFAQ: function (newQuestion) {
         return axios.post('https://calm-brook-21723.herokuapp.com/api/faqText', newQuestion)
     },
-    deleteFAQ: function(id) {
+    updateFAQ: function (id, questionObj) {
+        return axios.put('https://calm-brook-21723.herokuapp.com/api/faqText/' + id, questionObj)
+    },
+    deleteFAQ: function (id) {
         return axios.delete('https://calm-brook-21723.herokuapp.com/api/faqText/' + id)
+    },
+    getInstructions: function () {
+        return axios.get('https://calm-brook-21723.herokuapp.com/api/PlantingInstructionText')
     }
 }
