@@ -25,6 +25,7 @@ export default function PlantingInstructionsAdmin() {
                     }
                 } else if (step.order != -500) {
                     moreInfoObj[step.order] = {
+                        id: step._id,
                         title: step.title,
                         text: step.text
                     }
@@ -76,7 +77,7 @@ export default function PlantingInstructionsAdmin() {
         if (place >= 0) {
             id = instructions[place].id
         } else {
-            id = moreInfo[place]
+            id = moreInfo[place].id
         }
         
         // grab values to be changed and make request to update in db
