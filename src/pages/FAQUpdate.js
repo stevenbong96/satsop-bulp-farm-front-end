@@ -8,6 +8,8 @@ import NewQuestionBtn from '../components/NewQuestionBtn'
 import DeleteBtn from '../components/DeleteBtn'
 import UpdateBtn from '../components/UpdateBtn'
 import NewQuestionModal from '../components/NewQuestionModal'
+import AdminDashUpdateFields from '../components/AdminDashUpdateFields'
+import AdminNav from '../components/AdminNav'
 
 export default function FAQUpdate() {
     const [questions, setQuestions] = useState([])
@@ -90,7 +92,9 @@ export default function FAQUpdate() {
     }
 
     return (
-        <div>
+        <>
+        <AdminNav />
+        <AdminDashUpdateFields>
             <div className='questions-container'>
                 {questions.map((question, index) => {
                     return (
@@ -109,6 +113,7 @@ export default function FAQUpdate() {
                 <CancelBtn handleCancel={handleCancel}></CancelBtn>
             </div>
             <NewQuestionModal handleNewQuestionSubmit={handleNewQuestionSubmit} />
-        </div>
+        </AdminDashUpdateFields>
+        </>
     )
 }

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import API from '../utils/API'
 import AdminHeader from '../components/AdminHeader'
-import AdminList from '../components/AdminList'
+import AdminNav from '../components/AdminNav'
 import UpdateInput from '../components/UpdateInput'
 import SaveBtn from '../components/SaveBtn'
 import CancelBtn from '../components/CancelBtn'
+import AdminDashUpdateFields from '../components/AdminDashUpdateFields'
 
 export default function BasicInfo() {
 
@@ -73,34 +74,36 @@ export default function BasicInfo() {
     }
 
     return (
-        <div>
+        <>
+            <AdminNav />
             <AdminHeader />
-            {/* <AdminList /> */}
-            <div>
-                <UpdateInput type='text' text={basicInfo.phone} label='Phone' name='phone' handleInputChange={handleInputChange} />
-                <UpdateInput type='email' text={basicInfo.email} label='Email' name='email' handleInputChange={handleInputChange} />
-                <UpdateInput type='text' text={basicInfo.address} label='Address' name='address' handleInputChange={handleInputChange} />
-                <UpdateInput type='text' text={basicInfo.city} label='City' name='city' handleInputChange={handleInputChange} />
-                <UpdateInput type='text' text={basicInfo.state} label='State' name='state' handleInputChange={handleInputChange} />
-                <UpdateInput type='text' text={basicInfo.zipCode} label='zipCode' name='zipCode' handleInputChange={handleInputChange} />
-                <h2>Business Hours</h2>
-                <UpdateInput type='text' text={basicInfo.hours.monday} label='Monday' name='monday' handleInputChange={handleInputChange} />
-                <UpdateInput type='text' text={basicInfo.hours.tuesday} label='Tuesday' name='tuesday' handleInputChange={handleInputChange} />
-                <UpdateInput type='text' text={basicInfo.hours.wednesday} label='Wednesday' name='wednesday' handleInputChange={handleInputChange} />
-                <UpdateInput type='text' text={basicInfo.hours.thursday} label='Thursday' name='thursday' handleInputChange={handleInputChange} />
-                <UpdateInput type='text' text={basicInfo.hours.friday} label='Friday' name='friday' handleInputChange={handleInputChange} />
-                <UpdateInput type='text' text={basicInfo.hours.saturday} label='Saturday' name='saturday' handleInputChange={handleInputChange} />
-                <UpdateInput type='text' text={basicInfo.hours.sunday} label='Sunday' name='sunday' handleInputChange={handleInputChange} />
+            <AdminDashUpdateFields>
+                <div>
+                    <UpdateInput type='text' text={basicInfo.phone} label='Phone' name='phone' handleInputChange={handleInputChange} />
+                    <UpdateInput type='email' text={basicInfo.email} label='Email' name='email' handleInputChange={handleInputChange} />
+                    <UpdateInput type='text' text={basicInfo.address} label='Address' name='address' handleInputChange={handleInputChange} />
+                    <UpdateInput type='text' text={basicInfo.city} label='City' name='city' handleInputChange={handleInputChange} />
+                    <UpdateInput type='text' text={basicInfo.state} label='State' name='state' handleInputChange={handleInputChange} />
+                    <UpdateInput type='text' text={basicInfo.zipCode} label='zipCode' name='zipCode' handleInputChange={handleInputChange} />
+                    <h2>Business Hours</h2>
+                    <UpdateInput type='text' text={basicInfo.hours.monday} label='Monday' name='monday' handleInputChange={handleInputChange} />
+                    <UpdateInput type='text' text={basicInfo.hours.tuesday} label='Tuesday' name='tuesday' handleInputChange={handleInputChange} />
+                    <UpdateInput type='text' text={basicInfo.hours.wednesday} label='Wednesday' name='wednesday' handleInputChange={handleInputChange} />
+                    <UpdateInput type='text' text={basicInfo.hours.thursday} label='Thursday' name='thursday' handleInputChange={handleInputChange} />
+                    <UpdateInput type='text' text={basicInfo.hours.friday} label='Friday' name='friday' handleInputChange={handleInputChange} />
+                    <UpdateInput type='text' text={basicInfo.hours.saturday} label='Saturday' name='saturday' handleInputChange={handleInputChange} />
+                    <UpdateInput type='text' text={basicInfo.hours.sunday} label='Sunday' name='sunday' handleInputChange={handleInputChange} />
 
-                <UpdateInput type='text' text={basicInfo.facebook} label='Facebook' name='facebook' handleInputChange={handleInputChange} />
+                    <UpdateInput type='text' text={basicInfo.facebook} label='Facebook' name='facebook' handleInputChange={handleInputChange} />
 
-                <div className="field is-grouped">
-                    <SaveBtn handleSave={handleSave} />
-                    <CancelBtn handleCancel={handleCancel} />
+                    <div className="field is-grouped">
+                        <SaveBtn handleSave={handleSave} />
+                        <CancelBtn handleCancel={handleCancel} />
+                    </div>
+
                 </div>
 
-            </div>
-
-        </div>
+            </AdminDashUpdateFields>
+        </>
     )
 }

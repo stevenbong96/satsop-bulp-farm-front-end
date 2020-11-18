@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import API from '../utils/API'
 import PageSectionTextarea from '../components/PageSectionTextarea'
+import AdminDashUpdateFields from '../components/AdminDashUpdateFields'
+import AdminNav from '../components/AdminNav'
 
 export default function HomeUpdate() {
     const [homeText, setHomeText] = useState({
@@ -52,18 +54,21 @@ export default function HomeUpdate() {
         // grab id of text to change and its value
         const textId = textNode.getAttribute('data-textId')
         const text = textNode.value
-        
+
         // make request to update text in db
         API.updateHomePageText(textId, { text: text })
     }
 
     return (
-        <div>
-            <PageSectionTextarea id={welcome._id} text={welcome.text} name='welcome' heading="Welcome Text" handleInputChange={handleInputChange} handleSave={handleSave} />
-            <PageSectionTextarea id={brief._id} text={brief.text}name='brief' heading="Brief Intro" handleInputChange={handleInputChange} handleSave={handleSave} />
-            <PageSectionTextarea id={aboutUsMain._id} text={aboutUsMain.text} name='aboutUsMain' heading='About Us (Primary)' handleInputChange={handleInputChange} handleSave={handleSave} />
-            <PageSectionTextarea id={aboutUsSub._id} text={aboutUsSub.text} name='aboutUsSub' heading="About Us (Secondary)" handleInputChange={handleInputChange} handleSave={handleSave} />
-            <PageSectionTextarea id={salesInfo._id} text={salesInfo.text} name='salesInfo' heading="Sales Info" handleInputChange={handleInputChange} handleSave={handleSave} />
-        </div>
+        <>
+            <AdminNav />
+            <AdminDashUpdateFields>
+                <PageSectionTextarea id={welcome._id} text={welcome.text} name='welcome' heading="Welcome Text" handleInputChange={handleInputChange} handleSave={handleSave} />
+                <PageSectionTextarea id={brief._id} text={brief.text} name='brief' heading="Brief Intro" handleInputChange={handleInputChange} handleSave={handleSave} />
+                <PageSectionTextarea id={aboutUsMain._id} text={aboutUsMain.text} name='aboutUsMain' heading='About Us (Primary)' handleInputChange={handleInputChange} handleSave={handleSave} />
+                <PageSectionTextarea id={aboutUsSub._id} text={aboutUsSub.text} name='aboutUsSub' heading="About Us (Secondary)" handleInputChange={handleInputChange} handleSave={handleSave} />
+                <PageSectionTextarea id={salesInfo._id} text={salesInfo.text} name='salesInfo' heading="Sales Info" handleInputChange={handleInputChange} handleSave={handleSave} />
+            </AdminDashUpdateFields>
+        </>
     )
 }

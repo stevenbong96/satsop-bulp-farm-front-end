@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import API from '../../utils/API'
 import AdminProductCard from '../../components/AdminProductCard'
+import AdminDashUpdateFields from '../../components/AdminDashUpdateFields'
+import AdminNav from '../../components/AdminNav'
 import './index.css'
 
 export default function AdminProducts() {
@@ -24,12 +26,17 @@ export default function AdminProducts() {
     }, [])
 
     return (
-        <div className='products-container'>
-            {products.map(product => {
-                return (
-                    <AdminProductCard />
-                )
-            })}
-        </div>
+        <>
+            <AdminNav />
+            <AdminDashUpdateFields>
+                <div className='products-container'>
+                    {products.map(product => {
+                        return (
+                            <AdminProductCard />
+                        )
+                    })}
+                </div>
+            </AdminDashUpdateFields>
+        </>
     )
 }
