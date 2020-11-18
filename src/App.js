@@ -8,7 +8,7 @@ import PlantingInstructionsAdmin from './pages/PlantingInstructionsAdmin'
 function App() {
   return (
     <div className="App">
-      <PlantingInstructionsAdmin />
+      <UserDashboard />
     </div>
   );
 }
