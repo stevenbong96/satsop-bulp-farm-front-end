@@ -39,5 +39,8 @@ export default {
     },
     getInstructions: function () {
         return axios.get('https://calm-brook-21723.herokuapp.com/api/PlantingInstructionText')
+    },
+    updateInstructions: function (id, obj) {
+        return axios.put('https://calm-brook-21723.herokuapp.com/api/PlantingInstructionText/' + id, obj)
     }
 }
