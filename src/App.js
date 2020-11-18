@@ -12,6 +12,9 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
+          <Route exact path='/'>
+            <UserDashboard />
+          </Route>
           <Route exact path='/admin/dashboard'>
             <BasicInfoUpdate />
           </Route>
