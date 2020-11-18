@@ -1,4 +1,7 @@
-const myArr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+const myObj = {
+    1: 'hi',
+    2: 'bye',
+    3: 'hi again'
+}
 
-myArr.splice(2, 1)
-console.log(myArr)
+console.log(Object.keys(myObj))
