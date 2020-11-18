@@ -4,11 +4,12 @@ import BasicInfoUpdate from "./pages/BasicInfoUpdate"
 import FAQUpdate from './pages/FAQUpdate'
 import HomeUpdate from './pages/HomeUpdate'
 import PlantingInstructionsAdmin from './pages/PlantingInstructionsAdmin'
+import AdminProducts from './pages/AdminProducts'
 
 function App() {
   return (
     <div className="App">
-      <PlantingInstructionsAdmin />
+      <AdminProducts />
     </div>
   );
 }
