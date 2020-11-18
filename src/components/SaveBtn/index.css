@@ -1,0 +1,9 @@
+.control {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: .5%;
+}
+
+.save-btn {
+    width: 10%;
+}

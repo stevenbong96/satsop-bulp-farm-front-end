@@ -1,0 +1,13 @@
+.btn-group {
+    display: flex;
+}
+
+.text-btn-group {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-bottom: 3%;
+    width: 17vw;
+    left: 70%
+}
