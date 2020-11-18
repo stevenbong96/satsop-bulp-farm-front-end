@@ -8,7 +8,8 @@ import HomeUpdate from './pages/HomeUpdate'
 function App() {
   return (
     <div className="App">
-      <HomeUpdate />
+      {/* <HomeUpdate /> */}
+      <UserDashboard />
     </div>
   );
 }
