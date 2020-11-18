@@ -36,16 +36,13 @@ function ProductResult(props) {
                         {props.name}
                     </Typography>
                     <Typography gutterBottom variant="h6" component="h2">
-                        Color = {props.color}
-                    </Typography>
-                    <Typography gutterBottom variant="h6" component="h2">
-                        Season = {props.season}
+                        Color = {props.color[0]} {props.color[1]} {props.color[2]}
                     </Typography>
                     <Typography gutterBottom variant="h6" component="h2">
                         Planting = {props.planting}
                     </Typography>
                     <Typography gutterBottom variant="h6" component="h2">
-                        Price = {props.price}
+                        Price = $ {props.price}
                     </Typography>
                 </CardContent>
             </CardActionArea>
