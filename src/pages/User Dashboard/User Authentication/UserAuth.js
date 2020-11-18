@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 // import CssBaseline from '@material-ui/core/CssBaseline';
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     },
     avatar: {
         margin: theme.spacing(1),
-        // backgroundColor: theme.palette.secondary.main,
+        backgroundColor: theme.palette.secondary.main,
     },
     form: {
         width: '100%', // Fix IE 11 issue.
@@ -37,6 +37,25 @@ const useStyles = makeStyles((theme) => ({
 function UserAuth() {
     const classes = useStyles();
 
+    const [setEmail, setEmailState] = useState("");
+    const [setPassword, setPasswordState] = useState("");
+
+    function handleEmailInput(event) {
+        const {name, value} = event.target;
+        setEmailState({[name]: value})
+    }
+
+    function handlePasswordInput(event) {
+        const {name, value} = event.target;
+        setPasswordState({[name]: value})
+    }
+
+    function handleLoginForm(event){
+        event.preventDefault();
+        console.log("SUBMITTED")
+        
+    }
+
     return (
         <Container component="main" maxWidth="xs" className="formStyle">
             {/* <CssBaseline /> */}
@@ -47,7 +66,7 @@ function UserAuth() {
                 <Typography component="h1" variant="h5">
                     Sign in
                 </Typography> */}
-                <form className={classes.form} noValidate>
+                <form className={classes.form} noValidate onSubmit={handleLoginForm}>
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -56,8 +75,9 @@ function UserAuth() {
                         id="email"
                         label="Email Address"
                         name="email"
-                        autoComplete="email"
+                        // autoComplete="email"
                         autoFocus
+                        onChange={handleEmailInput}
                     />
                     <TextField
                         variant="outlined"
@@ -68,12 +88,13 @@ function UserAuth() {
                         label="Password"
                         type="password"
                         id="password"
-                        autoComplete="current-password"
+                        // autoComplete="current-password"
+                        onChange={handlePasswordInput}
                     />
-                    <FormControlLabel
+                    {/* <FormControlLabel
                         control={<Checkbox value="remember" color="primary" />}
                         label="Remember me"
-                    />
+                    /> */}
                     <Button
                         type="submit"
                         fullWidth
@@ -83,7 +104,7 @@ function UserAuth() {
                     >
                         Sign In
                     </Button>
-                    <Grid container>
+                    {/* <Grid container>
                         <Grid item xs>
                             <Link href="#" variant="body2">
                                 Forgot password?
@@ -94,7 +115,7 @@ function UserAuth() {
                                 {"Don't have an account? Sign Up"}
                             </Link>
                         </Grid>
-                    </Grid>
+                    </Grid> */}
                 </form>
             </div>
         </Container>
