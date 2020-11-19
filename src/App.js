@@ -11,7 +11,7 @@ import AdminProducts from './pages/AdminProducts'
 function App() {
   return (
     <div className="App">
-      <Router>
+      {/* <Router>
         <Switch>
           <Route exact path='/'>
             <UserDashboard />
@@ -35,9 +35,8 @@ function App() {
             <AdminProducts />
           </Route>
         </Switch>
-      </Router>
-      {/* <AdminDashboard /> */}
-      {/* <UserDashboard /> */}
+      </Router> */}
+      <UserDashboard />
     </div>
   );
 }
