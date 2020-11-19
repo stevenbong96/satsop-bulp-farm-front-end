@@ -9,10 +9,15 @@
     margin: 0 auto;
     text-align: center;
     /* margin-bottom: 5%; */
-    padding-bottom: 3%;
+    /* padding-bottom: 3%; */
     padding-top: 3%;
 }
 
 p{
     margin-bottom: 5%;
+}
+.aboutText {
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 3%;
 }

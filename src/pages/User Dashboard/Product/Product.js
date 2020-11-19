@@ -58,12 +58,12 @@ function Product() {
         const { value } = event.target;
         console.log("SELECTED");
         setValue(value);
-        if(value === "All Products"){
-             setFiltered(currentSearch)
-        } else if (value=== "inStock" || value === "sale"){
-            const newFilter = currentSearch.filter(product => product[value] === true )
-            setFiltered(newFilter)
-        }
+        // if(value === "All Products"){
+        //      setFiltered(currentSearch)
+        // } else if (value=== "inStock" || value === "sale"){
+        //     const newFilter = currentSearch.filter(product => product[value] === true )
+        //     setFiltered(newFilter)
+        // }
         if(value === "All Products"){
             setFiltered(currentSearch)
         } else if (value === "inStock" || value === "sale" || value === "sun"){

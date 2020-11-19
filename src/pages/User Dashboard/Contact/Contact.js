@@ -1,7 +1,7 @@
 import React from "react";
 import "./contact.css";
 
-function Contact() {
+function Contact(props) {
     return (
         <div className="contactStyle">
             <div className="columns">
@@ -52,7 +52,7 @@ function Contact() {
 
                     <div className="field is-grouped is-justify-content-center">
                         <div className="control">
-                            <button className="button is-link">Submit</button>
+                            <button className="button is-link" onClick={props.submit}>Submit</button>
                         </div>
                     </div>
                 </div>

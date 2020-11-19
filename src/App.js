@@ -1,4 +1,5 @@
 import React from "react";
+// import AdminDashboard from "./pages/Admin Dashboard/AdminDashboard";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import UserDashboard from './pages/User Dashboard/UserDashboard';
 import BasicInfoUpdate from "./pages/BasicInfoUpdate"
@@ -35,6 +36,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      {/* <AdminDashboard /> */}
       {/* <UserDashboard /> */}
     </div>
   );
