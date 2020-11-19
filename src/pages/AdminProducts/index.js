@@ -11,6 +11,7 @@ export default function AdminProducts() {
         id: '',
         name: '',
         price: null,
+        colors: [],
         plantingSeason: '',
         needsFullSun: null,
         inStock: null,
@@ -31,8 +32,17 @@ export default function AdminProducts() {
             <AdminDashUpdateFields>
                 <div className='products-container'>
                     {products.map(product => {
+                        const { name, price, color, plantingSeason, needsFullSun, inStock, sale } = product
                         return (
-                            <AdminProductCard />
+                            <AdminProductCard 
+                                name={name}
+                                price={price}
+                                color={color}
+                                plantingSeason={plantingSeason}
+                                needsFullSun={needsFullSun}
+                                inStock={inStock}
+                                sale={sale}
+                            />
                         )
                     })}
                 </div>

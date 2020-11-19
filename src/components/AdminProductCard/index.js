@@ -2,6 +2,19 @@ import React from 'react'
 import './index.css'
 
 export default function AdminProductCard(props) {
+    const colors = {
+        yellow: '#ffff00',
+        purple: '#6a0dad',
+        blue: '#0000ff',
+        pink: '#ffc0cb',
+        white: '#ffffff',
+        red: '#ff0000',
+        orange: '#ffa500',
+        green: '#00ff00',
+        mixed: 'linear-gradient(to right, red, yellow, green, lightblue)',
+        mixtures: 'linear-gradient(to right, red, yellow, green, lightblue)'
+    }
+
     return (
         <div className="card">
             <div className="card-image">
@@ -10,12 +23,20 @@ export default function AdminProductCard(props) {
                 </figure>
             </div>
             <div className="card-content">
-                <div className="content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                    <a href="#">#css</a> <a href="#">#responsive</a>
-                    <br />
-                    <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                <div className='product-name-container'>
+                    <h2 className='product-name'>{props.name}</h2>
+                </div>
+                <div className='product-price-container'>
+                    <p className='product-price'>${props.price.toFixed(2)}</p>
+                </div>
+                <div className='product-colors-container'>
+                    {props.color.map(color => <div style={color !== 'mixed' && color !== 'mixtures' ? {backgroundColor: colors[color]}: {background: colors[color]}} className='color-square'></div>)}
+                </div>
+                <div className='availability-container'>
+                    <p className='availability'>{props.inStock ? 'In Stock': 'Out of Stock'}</p>
+                </div>
+                <div className='product-sale-container'>
+                    <p className='product-sale'>{props.sale ? 'on sale': '<sale here>'}</p>
                 </div>
             </div>
         </div>
