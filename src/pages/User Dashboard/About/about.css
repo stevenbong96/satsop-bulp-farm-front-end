@@ -3,6 +3,7 @@
     max-width: 65%;
     margin: 0 auto;
     text-align: justify;
+    justify-content: space-evenly;
 }
 
 .pictureStyle{

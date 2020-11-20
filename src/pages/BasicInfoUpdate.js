@@ -124,8 +124,8 @@ export default function BasicInfo() {
                 </div>
 
                     <div className="field is-grouped">
-                        <SaveBtn handleSave={handleSave} />
-                        <CancelBtn handleCancel={handleCancel} />
+                        <SaveBtn className='basicButton' handleSave={handleSave} />
+                        <CancelBtn className='basicButton' handleCancel={handleCancel} />
                     </div>
             </AdminDashUpdateFields>
         </>
