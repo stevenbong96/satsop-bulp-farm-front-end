@@ -20,7 +20,7 @@ function About(props) {
 
             <div className="columns">
                 <div className="column is-3">
-                    <img src="http://via.placeholder.com/640x360" alt="picture1" />
+                    <img src="https://res.cloudinary.com/satsop-bulb-farm/image/upload/v1605897599/Satsop%20Bulb%20Farm/Satsop%20Bulb%20Farm/sbf5_rkemhu.jpg" alt="Garden" />
                 </div>
                 <div className="column is-9">
                     {/* <p>We are a family farm and have been in the business of growing flower bulbs since the mid 1930's. We are currently the fourth generation to continue to own and operate this venture. We grow about 70 different varieties of daffodils and 30 varieties of tulips.</p> */}
@@ -35,13 +35,13 @@ function About(props) {
                     {props.text2}
                 </div>
                 <div className="column is-3">
-                    <img src="http://via.placeholder.com/640x360" alt="picture2" />
+                    <img src="https://res.cloudinary.com/satsop-bulb-farm/image/upload/v1605896239/Satsop%20Bulb%20Farm/Satsop%20Bulb%20Farm/sbf_front_page1_a59pz4.jpg" alt="Flowers" />
                 </div>
             </div>
 
             <div className="columns">
                 <div className="column is-3">
-                    <img src="http://via.placeholder.com/640x360" alt="picture1" />
+                    <img src="https://res.cloudinary.com/satsop-bulb-farm/image/upload/v1605897806/Satsop%20Bulb%20Farm/Satsop%20Bulb%20Farm/sbf_front_page_6_punomc.jpg" alt="Flowers" />
                 </div>
                 <div className="column is-9">
                     <p>Even though our business is a year round operation our retail facility is open to the public only 5 months of the year.  Our farm store is open from March 1st through May 15th for the cut flower market as well as a great selection of annuals, perennials, garden tools, and general spring gardening supplies .  We reopen September 15th through October 31st for the fall bulb market including other winter plants. </p>
