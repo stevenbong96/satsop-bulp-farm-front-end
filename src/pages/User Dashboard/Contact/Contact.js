@@ -58,7 +58,7 @@ function Contact(props) {
                 </div>
 
                 <div className="column is-7 imageStyle">
-                    <img src="http://via.placeholder.com/640x360" alt="picture1" />
+                    <img src="https://res.cloudinary.com/satsop-bulb-farm/image/upload/v1605896250/Satsop%20Bulb%20Farm/Satsop%20Bulb%20Farm/sbf_front_page_3_tbty6r.jpg" alt="picture1" />
                 </div>
             </div>
         </div>
