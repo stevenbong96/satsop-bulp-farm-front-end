@@ -18,6 +18,16 @@ export default {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/homeText/";
     return axios.get(BASEURL);
   },
+  // getLogin: function(adminData){
+  //   // const BASEURL = "https://calm-brook-21723.herokuapp.com/api/user";
+  //   console.log(adminData);
+  //   // return axios.get(BASEURL);
+  // },
+  // getAdminInfo: function(token){
+  //   // const BASEURL = "https://calm-brook-21723.herokuapp.com/api/user";
+  //   console.log(adminData);
+  //   // return axios.get(BASEURL);
+  // },
   getGoogleMaps: function() {
     const BASEURL = "";
     return axios.get(BASEURL);

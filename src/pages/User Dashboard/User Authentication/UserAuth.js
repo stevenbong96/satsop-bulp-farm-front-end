@@ -13,6 +13,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import "./userAuth.css";
+import API from "../../../utils/User/userAPI";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -37,35 +38,49 @@ const useStyles = makeStyles((theme) => ({
 function UserAuth() {
     const classes = useStyles();
 
-    const [setEmail, setEmailState] = useState("");
-    const [setPassword, setPasswordState] = useState("");
+    const [loginFormState, setLoginFormState] = useState({
+        email: "",
+        password: ""    
+    })
 
-    function handleEmailInput(event) {
-        const {name, value} = event.target;
-        setEmailState({[name]: value})
-    }
+    const [adminState, setAdminState] = useState({
+        email: "",
+        token: "",
+        id: "",
+        isLoggedIn: false
+    })
 
-    function handlePasswordInput(event) {
+    function handleInputChange(event) {
         const {name, value} = event.target;
-        setPasswordState({[name]: value})
+        setLoginFormState({
+            ...loginFormState,
+            [name]: value
+        })
     }
 
     function handleLoginForm(event){
         event.preventDefault();
         console.log("SUBMITTED")
-        
+        API.getLogin(loginFormState)
+        .then(res => {
+            console.log(res);
+            // localStorage.setItem("token", res.token)
+            API.getAdminInfo()
+            .then(adminRes => {
+                console.log(adminRes);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
     return (
         <Container component="main" maxWidth="xs" className="formStyle">
-            {/* <CssBaseline /> */}
             <div className={classes.paper}>
-                {/* <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon />
-                </Avatar>
-                <Typography component="h1" variant="h5">
-                    Sign in
-                </Typography> */}
                 <form className={classes.form} noValidate onSubmit={handleLoginForm}>
                     <TextField
                         variant="outlined"
@@ -77,7 +92,7 @@ function UserAuth() {
                         name="email"
                         // autoComplete="email"
                         autoFocus
-                        onChange={handleEmailInput}
+                        onChange={handleInputChange}
                     />
                     <TextField
                         variant="outlined"
@@ -89,12 +104,8 @@ function UserAuth() {
                         type="password"
                         id="password"
                         // autoComplete="current-password"
-                        onChange={handlePasswordInput}
+                        onChange={handleInputChange}
                     />
-                    {/* <FormControlLabel
-                        control={<Checkbox value="remember" color="primary" />}
-                        label="Remember me"
-                    /> */}
                     <Button
                         type="submit"
                         fullWidth
