@@ -17,7 +17,10 @@ p{
     margin-bottom: 5%;
 }
 .aboutText {
-    margin: 0 auto;
     text-align: center;
     padding-bottom: 3%;
+    background-color: #4c8c24;
+    margin: 5px;
+    border: 3px;
+    box-shadow: 3px 3px 3px #255f01;
 }

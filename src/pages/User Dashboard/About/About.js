@@ -18,7 +18,7 @@ function About(props) {
                 </div>
             </div>
 
-            <div className="columns">
+            <div className="columns aboutText">
                 <div className="column is-3">
                     <img src="http://via.placeholder.com/640x360" alt="picture1" />
                 </div>
@@ -28,7 +28,7 @@ function About(props) {
                 </div>
             </div>
 
-            <div className="columns">
+            <div className="columns aboutText">
                 <div className="column is-9">
                     {/* <p>A lovely display garden is located on the farm and is in full bloom during the spring months to help customers visualize what many of our varieties might look like in their own yards. Bulbs can be pre-ordered at this time, as it is a good opportunity to actually view all of the different varieties and their individual characteristics. Those pre-season orders are then ready for pick up or shipment in the fall when we open our store for dry bulb sales beginning September 15th throught October 30th.
                     During this time the bulbs are available to purchase and are sold in any amount desired. Customers view a photo of each variety to see what they look like in the fall. Family members are always on hand to answer questions.</p> */}
@@ -39,7 +39,7 @@ function About(props) {
                 </div>
             </div>
 
-            <div className="columns">
+            <div className="columns aboutText">
                 <div className="column is-3">
                     <img src="http://via.placeholder.com/640x360" alt="picture1" />
                 </div>
