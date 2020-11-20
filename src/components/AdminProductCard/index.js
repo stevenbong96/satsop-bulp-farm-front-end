@@ -30,13 +30,17 @@ export default function AdminProductCard(props) {
                     <p className='product-price'>${props.price.toFixed(2)}</p>
                 </div>
                 <div className='product-colors-container'>
-                    {props.color.map(color => <div style={color !== 'mixed' && color !== 'mixtures' ? {backgroundColor: colors[color]}: {background: colors[color]}} className='color-square'></div>)}
+                    {props.color.map(color => <div style={color !== 'mixed' && color !== 'mixtures' ? { backgroundColor: colors[color] } : { background: colors[color] }} className='color-square'></div>)}
                 </div>
                 <div className='availability-container'>
-                    <p className='availability'>{props.inStock ? 'In Stock': 'Out of Stock'}</p>
+                    <p className='availability'>{props.inStock ? 'In Stock' : 'Out of Stock'}</p>
                 </div>
                 <div className='product-sale-container'>
-                    <p className='product-sale'>{props.sale ? 'on sale': '<sale here>'}</p>
+                    <p className='product-sale'>{props.sale ? 'on sale' : '<sale here>'}</p>
+                </div>
+                <div className='product-btns'>
+                    <button className='btn product-update-btn' onClick={() => props.handleUpdateBtnClick(props.id)}>Update</button>
+                    <button className='btn product-delete-btn' onClick={() => props.handleProductDelete(props.id)}>Delete</button>
                 </div>
             </div>
         </div>
