@@ -6,6 +6,7 @@ import Navbar from "../../components/User Dashboard/Navbar/Navbar";
 import Header from "./Header/Header";
 import Footer from "../../components/User Dashboard/Footer/Footer";
 import Faq from "./FAQ/Faq";
+import UserAuth from "./User Authentication/UserAuth";
 
 function UserDashboard() {
     return (
@@ -21,6 +22,9 @@ function UserDashboard() {
                 </Route>
                 <Route exact path="/faq">
                     <Faq />
+                </Route>
+                <Route exact path="/login">
+                    <UserAuth />
                 </Route>
             </Switch>
             <Footer />

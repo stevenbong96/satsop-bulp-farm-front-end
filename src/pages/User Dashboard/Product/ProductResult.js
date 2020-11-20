@@ -11,9 +11,10 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
     root: {
         maxWidth: 300,
-        marginTop: "5%",
+        marginTop: "3%",
         margin: "auto",
-        marginBottom: "5%"
+        marginBottom: "3%",
+        width: "50%"
     },
     media: {
         height: 140,
@@ -26,23 +27,33 @@ function ProductResult(props) {
     return (
         <Card className={classes.root} elevation={3}>
             <CardActionArea>
+                <CardContent>
+                    <Typography gutterBottom variant="h6" component="h2">
+                        {props.name}
+                    </Typography>
+                </CardContent>
                 <CardMedia
                     className={classes.media}
                     image="https://image.freepik.com/free-vector/coming-soon-message-illuminated-with-light-projector_1284-3622.jpg"
+                    // image={props.image}
                     title="product Image"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {props.name}
+                    <Typography gutterBottom variant="p" component="h2">
+                        Category: {props.category}
+                    </Typography>
+                    <br />
+                    <Typography gutterBottom variant="p" component="h2">
+                        Color: {props.color.map(element => element.length > 0 ?
+                            element + " " : "No Color Found"
+                        )}
+                    </Typography>
+                    <br />
+                    <Typography gutterBottom variant="p" component="h2">
+                        Planting Season: {props.planting}
                     </Typography>
                     <Typography gutterBottom variant="h6" component="h2">
-                        Color = {props.color[0]} {props.color[1]} {props.color[2]}
-                    </Typography>
-                    <Typography gutterBottom variant="h6" component="h2">
-                        Planting = {props.planting}
-                    </Typography>
-                    <Typography gutterBottom variant="h6" component="h2">
-                        Price = $ {props.price}
+                        $ {props.price}
                     </Typography>
                 </CardContent>
             </CardActionArea>

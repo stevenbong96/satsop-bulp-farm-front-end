@@ -27,11 +27,11 @@ function Navbar() {
                         <Link to="/faq">FAQ</Link>
                     </a>
 
-                    {/* <a className="navbar-item">
-                        <Link to="/contact">Contact</Link>
+                    <a className="navbar-item">
+                        <Link to="/login">Admin</Link>
                     </a>
 
-                    <a className="navbar-item">
+                    {/* <a className="navbar-item">
                         <Link to="/productdetails">Search</Link>
                     </a> */}
                 </div>

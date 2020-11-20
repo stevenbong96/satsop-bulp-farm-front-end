@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import API from '../utils/API'
-import InstructionsInput from '../components/InstructionsInput'
-import MoreInfoInput from '../components/MoreInfoInput'
-import SaveBtn from '../components/SaveBtn'
-import AdminDashUpdateFields from '../components/AdminDashUpdateFields'
-import AdminNav from '../components/AdminNav'
+import API from '../../utils/API'
+import InstructionsInput from '../../components/InstructionsInput'
+import MoreInfoInput from '../../components/MoreInfoInput'
+import SaveBtn from '../../components/SaveBtn'
+import AdminDashUpdateFields from '../../components/AdminDashUpdateFields'
+import AdminNav from '../../components/AdminNav'
+import './index.css'
 
 export default function PlantingInstructionsAdmin() {
 
@@ -96,7 +97,7 @@ export default function PlantingInstructionsAdmin() {
         <>
             <AdminNav />
             <AdminDashUpdateFields>
-                <h1>Planting Instructions</h1>
+                <h1 className='section-heading'>Planting Instructions</h1>
                 {Object.keys(instructions).map((place) => {
                     const instruction = instructions[place]
                     return (
@@ -111,7 +112,7 @@ export default function PlantingInstructionsAdmin() {
                         </div>
                     )
                 })}
-                <h2>More Info</h2>
+                <h2 className='extra-heading'>More Info</h2>
                 {Object.keys(moreInfo).map(place => {
                     const infoSection = moreInfo[place]
                     return (

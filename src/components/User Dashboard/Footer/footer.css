@@ -1,5 +1,8 @@
 .footerStyle {
     /* padding-bottom: 3%; */
     /* padding-top: 3%; */
+    position: relative;
+    width: 100%;
     height: 30vh;
+    bottom: 0;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+// import AdminDashboard from "./pages/Admin Dashboard/AdminDashboard";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import UserDashboard from './pages/User Dashboard/UserDashboard';
 import BasicInfoUpdate from "./pages/BasicInfoUpdate"
@@ -10,8 +11,11 @@ import AdminProducts from './pages/AdminProducts'
 function App() {
   return (
     <div className="App">
-      <Router>
+      {/* <Router>
         <Switch>
+          <Route exact path='/'>
+            <UserDashboard />
+          </Route>
           <Route exact path='/admin/dashboard'>
             <BasicInfoUpdate />
           </Route>
@@ -31,7 +35,7 @@ function App() {
             <AdminProducts />
           </Route>
         </Switch>
-      </Router>
+      </Router> */}
       <UserDashboard />
     </div>
   );
