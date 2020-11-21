@@ -5,6 +5,7 @@ import MoreInfoInput from '../../components/MoreInfoInput'
 import SaveBtn from '../../components/SaveBtn'
 import AdminDashUpdateFields from '../../components/AdminDashUpdateFields'
 import AdminNav from '../../components/AdminNav'
+import AdminHeader from '../../components/AdminHeader'
 import './index.css'
 
 export default function PlantingInstructionsAdmin() {
@@ -95,13 +96,15 @@ export default function PlantingInstructionsAdmin() {
 
     return (
         <>
+            <AdminHeader />
             <AdminNav />
             <AdminDashUpdateFields>
                 <h1 className='section-heading'>Planting Instructions</h1>
+                <hr />
                 {Object.keys(instructions).map((place) => {
                     const instruction = instructions[place]
                     return (
-                        <div>
+                        <div className='plantingText'>
                             <InstructionsInput
                                 place={place}
                                 heading={instruction.title}
@@ -116,7 +119,7 @@ export default function PlantingInstructionsAdmin() {
                 {Object.keys(moreInfo).map(place => {
                     const infoSection = moreInfo[place]
                     return (
-                        <div>
+                        <div className='plantingText'>
                             <MoreInfoInput
                                 place={place}
                                 heading={infoSection.title}

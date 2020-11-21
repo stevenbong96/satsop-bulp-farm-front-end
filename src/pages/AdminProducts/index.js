@@ -3,6 +3,7 @@ import API from '../../utils/API'
 import AdminProductCard from '../../components/AdminProductCard'
 import AdminDashUpdateFields from '../../components/AdminDashUpdateFields'
 import AdminNav from '../../components/AdminNav'
+import AdminHeader from '../../components/AdminHeader'
 import './index.css'
 
 export default function AdminProducts() {
@@ -27,8 +28,11 @@ export default function AdminProducts() {
 
     return (
         <>
+            <AdminHeader />
             <AdminNav />
             <AdminDashUpdateFields>
+            <h1 className='page-heading'>Products Page</h1>
+            <hr />
                 <div className='products-container'>
                     {products.map(product => {
                         return (

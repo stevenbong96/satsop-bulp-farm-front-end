@@ -11,3 +11,16 @@
     width: 17vw;
     left: 70%
 }
+
+.faqText{
+    background-color: #DCDCDC;
+    margin: 7px;
+    padding: 5px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 2px gray;
+}
+
+.faqInput{
+    border-radius: 25px;
+    border-style: inset;
+}

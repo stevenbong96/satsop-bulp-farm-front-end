@@ -3,10 +3,13 @@
     margin: 0 auto;
     margin-top: 3%;
     margin-bottom: 3%;
+    width: 70%;
+    color: whitesmoke;
 }
 
 .storeText{
-    width: 65%;
     margin: 0 auto;
     text-align: center;
+    background-color: #4c8c24;
+    box-shadow: 3px 3px 3px #255f01;
 }
