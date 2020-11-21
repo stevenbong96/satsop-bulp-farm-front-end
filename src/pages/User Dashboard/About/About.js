@@ -1,14 +1,19 @@
+import axios from "axios"
 import React from "react";
 import "./about.css";
 // import Divider from '@material-ui/core/Divider';
 
 function About(props) {
+
+
+
+
     return (
         <div className="aboutStyle">
 
             <div className="columns pictureStyle">
                 <div className="column is-12">
-                    <img src="http://via.placeholder.com/640x360" alt="picture1" />
+                <img src="https://res.cloudinary.com/satsop-bulb-farm/image/upload/v1605912052/Satsop%20Bulb%20Farm/Satsop%20Bulb%20Farm/satsop4_szkya4.gif" alt="picture1" />
                 </div>
             </div>
 
