@@ -4,6 +4,9 @@ import "./product.css";
 import API from "../../../utils/User/userAPI";
 import ProductSearchFilter from "./ProductSearchFilter";
 import Grid from '@material-ui/core/Grid';
+import Navbar from "../../../components/User Dashboard/Navbar/Navbar";
+import Footer from "../../../components/User Dashboard/Footer/Footer";
+import Header from "../Header/Header";
 
 function Product() {
     // Declare the state using Hook
@@ -98,35 +101,35 @@ function Product() {
         // const filteringColor = ["red", "green", "yellow", "blue", "white", "pink", "purple", "striped"];
         // const filteringSeason = ["All Seasons", "Fall", "Spring"];
 
-        if(value === ""){
+        if (value === "") {
             window.location.reload();
-        } else if(value === "All Category"){
+        } else if (value === "All Category") {
             setFiltered(currentSearch);
         } else if (value === "Bulbs") {
-            const newFilter = currentSearch.filter(product => product.category === value )
-            console.log(newFilter)
-            setFiltered(newFilter)
-        } else if(value === "Fresh Cut Flowers"){
-            const newFilter = currentSearch.filter(product => product.category === value )
-            console.log(newFilter)
-            setFiltered(newFilter)
-        } else if(value === "Potted Plants"){
-            const newFilter = currentSearch.filter(product => product.category === value )
-            console.log(newFilter)
-            setFiltered(newFilter)
-        } else if(value === "Extra Supplies"){
-            const newFilter = currentSearch.filter(product => product.category === value )
-            console.log(newFilter)
-            setFiltered(newFilter)
-        } else if(value === "Floral Arrangements"){
             const newFilter = currentSearch.filter(product => product.category === value)
             console.log(newFilter)
             setFiltered(newFilter)
-        } else if(value === "Fall"){
+        } else if (value === "Fresh Cut Flowers") {
+            const newFilter = currentSearch.filter(product => product.category === value)
+            console.log(newFilter)
+            setFiltered(newFilter)
+        } else if (value === "Potted Plants") {
+            const newFilter = currentSearch.filter(product => product.category === value)
+            console.log(newFilter)
+            setFiltered(newFilter)
+        } else if (value === "Extra Supplies") {
+            const newFilter = currentSearch.filter(product => product.category === value)
+            console.log(newFilter)
+            setFiltered(newFilter)
+        } else if (value === "Floral Arrangements") {
+            const newFilter = currentSearch.filter(product => product.category === value)
+            console.log(newFilter)
+            setFiltered(newFilter)
+        } else if (value === "Fall") {
             const newFilter = currentSearch.filter(product => product.plantingSeason === value)
             console.log(newFilter)
             setFiltered(newFilter)
-        } else if(value === "Spring"){
+        } else if (value === "Spring") {
             const newFilter = currentSearch.filter(product => product.plantingSeason === value)
             console.log(newFilter)
             setFiltered(newFilter)
@@ -213,55 +216,29 @@ function Product() {
     //     }
     // }
 
-    // Form Submit Function
-    // function handleFormSubmit(event) {
-    //     event.preventDefault();
-    // console.log(currentSearch);
-    // console.log("SUBMITTED", searchProduct);
-    // const objFilter = currentSearch.filter(query => query.name.includes(searchProduct));
-    // console.log(currentSearch);
-    // setFiltered(objFilter);
-    // console.log(objFilter);
-    // console.log(value);
-    // }
-
-    // function handleDropdownChange(value){
-    //     console.log(value);
-    // }
-
     return (
-        <form >
-            <div className="columns productStyle is-justify-content-center">
-                {/* <div className="column is-6"> */}
-                {/* <div className="field">
-                        <div className="control has-icons-left">
-                            <div className="select">
-                                <select onChange={handleSelect} value={value}>
-                                    <option selected>All Products</option>
-                                    <option value="inStock">In Stock</option>
-                                    <option value="sale">Sale</option>
-                                    <option value="plantingSeason">Season</option>
-                                    <option value="sun">Full Sun</option>
-                                    <option value="color">Color</option>
-                                </select>
-                                <div className="icon is-small is-left">
-                                    <i className="fas fa-info-circle"></i>
-                                </div>
+        <>
+            <Header />
+            <Navbar />
+            <form >
+                <div className="columns productStyle is-justify-content-center">
+                    <div className="column is-3">
+                        <ProductSearchFilter onChange={handleSelect} value={stateValue} handleDropdownChange={handleSelect} />
+                    </div>
+
+                    <div className="column is-3">
+                        <div className="inputStyle">
+                            <div className="control has-icons-left has-icons-right ">
+                                <input className="input is-rounded" name="search" type="text" placeholder="Search Product" onChange={handleInputChange} />
+                                <span className="icon is-small is-left">
+                                    <i className="fas fa-search"></i>
+                                </span>
                             </div>
                         </div>
-                    </div> */}
-                <ProductSearchFilter onChange={handleSelect} value={stateValue} handleDropdownChange={handleSelect}/>
-                {/* </div> */}
-
-                <div className="inputStyle">
-                    <div className="control has-icons-left has-icons-right ">
-                        <input className="input is-rounded" name="search" type="text" placeholder="Search Product" onChange={handleInputChange} />
-                        <span className="icon is-small is-left">
-                            <i className="fas fa-search"></i>
-                        </span>
                     </div>
                 </div>
-            </div>
+
+            </form>
 
             <div className="resultStyle">
                 <Grid container direction="row" justify="center" alignItems="center" spacing={3}>
@@ -271,7 +248,8 @@ function Product() {
                     })}
                 </Grid>
             </div>
-        </form>
+            <Footer />
+        </>
     )
 }
 

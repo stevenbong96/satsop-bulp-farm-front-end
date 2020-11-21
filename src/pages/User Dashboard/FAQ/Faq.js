@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Header from "../Header/Header";
+import Navbar from "../../../components/User Dashboard/Navbar/Navbar";
+import Footer from "../../../components/User Dashboard/Footer/Footer";
 
 function CircularProgressWithLabel(props) {
     return (
@@ -58,15 +61,20 @@ function Faq() {
     }
 
     return (
-        <div className="faqStyle">
-            {/* {currentResult.length > 0 ? currentResult.map(resultObj => {
-                return <FaqResult question={resultObj.question} answer={resultObj.answer} />
-            }) : <h1>Loading!</h1>} */}
-            {/* <CircularProgressWithLabel value={progress} /> */}
-            {currentResult.map(resultObj => {
-                return <FaqResult question={resultObj.question} answer={resultObj.answer} />
-            })}
-        </div>
+        <>
+            <Header />
+            <Navbar />
+                <div className="faqStyle">
+                    {/* {currentResult.length > 0 ? currentResult.map(resultObj => {
+                        return <FaqResult question={resultObj.question} answer={resultObj.answer} />
+                    }) : <h1>Loading!</h1>} */}
+                    {/* <CircularProgressWithLabel value={progress} /> */}
+                    {currentResult.map(resultObj => {
+                        return <FaqResult question={resultObj.question} answer={resultObj.answer} />
+                    })}
+                </div>
+            <Footer />
+        </>
     )
 }
 
