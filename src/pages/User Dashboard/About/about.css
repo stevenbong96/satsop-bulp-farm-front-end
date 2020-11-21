@@ -21,3 +21,7 @@ p{
     text-align: center;
     padding-bottom: 3%;
 }
+
+.active{
+    z-index:99;
+}

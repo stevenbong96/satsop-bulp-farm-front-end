@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom'
 // import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 // import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,6 +15,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import "./userAuth.css";
 import API from "../../../utils/User/userAPI";
+import axios from "axios";
+import Header from "../Header/Header";
+import Navbar from "../../../components/User Dashboard/Navbar/Navbar";
+import Footer from "../../../components/User Dashboard/Footer/Footer";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -56,11 +61,30 @@ function UserAuth() {
             ...loginFormState,
             [name]: value
         })
-    }
+    let history = useHistory()
+    // const [setEmail, setEmailState] = useState("");
+    // const [setPassword, setPasswordState] = useState("");
 
-    function handleLoginForm(event){
+    // function handleEmailInput(event) {
+    //     const { name, value } = event.target;
+    //     setEmailState(value)
+    // }
+
+    // function handlePasswordInput(event) {
+    //     const { name, value } = event.target;
+    //     setPasswordState(value)
+    // }
+    }
+    
+    function handleLoginForm(event) {
         event.preventDefault();
         console.log("SUBMITTED")
+    //     axios.post("http://localhost:4000/api/login", { userEmail: setEmail, userPassword: setPassword }).then(data => {
+    //         console.log(data)
+    //         // Push to the admin dashboard
+    //         history.push("/admin/dashboard/basicinfo")
+    //     }).catch(error => console.log(error))
+    // }
         API.getLogin(loginFormState)
         .then(res => {
             console.log(res);
@@ -79,43 +103,57 @@ function UserAuth() {
     }
 
     return (
-        <Container component="main" maxWidth="xs" className="formStyle">
-            <div className={classes.paper}>
-                <form className={classes.form} noValidate onSubmit={handleLoginForm}>
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="email"
-                        label="Email Address"
-                        name="email"
-                        // autoComplete="email"
-                        autoFocus
-                        onChange={handleInputChange}
-                    />
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="password"
-                        label="Password"
-                        type="password"
-                        id="password"
-                        // autoComplete="current-password"
-                        onChange={handleInputChange}
-                    />
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
-                    >
-                        Sign In
+        <>
+            <Header />
+            <Navbar />
+            <Container component="main" maxWidth="xs" className="formStyle">
+                {/* <CssBaseline /> */}
+                <div className={classes.paper}>
+                    {/* <Avatar className={classes.avatar}>
+                    <LockOutlinedIcon />
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                    Sign in
+                </Typography> */}
+                    <form className={classes.form} noValidate onSubmit={handleLoginForm}>
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="email"
+                            label="Email Address"
+                            name="email"
+                            // autoComplete="email"
+                            autoFocus
+                            onChange={handleInputChange}
+                        />
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="password"
+                            label="Password"
+                            type="password"
+                            id="password"
+                            // autoComplete="current-password"
+                            onChange={handleInputChange}
+                        />
+                        {/* <FormControlLabel
+                        control={<Checkbox value="remember" color="primary" />}
+                        label="Remember me"
+                    /> */}
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                        >
+                            Sign In
                     </Button>
-                    {/* <Grid container>
+                        {/* <Grid container>
                         <Grid item xs>
                             <Link href="#" variant="body2">
                                 Forgot password?
@@ -127,9 +165,11 @@ function UserAuth() {
                             </Link>
                         </Grid>
                     </Grid> */}
-                </form>
-            </div>
-        </Container>
+                    </form>
+                </div>
+            </Container>
+            <Footer />
+        </>
     )
 }
 
