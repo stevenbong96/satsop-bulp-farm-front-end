@@ -1,13 +1,15 @@
 .contactStyle{
-    border: 1px solid black;
+    box-shadow: 3px 3px 3px #838386;
     max-width: 65%;
-    /* display: flex; */
     margin: 0 auto;
     padding: 20px 20px 20px 20px;
+    background-color:#e6e6f3;
 }
 
 .imageStyle{
     /* height: 100%;
     width: 65%; */
     margin-left: 2%;
+    text-align: center;
+
 }
