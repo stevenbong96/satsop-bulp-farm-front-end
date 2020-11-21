@@ -53,11 +53,6 @@ function App() {
           </Route>
         </Switch>
       </Router>
-<<<<<<< HEAD
-      <UserDashboard />
-=======
-
->>>>>>> dev
     </div>
   );
 }
