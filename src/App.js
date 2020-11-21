@@ -11,14 +11,14 @@ import AdminProducts from './pages/AdminProducts'
 function App() {
   return (
     <div className="App">
-      {/* <Router>
+       <Router>
         <Switch>
           <Route exact path='/'>
             <UserDashboard />
           </Route>
-          <Route exact path='/admin/dashboard'>
+          {/* <Route exact path='/admin/dashboard'>
             <BasicInfoUpdate />
-          </Route>
+          </Route> */}
           <Route exact path='/admin/dashboard/basicinfo'>
             <BasicInfoUpdate />
           </Route>
@@ -35,8 +35,8 @@ function App() {
             <AdminProducts />
           </Route>
         </Switch>
-      </Router> */}
-      <UserDashboard />
+      </Router>
+      
     </div>
   );
 }
