@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useHistory} from 'react-router-dom'
 // import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 // import CssBaseline from '@material-ui/core/CssBaseline';
@@ -13,6 +14,8 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import "./userAuth.css";
+import axios from "axios";
+
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -36,25 +39,31 @@ const useStyles = makeStyles((theme) => ({
 
 function UserAuth() {
     const classes = useStyles();
-
+    let history = useHistory()
     const [setEmail, setEmailState] = useState("");
     const [setPassword, setPasswordState] = useState("");
 
     function handleEmailInput(event) {
         const {name, value} = event.target;
-        setEmailState({[name]: value})
+        setEmailState(value)
     }
 
     function handlePasswordInput(event) {
         const {name, value} = event.target;
-        setPasswordState({[name]: value})
+        setPasswordState(value)
     }
 
     function handleLoginForm(event){
         event.preventDefault();
         console.log("SUBMITTED")
-        
+        axios.post("http://localhost:4000/api/login", {userEmail: setEmail, userPassword: setPassword}).then(data=>{
+            console.log(data)
+            // Push to the admin dashboard
+            history.push("/admin/dashboard/basicinfo")
+        }).catch(error=>console.log(error))
     }
+
+
 
     return (
         <Container component="main" maxWidth="xs" className="formStyle">
