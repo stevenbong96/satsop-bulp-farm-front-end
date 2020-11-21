@@ -7,9 +7,9 @@ function Navbar() {
         <nav className="navbar" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
                 <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true">Home</span>
+                    <span aria-hidden="true">Products</span>
+                    <span aria-hidden="true">FAQ</span>
                 </a>
             </div>
         
@@ -28,8 +28,12 @@ function Navbar() {
                     </a>
 
                     <a className="navbar-item">
-                        <Link to="/login">Admin</Link>
+                        <Link to="/planting">Planting</Link>
                     </a>
+
+                    {/* <a className="navbar-item">
+                        <Link to="/login">Admin</Link>
+                    </a> */}
 
                     {/* <a className="navbar-item">
                         <Link to="/productdetails">Search</Link>
