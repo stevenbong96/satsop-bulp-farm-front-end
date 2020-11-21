@@ -6,6 +6,8 @@ import About from "../About/About";
 import "./home.css";
 import API from "../../../utils/User/userAPI";
 import StoreInfo from "../Store Info/StoreInfo";
+import Navbar from "../../../components/User Dashboard/Navbar/Navbar";
+import Footer from "../../../components/User Dashboard/Footer/Footer";
 
 function Home() {
     // const [setAboutMain, setAboutMainState] = useState({
@@ -79,12 +81,17 @@ function Home() {
     }
 
     return(
-        <div className="homeStyle">
-            <About text1={currentHome.aboutUsMain.text} text2={currentHome.aboutUsSub.text} text3={currentHome.welcome.text} text4={currentHome.brief.text}/>
-            <StoreInfo storeText = {currentHome.salesInfo.text}/>
-            <Direction />
-            <Contact submit={handleFormSubmit}/>
-        </div>
+        <>
+            <Header />
+            <Navbar />
+                <div className="homeStyle">
+                    <About text1={currentHome.aboutUsMain.text} text2={currentHome.aboutUsSub.text} text3={currentHome.welcome.text} text4={currentHome.brief.text}/>
+                    <StoreInfo storeText = {currentHome.salesInfo.text}/>
+                    <Direction />
+                    <Contact submit={handleFormSubmit}/>
+                </div>
+            <Footer />
+        </>
     )
 }
 

@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import "./product.css";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
+// import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+// import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import InputBase from '@material-ui/core/InputBase';
 
@@ -50,57 +50,135 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function ProductSearchFilter() {
+function ProductSearchFilter(props) {
     const classes = useStyles();
-    const [age, setAge] = React.useState('');
+    const [plantingSeason, setSeason] = React.useState('');
     const [color, setColor] = React.useState('');
+    const [inStock, setInStock] = React.useState('');
+    const [sale, setSale] = React.useState('');
+    const [sun, setSun] = React.useState('');
+    const [category, setCategory] = React.useState('');
 
-    const handleChange = (event) => {
-        setAge(event.target.value);
-        setColor(event.target.value);
-    };
+    // const handleChange = (value) => {
+    //     props.handleDropdownChange(value);
+    //     // setSeason(event.target.value);
+    //     // setColor(event.target.value);
+    //     // setInStock(event.target.value);
+    //     // setSale(event.target.value);
+    //     // setSun(event.target.value);
+    // };
 
     return (
         <>
             <div>
                 <FormControl className={classes.margin}>
-                    <InputLabel htmlFor="demo-customized-textbox">Name</InputLabel>
-                    <InputStyle id="demo-customized-textbox" />
-                </FormControl>
-                <FormControl className={classes.margin}>
-                    <InputLabel id="demo-customized-select-label">Color</InputLabel>
-                    <Select
-                        labelId="demo-customized-select-label"
-                        id="demo-customized-select"
-                        value={color}
-                        onChange={handleChange}
-                        input={<InputStyle />}
-                    >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
-                        <MenuItem >Red</MenuItem>
-                        <MenuItem >Green</MenuItem>
-                        <MenuItem >Yellow</MenuItem>
-                    </Select>
-                </FormControl>
-                <FormControl className={classes.margin}>
-                    <InputLabel htmlFor="demo-customized-select-native">Age</InputLabel>
+                    <InputLabel htmlFor="demo-customized-select-native">Category</InputLabel>
                     <NativeSelect
                         id="demo-customized-select-native"
-                        value={age}
-                        onChange={handleChange}
+                        value={category}
+                        name="categoryName"
+                        onChange={(event) => {setCategory(event.target.value)
+                            props.handleDropdownChange(event)
+                        }}
                         input={<InputStyle />}
                     >
                         <option aria-label="None" value="" />
-                        <option value={10}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
+                        <option selected value="All Category">All Category</option>
+                        <option value="Bulbs">Bulbs</option>
+                        <option value="Fresh Cut Flowers">Fresh Cut Flowers</option>
+                        <option value="Potted Plants">Potted Plants</option>
+                        <option value="Extra Supplies">Extra Supplies</option>
+                        <option value="Floral Arrangements">Floral Arrangements</option>
+                        <option value="Fall">Fall</option>
+                        <option value="Spring">Spring</option>
                     </NativeSelect>
                 </FormControl>
+                {/* <FormControl className={classes.margin}>
+                    <InputLabel id="demo-customized-select-label">Color</InputLabel>
+                    <NativeSelect
+                        labelId="demo-customized-select-label"
+                        id="demo-customized-select-native"
+                        value={color}
+                        name= "colorName"
+                        onChange={(event) => {setColor(event.target.value)
+                            props.handleDropdownChange(event)
+                        }}
+                        input={<InputStyle />}
+                    >
+                        <option aria-label="None" value="" />
+                        <option selected value="All Color">All Color</option>
+                        <option value="red">red</option>
+                        <option value="green">green</option>
+                        <option value="yellow">yellow</option>
+                        <option value="blue">blue</option>
+                        <option value="white">white</option>
+                        <option value="pink">pink</option>
+                        <option value="purple">purple</option>
+                    </NativeSelect>
+                </FormControl>
+                <FormControl className={classes.margin}>
+                    <InputLabel htmlFor="demo-customized-select-native">Season</InputLabel>
+                    <NativeSelect
+                        id="demo-customized-select-native"
+                        value={plantingSeason}
+                        name= "seasonName"
+                        onChange={(event) => {setSeason(event.target.value)
+                            props.handleDropdownChange(event)
+                        }}
+                        input={<InputStyle />}
+                    >
+                        <option aria-label="None" value="" />
+                        <option selected value="All Seasons">All Seasons</option>
+                        <option value="Fall">Fall</option>
+                        <option value="Spring">Spring</option>
+                    </NativeSelect>
+                </FormControl>
+                <FormControl className={classes.margin}>
+                    <InputLabel htmlFor="demo-customized-select-native">Stock</InputLabel>
+                    <NativeSelect
+                        id="demo-customized-select-native"
+                        value={inStock}
+                        name="stockName"
+                        onChange={(event) => {setInStock(event.target.value)
+                            props.handleDropdownChange(event)
+                        }}
+                        input={<InputStyle />}
+                    >
+                        <option aria-label="None" value="" />
+                        <option value="inStock">In Stock</option>
+                    </NativeSelect>
+                </FormControl>
+                <FormControl className={classes.margin}>
+                    <InputLabel htmlFor="demo-customized-select-native">Sale</InputLabel>
+                    <NativeSelect
+                        id="demo-customized-select-native"
+                        value={sale}
+                        name="saleName"
+                        onChange={(event) => {setSale(event.target.value)
+                            props.handleDropdownChange(event)
+                        }}
+                        input={<InputStyle />}
+                    >
+                        <option aria-label="None" value="" />
+                        <option value="sale">Currenty Sale</option>
+                    </NativeSelect>
+                </FormControl>
+                <FormControl className={classes.margin}>
+                    <InputLabel htmlFor="demo-customized-select-native">Sun</InputLabel>
+                    <NativeSelect
+                        id="demo-customized-select-native"
+                        value={sun}
+                        name="sunName"
+                        onChange={(event) => {setSun(event.target.value)
+                            props.handleDropdownChange(event)
+                        }}
+                        input={<InputStyle />}
+                    >
+                        <option aria-label="None" value="" />
+                        <option value="sun">Need Sun</option>
+                    </NativeSelect>
+                </FormControl> */}
             </div>
-
-            {/* <ProductResult /> */}
         </>
     )
 }

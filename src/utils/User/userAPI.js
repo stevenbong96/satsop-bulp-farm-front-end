@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export default {
   getAllFAQ: function() {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/faqText";
@@ -18,8 +17,12 @@ export default {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/homeText/";
     return axios.get(BASEURL);
   },
+  getAllPlantingInfo: function() {
+    const BASEURL = "https://calm-brook-21723.herokuapp.com/api/PlantingInstructionText";
+    return axios.get(BASEURL);
+  },
   getGoogleMaps: function() {
     const BASEURL = "";
     return axios.get(BASEURL);
-  }
+  },
 };

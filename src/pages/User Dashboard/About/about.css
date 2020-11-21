@@ -20,8 +20,16 @@ p{
 .aboutText {
     text-align: center;
     padding-bottom: 3%;
+<<<<<<< HEAD
     background-color: #4c8c24;
     margin: 5px;
     border: 3px;
     box-shadow: 3px 3px 3px #255f01;
 }
+=======
+}
+
+.active{
+    z-index:99;
+}
+>>>>>>> dev
