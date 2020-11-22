@@ -117,7 +117,10 @@ export default function ProductUpdateModal(props) {
                     </div>
                 </section>
                 <footer className="modal-card-foot">
-                    <button className="button is-success" onClick={props.handleProductUpdate}>Save changes</button>
+                    <button className="button is-success" onClick={() => {
+                        handleModalClose()
+                        props.handleProductUpdate()
+                    }}>Save changes</button>
                     <button className="button" onClick={handleModalClose}>Cancel</button>
                 </footer>
             </div>

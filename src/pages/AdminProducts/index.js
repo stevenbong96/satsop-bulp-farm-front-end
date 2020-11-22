@@ -158,6 +158,8 @@ export default function AdminProducts() {
     }
 
     const handleProductUpdate = () => {
+        console.log(productToUpdate._id)
+        console.log(productToUpdate)
         API.updateProduct(productToUpdate._id, productToUpdate)
     }
 
@@ -169,26 +171,28 @@ export default function AdminProducts() {
         <>
             <AdminNav />
             <AdminDashUpdateFields>
-                <SearchBar
-                    value={searchQuery}
-                    handleSearchInputChange={handleSearchInputChange}
-                    handleSearch={handleSearch}
-                />
-                <div className='product-filters'>
-                    <ProductSortDropdown />
-                    <FilterDropdown
-                        handleFilterChange={handleFilterChange}
-                        filterType='color'
-                        label='Color'
-                        options={['yellow', 'purple', 'blue', 'pink', 'white', 'red', 'orange', 'green']}
+                <div className='search-filters'>
+                    <SearchBar
+                        value={searchQuery}
+                        handleSearchInputChange={handleSearchInputChange}
+                        handleSearch={handleSearch}
                     />
-                    <FilterDropdown
-                        handleFilterChange={handleFilterChange}
-                        filterType='plantingSeason'
-                        label='Planting Season'
-                        options={['Spring', 'Fall']}
-                    />
-                    <button className='button reset-filters-btn' onClick={handleFilterReset}>Reset Filters</button>
+                    <div className='product-filters'>
+                        <ProductSortDropdown />
+                        <FilterDropdown
+                            handleFilterChange={handleFilterChange}
+                            filterType='color'
+                            label='Color'
+                            options={['yellow', 'purple', 'blue', 'pink', 'white', 'red', 'orange', 'green']}
+                        />
+                        <FilterDropdown
+                            handleFilterChange={handleFilterChange}
+                            filterType='plantingSeason'
+                            label='Planting Season'
+                            options={['Spring', 'Fall']}
+                        />
+                        <button className='button reset-filters-btn' onClick={handleFilterReset}>Reset Filters</button>
+                    </div>
                 </div>
                 <div className='products-container'>
                     {filteredProducts.map(product => {
@@ -220,6 +224,7 @@ export default function AdminProducts() {
                 inStock={productToUpdate.inStock}
                 description={productToUpdate.description}
                 handleInputChange={handleInputChange}
+                handleProductUpdate={handleProductUpdate}
             />
         </>
     )

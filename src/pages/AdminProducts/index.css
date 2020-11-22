@@ -3,3 +3,18 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+.product-filters {
+    display: flex;
+    
+}
+
+.reset-filters-btn {
+    width: auto;
+    margin-left: 2%;
+}
+
+.search-filters {
+    display: flex;
+    flex-direction: row;
+}
