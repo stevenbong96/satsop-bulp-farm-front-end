@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import API from '../utils/API'
-import QuestionInput from '../components/QuestionInput'
-import AnswerTextarea from '../components/AnswerTextarea'
-import SaveBtn from '../components/SaveBtn'
-import CancelBtn from '../components/CancelBtn'
-import NewQuestionBtn from '../components/NewQuestionBtn'
-import DeleteBtn from '../components/DeleteBtn'
-import UpdateBtn from '../components/UpdateBtn'
-import NewQuestionModal from '../components/NewQuestionModal'
-import AdminDashUpdateFields from '../components/AdminDashUpdateFields'
-import AdminNav from '../components/AdminNav'
+import API from '../../utils/API'
+import QuestionInput from '../../components/QuestionInput'
+import AnswerTextarea from '../../components/AnswerTextarea'
+import SaveBtn from '../../components/SaveBtn'
+import CancelBtn from '../../components/CancelBtn'
+import NewQuestionBtn from '../../components/NewQuestionBtn'
+import DeleteBtn from '../../components/DeleteBtn'
+import UpdateBtn from '../../components/UpdateBtn'
+import NewQuestionModal from '../../components/NewQuestionModal'
+import AdminDashUpdateFields from '../../components/AdminDashUpdateFields'
+import AdminNav from '../../components/AdminNav'
+import AdminHeader from '../../components/AdminHeader'
+import './index.css'
 
 export default function FAQUpdate() {
     const [questions, setQuestions] = useState([])
@@ -67,12 +69,12 @@ export default function FAQUpdate() {
             question: questions[questionIndex].question,
             answer: questions[questionIndex].answer
         }
-        
+
         // make request to update selected question
         API.updateFAQ(questionId, questionObj)
     }
 
-    
+
     const handleCancel = (event) => {
         // grab original questions/answers from server
         API.getFAQ().then(res => {
@@ -81,39 +83,44 @@ export default function FAQUpdate() {
             window.scrollTo(0, 0)
         })
     }
-    
+
     const handleNewQuestionSubmit = (newQuestion) => {
         console.log(newQuestion)
         // send new question info to server
         API.createFAQ(newQuestion).then(res => {
             // close modal
-            document.querySelector('.modal').className='modal'
+            document.querySelector('.modal').className = 'modal'
         })
     }
 
     return (
         <>
-        <AdminNav />
-        <AdminDashUpdateFields>
-            <div className='questions-container'>
-                {questions.map((question, index) => {
-                    return (
-                        <div>
-                            <QuestionInput text={question.question} handleInputChange={handleInputChange} index={index} />
-                            <AnswerTextarea text={question.answer} handleInputChange={handleInputChange} index={index} />
-                            <UpdateBtn index={index} handleQuestionUpdate={handleQuestionUpdate} />
-                            <DeleteBtn index={index} handleQuestionDelete={handleQuestionDelete} />
-                        </div>
-                    )
-                })}
-            </div>
-            <div>
-                <NewQuestionBtn handleNewQuestion={showModal} />
-                {/* <SaveBtn handleSave={handleSave}></SaveBtn> */}
-                <CancelBtn handleCancel={handleCancel}></CancelBtn>
-            </div>
-            <NewQuestionModal handleNewQuestionSubmit={handleNewQuestionSubmit} />
-        </AdminDashUpdateFields>
+            <AdminHeader />
+            <AdminNav />
+            <AdminDashUpdateFields>
+            <h1 className='page-heading'>FAQ's</h1>
+            <hr />
+                <div className='questions-container'>
+                    {questions.map((question, index) => {
+                        return (
+                            <div className='faqText'>
+                                <QuestionInput className='faqInput' text={question.question} handleInputChange={handleInputChange} index={index} />
+                                <AnswerTextarea className='faqInput' text={question.answer} handleInputChange={handleInputChange} index={index} />
+                                <div className='text-btn-group'>
+                                    <DeleteBtn index={index} handleQuestionDelete={handleQuestionDelete} />
+                                    <UpdateBtn index={index} handleQuestionUpdate={handleQuestionUpdate} />
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+                <div className='btn-group'>
+                    <NewQuestionBtn handleNewQuestion={showModal} />
+                    {/* <SaveBtn handleSave={handleSave}></SaveBtn> */}
+                    <CancelBtn handleCancel={handleCancel}></CancelBtn>
+                </div>
+                <NewQuestionModal handleNewQuestionSubmit={handleNewQuestionSubmit} />
+            </AdminDashUpdateFields>
         </>
     )
 }

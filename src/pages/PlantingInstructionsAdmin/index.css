@@ -1,0 +1,22 @@
+.extra-heading {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-weight: 500;
+}
+
+.section-heading {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 3%;
+}
+
+.plantingText{
+    background-color: #DCDCDC;
+    margin: 7px;
+    padding: 5px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 2px gray;
+}

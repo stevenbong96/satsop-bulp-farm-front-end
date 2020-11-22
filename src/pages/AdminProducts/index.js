@@ -3,6 +3,7 @@ import API from '../../utils/API'
 import AdminProductCard from '../../components/AdminProductCard'
 import AdminDashUpdateFields from '../../components/AdminDashUpdateFields'
 import AdminNav from '../../components/AdminNav'
+import AdminHeader from '../../components/AdminHeader'
 import './index.css'
 import FilterDropdown from '../../components/FilterDropdown'
 import ProductSortDropdown from '../../components/ProductSortDropdown'
@@ -169,8 +170,10 @@ export default function AdminProducts() {
 
     return (
         <>
+            <AdminHeader />
             <AdminNav />
             <AdminDashUpdateFields>
+                <h1 className='page-heading'>Products Page</h1>
                 <div className='search-filters'>
                     <SearchBar
                         value={searchQuery}
@@ -194,6 +197,7 @@ export default function AdminProducts() {
                         <button className='button reset-filters-btn' onClick={handleFilterReset}>Reset Filters</button>
                     </div>
                 </div>
+                <hr />
                 <div className='products-container'>
                     {filteredProducts.map(product => {
                         const { _id, name, price, color, plantingSeason, needsFullSun, inStock, sale } = product

@@ -2,10 +2,10 @@ import axios from 'axios'
 
 export default {
     getBasicInfo: function () {
-        return axios.get('/user')
+        return axios.get('https://calm-brook-21723.herokuapp.com/api/companyInfoText')
     },
     updateBasicInfo: function (info) {
-        return axios.put('https://calm-brook-21723.herokuapp.com/api/user', info)
+        return axios.put('https://calm-brook-21723.herokuapp.com/api/companyInfoText', info)
     },
     getHomePageText: function () {
         return axios.get('https://calm-brook-21723.herokuapp.com/api/homeText/')
