@@ -15,7 +15,7 @@ export default function AdminProducts() {
     const [products, setProducts] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([])
     const [filters, setFilters] = useState({
-        color: '',
+        category: '',
         plantingSeason: '',
     })
     const [searchQuery, setSearchQuery] = useState('')
@@ -168,6 +168,35 @@ export default function AdminProducts() {
 
     }
 
+    const openWidget = () => {
+
+    }
+
+    let widget = window.cloudinary.createUploadWidget({
+        cloudName: "satstop-bubl-farm",
+        uploadPreset: "ml_default"
+    },
+        (err, result) => { })
+
+    const showWidget = (widget) => {
+        widget.open()
+    }
+
+    const handleCheckboxClick = (event) => {
+        const isChecked = event.target.checked
+        let newBool;
+        if (isChecked) {
+            newBool = true
+        } else {
+            newBool = false
+        }
+
+        setProductToUpdate({
+            ...productToUpdate,
+            inStock: newBool
+        })
+    }
+
     return (
         <>
             <AdminHeader />
@@ -206,11 +235,13 @@ export default function AdminProducts() {
                                 id={_id}
                                 name={name}
                                 price={price}
+                                image={product.image ? product.image : 'https://bulma.io/images/placeholders/1280x960.png'}
                                 color={color}
                                 plantingSeason={plantingSeason}
                                 needsFullSun={needsFullSun}
                                 inStock={inStock}
                                 sale={sale}
+                                imageWidget={openWidget}
                                 handleUpdateBtnClick={handleUpdateBtnClick}
                                 handleProductDelete={handleProductDelete}
                             />
@@ -229,6 +260,7 @@ export default function AdminProducts() {
                 description={productToUpdate.description}
                 handleInputChange={handleInputChange}
                 handleProductUpdate={handleProductUpdate}
+                handleCheckboxClick={handleCheckboxClick}
             />
         </>
     )

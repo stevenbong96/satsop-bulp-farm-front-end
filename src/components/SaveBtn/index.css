@@ -1,8 +1,7 @@
-.control {
-    display: flex;
+/* .control {
     flex-direction: row-reverse;
     margin-top: .5%;
-}
+} */
 
 .save-btn {
     width: 10%;

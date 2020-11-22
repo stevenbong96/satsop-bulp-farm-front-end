@@ -19,8 +19,11 @@ export default function AdminProductCard(props) {
         <div className="card">
             <div className="card-image">
                 <figure className="image is-4by3">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
+                    <img src={props.image} alt="Placeholder image" />
                 </figure>
+            </div>
+            <div className='change-img-container'>
+                <button id='upload_widget' className='cloudinary-button change-img-btn' onClick={props.imageWidget}>Change Image</button>
             </div>
             <div className="card-content">
                 <div className='product-name-container'>
@@ -28,9 +31,6 @@ export default function AdminProductCard(props) {
                 </div>
                 <div className='product-price-container'>
                     <p className='product-price'>${props.price.toFixed(2)}</p>
-                </div>
-                <div className='product-colors-container'>
-                    {props.color.map(color => <div style={color !== 'mixed' && color !== 'mixtures' ? { backgroundColor: colors[color] } : { background: colors[color] }} className='color-square'></div>)}
                 </div>
                 <div className='availability-container'>
                     <p className='availability'>{props.inStock ? 'In Stock' : 'Out of Stock'}</p>

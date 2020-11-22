@@ -14,18 +14,6 @@ export default function ProductUpdateModal(props) {
         // update state with new values
     }
 
-    const categoryEle = (productCategory, category, name) => {
-        if (productCategory === category) {
-            return (
-                <option value={category} selected>{category}</option>
-            )
-        } else {
-            return (
-                <option value={category}>{category}</option>
-            )
-        }
-    }
-
     // categories and colors for a product
     const categories = ['Fresh Cut Flowers', 'Potted Plants', 'Bulbs', 'Extra Supplies', 'Floral Arrangements']
     const colors = ['yellow', 'purple', 'blue', 'pink', 'white', 'red', 'orange', 'green']
@@ -70,7 +58,7 @@ export default function ProductUpdateModal(props) {
                                     }
                                 })}
                             </select>
-                            <div className='color-checkboxes'>
+                            {/* <div className='color-checkboxes'>
                                 {colors.map(color => {
                                     if (props.color.includes(color)) {
                                         return (
@@ -88,7 +76,7 @@ export default function ProductUpdateModal(props) {
                                         )
                                     }
                                 })}
-                            </div>
+                            </div> */}
                             <select className='select' name='plantingSeason' onChange={props.handleInputChange} >
                                 {['Fall', 'Spring'].map(season => {
                                     if (props.plantingSeason === season) {
@@ -105,7 +93,15 @@ export default function ProductUpdateModal(props) {
                                         )
                                     }
                                 })}
+
+
                             </select>
+                            <div className="in-stock-check-container">
+                                <label>
+                                    In Stock
+                                    {props.inStock ? <input type='checkbox' className='checkbox instock-check' onClick={props.handleCheckboxClick} checked/> : <input type='checkbox' className='checkbox instock-check' onClick={props.handleCheckboxClick} />}
+                                </label>
+                            </div>
                             <textarea
                                 className="textarea"
                                 placeholder="Product Description"
