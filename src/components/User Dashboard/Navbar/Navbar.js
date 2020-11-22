@@ -13,22 +13,22 @@ function Navbar() {
                 </a>
             </div>
         
-            <div id="navbarBasicExample" className="navbar-menu navbarStyle">
-                <div className="navbar-start">
-                    <a className="navbar-item">
-                        <Link to="/">Home</Link>
+            <div id="navbarBasicExample" className="navbar-menu navbarStyle has-text-centered">
+                <div className="navbar-start has-text-centered">
+                    <a className="navbar-item has-text-centered">
+                        <Link className="has-text-black has-text-centered" to="/">Home</Link>
                     </a>
 
-                    <a className="navbar-item">
-                        <Link to="/products">Products</Link>
+                    <a className="navbar-item has-text-centered">
+                        <Link className="has-text-black has-text-centered" to="/products">Products</Link>
                     </a>
 
-                    <a className="navbar-item">
-                        <Link to="/faq">FAQ</Link>
+                    <a className="navbar-item has-text-centered">
+                        <Link className="has-text-black has-text-centered" to="/faq">FAQ</Link>
                     </a>
 
-                    <a className="navbar-item">
-                        <Link to="/planting">Planting</Link>
+                    <a className="navbar-item has-text-centered">
+                        <Link className="has-text-black has-text-centered" to="/planting">Planting</Link>
                     </a>
 
                     {/* <a className="navbar-item">
