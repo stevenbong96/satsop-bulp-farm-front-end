@@ -1,6 +1,8 @@
 .button {
-    width: 20vw;
-    margin-bottom: 1%;
+    width: 100%;
+    margin-bottom: 5px;
+    border-style: groove;
+    background-color: #ddd8c5 ;
 }
 
 .nav-container {
@@ -11,6 +13,6 @@
     border-radius: 10px;
     left: 2%;
     top: 10%;
-    min-height: 50vh;
-    background-color: gray;
+    box-shadow: 2px 2px 2px #266102;
+    background-color: #4c8c24;
 }

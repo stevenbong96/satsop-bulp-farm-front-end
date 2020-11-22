@@ -10,6 +10,7 @@ import UpdateBtn from '../../components/UpdateBtn'
 import NewQuestionModal from '../../components/NewQuestionModal'
 import AdminDashUpdateFields from '../../components/AdminDashUpdateFields'
 import AdminNav from '../../components/AdminNav'
+import AdminHeader from '../../components/AdminHeader'
 import './index.css'
 
 export default function FAQUpdate() {
@@ -94,14 +95,17 @@ export default function FAQUpdate() {
 
     return (
         <>
+            <AdminHeader />
             <AdminNav />
             <AdminDashUpdateFields>
+            <h1 className='page-heading'>FAQ's</h1>
+            <hr />
                 <div className='questions-container'>
                     {questions.map((question, index) => {
                         return (
-                            <div>
-                                <QuestionInput text={question.question} handleInputChange={handleInputChange} index={index} />
-                                <AnswerTextarea text={question.answer} handleInputChange={handleInputChange} index={index} />
+                            <div className='faqText'>
+                                <QuestionInput className='faqInput' text={question.question} handleInputChange={handleInputChange} index={index} />
+                                <AnswerTextarea className='faqInput' text={question.answer} handleInputChange={handleInputChange} index={index} />
                                 <div className='text-btn-group'>
                                     <DeleteBtn index={index} handleQuestionDelete={handleQuestionDelete} />
                                     <UpdateBtn index={index} handleQuestionUpdate={handleQuestionUpdate} />
