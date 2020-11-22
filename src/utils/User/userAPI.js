@@ -50,16 +50,6 @@ export default {
         console.log(err);
       })
   },
-  // getLogin: function(adminData){
-  //   const BASEURL = "https://calm-brook-21723.herokuapp.com/api/user";
-  //   console.log(adminData);
-  //   return axios.get(BASEURL);
-  // },
-  // getAdminInfo: function(token){
-  //   const BASEURL = "https://calm-brook-21723.herokuapp.com/api/user";
-  //   console.log(token);
-  //   return axios.get(BASEURL);
-  // },
   getAllPlantingInfo: function () {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/PlantingInstructionText";
     return axios.get(BASEURL);
