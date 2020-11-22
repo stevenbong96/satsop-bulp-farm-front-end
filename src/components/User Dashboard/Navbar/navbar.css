@@ -1,5 +1,8 @@
 .navbarStyle{
-    display: flex;
+    display: block;
+    text-align: center;
     margin: 0 auto;
-    margin-left: 43%;
+    box-shadow: #255f01 ;
+    background-color: #4c8c24;
 }
+

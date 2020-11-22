@@ -14,18 +14,14 @@ export default function BasicInfo() {
 
     // on load, make request to server for basic info
     useEffect(() => {
-        API.getBasicInfo().then(function (res) {
-            //splitting city and state for different fields
-            let location = res.data[0].state
-            let cityState = location.split(", ")
-
+        API.getBasicInfo().then(function (res) {    
             setBasicInfo({
                 phone: res.data[0].phoneNumber,
                 email: res.data[0].companyEmail,
                 address: res.data[0].address,
                 zipCode: res.data[0].zipCode,
-                city: cityState[0],
-                state: cityState[1],
+                city: res.data[0].city,
+                state: res.data[0].state,
                 facebook: res.data[0].facebook,
                 instagram: res.data[0].instagram,
                 twitter: res.data[0].twitter,
@@ -62,24 +58,20 @@ export default function BasicInfo() {
     // send new data to server to store in db when user clicks save
     const handleSave = () => {
         console.log(basicInfo)
-        // API.updateBasicInfo(basicInfo)
+        API.updateBasicInfo(basicInfo)
     }
 
     // discard all changes made when user clicks cancel
     const handleCancel = () => {
         alert('cancelled')
-        API.getBasicInfo().then(function (res) {
-            //splitting city and state for different fields
-            let location = res.data[0].state
-            let cityState = location.split(", ")
-
+        API.getBasicInfo().then(function (res) {    
             setBasicInfo({
                 phone: res.data[0].phoneNumber,
                 email: res.data[0].companyEmail,
                 address: res.data[0].address,
                 zipCode: res.data[0].zipCode,
-                city: cityState[0],
-                state: cityState[1],
+                city: res.data[0].city,
+                state: res.data[0].state,
                 facebook: res.data[0].facebook,
                 instagram: res.data[0].instagram,
                 twitter: res.data[0].twitter,
