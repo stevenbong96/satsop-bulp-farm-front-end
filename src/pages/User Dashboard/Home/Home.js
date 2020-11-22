@@ -60,26 +60,6 @@ function Home() {
         })
     }
 
-    // const displayWelcome = currentHome.filter(welcomeText => welcomeText.title === "welcome");
-    // console.log(displayWelcome);
-    
-    // const displayAboutUs = currentHome.filter(aboutUsText => aboutUsText.title === "aboutUsMain" && aboutUsText.title === "aboutUsSub");
-    // console.log(displayAboutUs);
-
-    // const displayAboutSub = currentHome.filter(aboutUsSubText => aboutUsSubText.title === "aboutUsSub");
-    // console.log(displayAboutSub);
-
-    // const displaySales = currentHome.filter(salesInfoText => salesInfoText.title === "salesInfo");
-    // console.log(displaySales);
-
-    // const displayBrief = currentHome.filter(briefText => briefText.title === "brief");
-    // console.log(displayBrief);
-
-    function handleFormSubmit(event){
-        event.preventDefault();
-        console.log("SELECTED")
-    }
-
     return(
         <>
             <Header />
@@ -88,7 +68,7 @@ function Home() {
                     <About text1={currentHome.aboutUsMain.text} text2={currentHome.aboutUsSub.text} text3={currentHome.welcome.text} text4={currentHome.brief.text}/>
                     <StoreInfo storeText = {currentHome.salesInfo.text}/>
                     <Direction />
-                    <Contact submit={handleFormSubmit}/>
+                    <Contact />
                 </div>
             <Footer />
         </>
