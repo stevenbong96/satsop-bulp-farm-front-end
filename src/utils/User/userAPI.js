@@ -1,5 +1,7 @@
 import axios from "axios";
 
+
+const apiURL = "https://calm-brook-21723.herokuapp.com";
 export default {
   getAllFAQ: function() {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/faqText";
@@ -20,6 +22,23 @@ export default {
   getAllPlantingInfo: function() {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/PlantingInstructionText";
     return axios.get(BASEURL);
+  },
+  getLogin: function (contactData) {
+    console.log(contactData);
+    return fetch(`${apiURL}/email`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(contactData)
+    })
+      .then(res => {
+        console.log(res);
+        res.json();
+      })
+      .catch(err => {
+        console.log(err);
+      })
   },
   getGoogleMaps: function() {
     const BASEURL = "";

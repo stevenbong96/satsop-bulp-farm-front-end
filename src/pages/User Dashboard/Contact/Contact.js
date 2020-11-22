@@ -20,13 +20,13 @@ function Contact() {
     function handleFormSubmit(event) {
         event.preventDefault();
         console.log("SELECTED");
-        // API.sendContactInfo(filledForm)
-        // .then(res => {
-        //     console.log(res);
-        // })
-        // .catch(err => {
-        //     console.log(err);
-        // })
+        API.sendContactInfo(filledForm)
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
     return (
