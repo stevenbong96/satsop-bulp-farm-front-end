@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom'
 // import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 // import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import Checkbox from '@material-ui/core/Checkbox';
+// import Link from '@material-ui/core/Link';
+// import Grid from '@material-ui/core/Grid';
 // import Box from '@material-ui/core/Box';
 // import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 // import Typography from '@material-ui/core/Typography';
@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
 function UserAuth() {
     const classes = useStyles();
+    let history = useHistory();
 
     const [loginFormState, setLoginFormState] = useState({
         email: "",
@@ -49,19 +50,14 @@ function UserAuth() {
     })
 
     const [adminState, setAdminState] = useState({
+        firstName:"",
+        lastName: "",
         email: "",
         token: "",
         id: "",
         isLoggedIn: false
     })
 
-    function handleInputChange(event) {
-        const {name, value} = event.target;
-        setLoginFormState({
-            ...loginFormState,
-            [name]: value
-        })
-    let history = useHistory()
     // const [setEmail, setEmailState] = useState("");
     // const [setPassword, setPasswordState] = useState("");
 
@@ -74,8 +70,46 @@ function UserAuth() {
     //     const { name, value } = event.target;
     //     setPasswordState(value)
     // }
+
+    useEffect(() => {
+        matchAdminData();
+    }, [])
+
+    function matchAdminData(){
+        const token = localStorage.getItem("token");
+        API.getAdminInfo(token)
+        .then(adminInfo => {
+            if(adminInfo){
+                setAdminState({
+                    firstName:adminInfo.firstName,
+                    lastName: adminInfo.lastName,
+                    email: adminInfo.email,
+                    token: token,
+                    id: adminInfo._id,
+                    isLoggedIn: true
+                })
+            } else {
+                localStorage.removeItem("token");
+                setAdminState({
+                    firstName:"",
+                    lastName: "",
+                    email: "",
+                    token: "",
+                    id: "",
+                    isLoggedIn: false
+                })
+            }
+        })
     }
-    
+
+    function handleInputChange(event) {
+        const {name, value} = event.target;
+        setLoginFormState({
+            ...loginFormState,
+            [name]: value
+        })
+    }
+
     function handleLoginForm(event) {
         event.preventDefault();
         console.log("SUBMITTED")
@@ -83,15 +117,23 @@ function UserAuth() {
     //         console.log(data)
     //         // Push to the admin dashboard
     //         history.push("/admin/dashboard/basicinfo")
-    //     }).catch(error => console.log(error))
-    // }
+    //     })
+        console.log(loginFormState);
         API.getLogin(loginFormState)
         .then(res => {
             console.log(res);
-            // localStorage.setItem("token", res.token)
-            API.getAdminInfo()
+            localStorage.setItem("token", res.token)
+            API.getAdminInfo(res.token)
             .then(adminRes => {
                 console.log(adminRes);
+                setAdminState({
+                    firstName:adminRes.firstName,
+                    lastName: adminRes.lastName,
+                    email: adminRes.email,
+                    token: adminRes.token,
+                    id: adminRes._id,
+                    isLoggedIn: true
+                })
             })
             .catch(err => {
                 console.log(err);

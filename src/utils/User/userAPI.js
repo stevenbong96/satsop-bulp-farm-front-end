@@ -1,37 +1,70 @@
 import axios from "axios";
 
+const apiURL = "https://calm-brook-21723.herokuapp.com";
+
 export default {
-  getAllFAQ: function() {
+  getAllFAQ: function () {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/faqText";
     return axios.get(BASEURL);
   },
-  getAllProducts: function() {
+  getAllProducts: function () {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/products";
     return axios.get(BASEURL);
   },
-  getProductsName: function(query) {
+  getProductsName: function (query) {
     const BASEURL = `https://calm-brook-21723.herokuapp.com/api/product/${query}`;
     return axios.get(BASEURL);
   },
-  getAllHomeInfo: function() {
+  getAllHomeInfo: function () {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/homeText/";
     return axios.get(BASEURL);
   },
+  getLogin: function (userData) {
+    console.log(userData);
+    return fetch(`${apiURL}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userData)
+    })
+      .then(res => {
+        console.log(res);
+        res.json();
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  },
+  getAdminInfo: function (token) {
+    return fetch(`${apiURL}/secrets`, {
+      headers: {
+        "authorization": `Bearer ${token}`
+      }
+    })
+      .then(res => {
+        console.log(res);
+        res.json();
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  },
   // getLogin: function(adminData){
-  //   // const BASEURL = "https://calm-brook-21723.herokuapp.com/api/user";
+  //   const BASEURL = "https://calm-brook-21723.herokuapp.com/api/user";
   //   console.log(adminData);
-  //   // return axios.get(BASEURL);
+  //   return axios.get(BASEURL);
   // },
   // getAdminInfo: function(token){
-  //   // const BASEURL = "https://calm-brook-21723.herokuapp.com/api/user";
-  //   console.log(adminData);
-  //   // return axios.get(BASEURL);
+  //   const BASEURL = "https://calm-brook-21723.herokuapp.com/api/user";
+  //   console.log(token);
+  //   return axios.get(BASEURL);
   // },
-  getAllPlantingInfo: function() {
+  getAllPlantingInfo: function () {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/PlantingInstructionText";
     return axios.get(BASEURL);
   },
-  getGoogleMaps: function() {
+  getGoogleMaps: function () {
     const BASEURL = "";
     return axios.get(BASEURL);
   },
