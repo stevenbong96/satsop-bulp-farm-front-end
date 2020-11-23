@@ -10,6 +10,7 @@ import ProductSortDropdown from '../../components/ProductSortDropdown'
 import ProductUpdateModal from '../../components/ProductUpdateModal'
 import { colors } from '@material-ui/core'
 import SearchBar from '../../components/SearchBar'
+import { useHistory } from 'react-router-dom'
 
 export default function AdminProducts() {
     const [products, setProducts] = useState([])
@@ -30,12 +31,22 @@ export default function AdminProducts() {
         category: ''
     })
 
+    let history = useHistory();
+
     // on load, grab all products from db
     useEffect(() => {
+        const token = localStorage.getItem("token");
+        // console.log(token);
+        if(!token){
+            history.push("/login")
+        }
         API.getProducts().then(({ data }) => {
             // set state to array of products
             setProducts(data)
             setFilteredProducts(data)
+        }).catch(err => {
+            console.log(err);
+            history.push("/login")
         })
     }, [])
 

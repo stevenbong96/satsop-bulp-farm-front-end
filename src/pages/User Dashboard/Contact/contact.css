@@ -11,5 +11,9 @@
     width: 65%; */
     margin-left: 2%;
     text-align: center;
+}
 
+.contactImage{
+    height: 55vh;
+    width: 90%
 }
