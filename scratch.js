@@ -1,7 +1,4 @@
-const myObj = {
-    1: 'hi',
-    2: 'bye',
-    3: 'hi again'
-}
+const regex = /[a-z]*odi[a-z]*s/i
+const str = 'Daffodils'
 
-console.log(Object.keys(myObj))
+console.log(regex.test(str))
