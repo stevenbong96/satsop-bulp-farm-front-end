@@ -40,7 +40,8 @@ export default {
     deleteFAQ: function (id) {
         return axios.delete('https://calm-brook-21723.herokuapp.com/api/faqText/' + id)
     },
-    getInstructions: function () {
+    getInstructions: function (token) {
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
         return axios.get('https://calm-brook-21723.herokuapp.com/api/PlantingInstructionText')
     },
     updateInstructions: function (id, obj) {
