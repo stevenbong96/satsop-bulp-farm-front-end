@@ -23,6 +23,10 @@
     /* margin-top: 3%; */
 }
 
+.chartStyle {
+    padding-top: 5%;
+}
+
 .cardComponents{
     position: relative;
 }
@@ -36,9 +40,7 @@
 
 @media screen and (max-width: 800px){
     .inputStyle{
-        padding-top: 6.2%;
-        width: 65%;
-        margin: 0 auto;
+        padding-top: 15%;
     }
 }
 

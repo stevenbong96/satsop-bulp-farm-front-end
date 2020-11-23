@@ -53,7 +53,7 @@ const photoArray =[
 
             <div className="columns aboutText">
                 <div className="column is-12">
-                    <h6 class="title is-6">{props.text3}</h6>
+                    <h6 class="title is-6 has-text-white">{props.text3}</h6>
                 </div>
             </div>
 
