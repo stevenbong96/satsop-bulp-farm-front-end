@@ -244,7 +244,7 @@ function Product() {
                 <Grid container direction="row" justify="center" alignItems="center" spacing={3}>
                     {[...filtered].filter(item => item.name.toLowerCase().indexOf(searchProduct) > -1).map(searchObj => {
                         // console.log(searchObj);
-                        return <ProductResult name={searchObj.name} color={searchObj.color} planting={searchObj.plantingSeason} price={searchObj.price} category={searchObj.category} />
+                        return <ProductResult name={searchObj.name} color={searchObj.color} planting={searchObj.plantingSeason} price={searchObj.price} category={searchObj.category} image={searchObj.image}/>
                     })}
                 </Grid>
             </div>
