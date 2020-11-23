@@ -36,6 +36,10 @@ export default {
     console.log(contactData);
     return axios.post(`${apiURL}/api/email`, contactData);
   },
+  getStoreInfo: function(){
+    const BASEURL = "https://calm-brook-21723.herokuapp.com/api/companyInfoText";
+    return axios.get(BASEURL);
+  },
   getGoogleMaps: function() {
     const BASEURL = "";
     return axios.get(BASEURL);
