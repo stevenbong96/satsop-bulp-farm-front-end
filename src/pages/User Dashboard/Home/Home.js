@@ -19,11 +19,8 @@ function Home() {
         brief: ""
     })
 
-    const [currentStoreInfo, setCurrentStoreInfo] = useState([]);
-
     useEffect(() => {
         loadAllData();
-        loadStoreInfo();
     }, [])
 
     function loadAllData(){
@@ -48,16 +45,6 @@ function Home() {
         })
     }
 
-    function loadStoreInfo(){
-        API.getStoreInfo()
-        .then(res => {
-            console.log(res.data);
-            setCurrentStoreInfo(res.data)
-        })
-        .catch(err => {
-            console.log(err);
-        })
-    }
 
     return(
         <>
@@ -65,10 +52,7 @@ function Home() {
             <Navbar />
                 <div className="homeStyle">
                     <About text1={currentHome.aboutUsMain.text} text2={currentHome.aboutUsSub.text} text3={currentHome.welcome.text} text4={currentHome.brief.text}/>
-                    {currentStoreInfo.map(storeObj => {
-                        console.log(storeObj)
-                        return <StoreInfo phoneNumber={storeObj.phoneNumber} email={storeObj.companyEmail} hours={storeObj.hours} storeText = {currentHome.salesInfo.text}/>
-                    })}
+                    <StoreInfo  storeText = {currentHome.salesInfo.text}/>
                     <Direction />
                     <br />
                     <br/>
