@@ -1,27 +1,36 @@
 import axios from "axios";
 
+const apiURL = "https://calm-brook-21723.herokuapp.com";
+
 export default {
-  getAllFAQ: function() {
+  getAllFAQ: function () {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/faqText";
     return axios.get(BASEURL);
   },
-  getAllProducts: function() {
+  getAllProducts: function () {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/products";
     return axios.get(BASEURL);
   },
-  getProductsName: function(query) {
+  getProductsName: function (query) {
     const BASEURL = `https://calm-brook-21723.herokuapp.com/api/product/${query}`;
     return axios.get(BASEURL);
   },
-  getAllHomeInfo: function() {
+  getAllHomeInfo: function () {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/homeText/";
     return axios.get(BASEURL);
   },
-  getAllPlantingInfo: function() {
+  getLogin: function (userData) {
+    return axios.post(`${apiURL}/api/login`, userData);
+  },
+  getAdminInfo: function (token) {
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    return axios.get(`${apiURL}/api/secrets`);
+  },
+  getAllPlantingInfo: function () {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/PlantingInstructionText";
     return axios.get(BASEURL);
   },
-  getGoogleMaps: function() {
+  getGoogleMaps: function () {
     const BASEURL = "";
     return axios.get(BASEURL);
   },
