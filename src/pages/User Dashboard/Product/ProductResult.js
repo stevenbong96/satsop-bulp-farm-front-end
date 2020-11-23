@@ -34,8 +34,7 @@ function ProductResult(props) {
                 </CardContent>
                 <CardMedia
                     className={classes.media}
-                    image="https://image.freepik.com/free-vector/coming-soon-message-illuminated-with-light-projector_1284-3622.jpg"
-                    // image={props.image}
+                    image={props.image}
                     title="product Image"
                 />
                 <CardContent>
