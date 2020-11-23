@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# satsop-bulb-farm
+## Description
+Family Owned 3 generation Bulb farm in a small town with no stoplight. The Bulb Farm was in need for an updated site to better fit the needs of the owner and also for the custoemers. The new site will allow The Bulb Farm to reach new audiences, allow online orders, allow for the owner to update anything on the site and provide the farm with a more updated, professional look. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Deployed link: https://calm-brook-21723.herokuapp.com/
 
-## Available Scripts
 
-In the project directory, you can run:
+## Table of Contents
+1. [Description](#-Description)
+1. [Installation](#Installation)
+1. [Usage](#Usage)
+1. [Contributing](#Contributing)
+1. [Authors](#Authors)
+1. [Questions](#Questions)
+1. [License](#License)
 
-### `npm start`
+## Visuals 
+Home
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Home Page](.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Admin 
 
-### `npm test`
+![Admin Page](.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Online Sales
 
-### `npm run build`
+![Online Sales](.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[Bulma](https://bulma.io/)
 
-### `npm run eject`
+[Node.js](https://nodejs.org/en/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[Express](https://expressjs.com/)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[Express-handlebars](https://www.npmjs.com/package/express-handlebars)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[mysql](https://www.mysql.com/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[bcrypt](https://www.npmjs.com/package/bcrypt)
 
-## Learn More
+## Installation
+1. Clone this repository to your local machine. 
+1. Ensure node.js is enabled in the directory to which you have saved this repository. 
+1. Install all npm packages. Modify the config.json to work with your own sql.  
+1. Add a SESSION_SECRET in a .env file.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Usage
+Anyone can use freely, according to the terms of the license.
+    
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Please make sure to update info as appropriate.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Authors 
 
-### Code Splitting
+[Brandon Phillips](https://github.com/BrandonP321)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[Emily Goeres](https://github.com/emilygoeres)
 
-### Analyzing the Bundle Size
+[Jae Mclain](https://github.com/jaemclain)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[Joshua Jainga](https://github.com/jjainga)
 
-### Making a Progressive Web App
+[Steven Bong](https://github.com/stevenbong96)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Questions
+Please direct questions to:
+Github account 
+stevenbong96-Back End 
+jaemclain-Front End
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## License 
 
-### Deployment
+![GitHub]() 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+MIT License
 
-### `npm run build` fails to minify
+Copyright (c) 2020  Emily Goeres, Brandon Phillips, Jae Mclain, Steven Bong, Joshua Jainga    
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
