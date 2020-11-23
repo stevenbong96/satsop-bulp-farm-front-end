@@ -27,7 +27,7 @@ export default function AdminProducts() {
         plantingSeason: '',
         sun: '',
         description: '',
-        category: '',
+        category: ''
     })
 
     // on load, grab all products from db
@@ -165,7 +165,8 @@ export default function AdminProducts() {
     }
 
     const handleProductDelete = id => {
-
+        // make request to remove product from db
+        API.deleteProduct(id)
     }
 
     const openWidget = () => {
