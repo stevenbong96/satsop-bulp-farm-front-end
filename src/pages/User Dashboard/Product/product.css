@@ -2,10 +2,11 @@
     /* border: 1px solid black; */
     /* text-align: center; */
     /* display: flex; */
-    /* margin: 0 auto; */
+    margin: 0 auto;
     /* width: 65%; */
     margin-top: 3%;
     padding-top: 3%;
+    display: inline-block;
 }
 
 .resultStyle{
@@ -18,8 +19,14 @@
 }
 
 .inputStyle{
-    padding-top: 1.6%;
+    padding-top: 6.2%;
+    /* margin-top: 3%; */
 }
+
+.cardComponents{
+    position: relative;
+}
+
 
 /* @media screen and (max-width: 1000px){
     .inputStyle{
@@ -29,7 +36,7 @@
 
 @media screen and (max-width: 800px){
     .inputStyle{
-        padding-top: 1.6%;
+        padding-top: 6.2%;
         width: 65%;
         margin: 0 auto;
     }
@@ -37,7 +44,7 @@
 
 @media screen and (max-width: 400px){
     .inputStyle{
-        padding-top: 1.6%;
+        padding-top: 6.2%;
         width: 65%;
         margin: 0 auto;
     }

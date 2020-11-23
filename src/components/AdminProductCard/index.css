@@ -2,3 +2,36 @@
     width: 22%;
     margin-bottom: 2%;
 }
+
+.card-content {
+    padding: .5rem;
+}
+
+.color-square {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.product-colors-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-btns {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.product-delete-btn, .product-update-btn {
+    width: 40%;
+    background-color: #e02e2e;
+    border: 1px solid black;
+    border-radius: 7px;
+    color: white;
+    font-size: 1.1rem;
+}

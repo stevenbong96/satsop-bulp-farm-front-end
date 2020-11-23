@@ -12,3 +12,11 @@
     font-weight: 500;
     margin-bottom: 3%;
 }
+
+.plantingText{
+    background-color: #DCDCDC;
+    margin: 7px;
+    padding: 5px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 2px gray;
+}

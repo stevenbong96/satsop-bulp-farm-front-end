@@ -1,5 +1,6 @@
 import React from "react";
 import "./footer.css";
+import { Link } from "react-router-dom";
 
 function Footer() {
     return (
@@ -17,9 +18,11 @@ function Footer() {
                             <div class="column"><a href="https://www.facebook.com/Satsop-Bulb-Farm-287080364304/" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a></div>
                         </div>
                     </div>
-                    <div class="column">Home</div>
-                    <div class="column">Products</div>
-                    <div class="column">Frequently Asked Questions</div>
+                    <div class="column"><Link to="/">Home</Link></div>
+                    <div class="column"><Link to="/products">Products</Link></div>
+                    <div class="column"><Link to="/faq">Frequently Asked Questions</Link></div>
+                    <div class="column"><Link to="/planting">Planting Instructions</Link></div>
+                    <div class="column"><Link to="/login">Admin</Link></div>
                 </div>
                 <div className="columns">
                     <div class="column">

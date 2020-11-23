@@ -6,24 +6,11 @@ import About from "../About/About";
 import "./home.css";
 import API from "../../../utils/User/userAPI";
 import StoreInfo from "../Store Info/StoreInfo";
+import Navbar from "../../../components/User Dashboard/Navbar/Navbar";
+import Footer from "../../../components/User Dashboard/Footer/Footer";
 
 function Home() {
-    // const [setAboutMain, setAboutMainState] = useState({
-    //     aboutUsMain: ""
-    // });
-    // const [setAboutSub, setAboutSubState] = useState({
-    //     aboutUsSub: ""
-    // });
-    // const [setSalesInfo, setSalesInfoState] = useState({
-    //     salesInfo: ""
-    // });
-    // const [setWelcome, setWelcomeState] = useState({
-    //     welcome: ""
-    // });
-    // const [setBrief, setBriefState] = useState({
-    //     brief: ""
-    // });
-
+    // Declare state
     const [currentHome, setCurrentHomeState] = useState({
         aboutUsMain: "",
         aboutUsSub: "",
@@ -58,33 +45,18 @@ function Home() {
         })
     }
 
-    // const displayWelcome = currentHome.filter(welcomeText => welcomeText.title === "welcome");
-    // console.log(displayWelcome);
-    
-    // const displayAboutUs = currentHome.filter(aboutUsText => aboutUsText.title === "aboutUsMain" && aboutUsText.title === "aboutUsSub");
-    // console.log(displayAboutUs);
-
-    // const displayAboutSub = currentHome.filter(aboutUsSubText => aboutUsSubText.title === "aboutUsSub");
-    // console.log(displayAboutSub);
-
-    // const displaySales = currentHome.filter(salesInfoText => salesInfoText.title === "salesInfo");
-    // console.log(displaySales);
-
-    // const displayBrief = currentHome.filter(briefText => briefText.title === "brief");
-    // console.log(displayBrief);
-
-    function handleFormSubmit(event){
-        event.preventDefault();
-        console.log("SELECTED")
-    }
-
     return(
-        <div className="homeStyle">
-            <About text1={currentHome.aboutUsMain.text} text2={currentHome.aboutUsSub.text} text3={currentHome.welcome.text} text4={currentHome.brief.text}/>
-            <StoreInfo storeText = {currentHome.salesInfo.text}/>
-            <Direction />
-            <Contact submit={handleFormSubmit}/>
-        </div>
+        <>
+            <Header />
+            <Navbar />
+                <div className="homeStyle">
+                    <About text1={currentHome.aboutUsMain.text} text2={currentHome.aboutUsSub.text} text3={currentHome.welcome.text} text4={currentHome.brief.text}/>
+                    <StoreInfo storeText = {currentHome.salesInfo.text}/>
+                    <Direction />
+                    <Contact />
+                </div>
+            <Footer />
+        </>
     )
 }
 

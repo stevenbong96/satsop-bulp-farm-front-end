@@ -5,7 +5,9 @@ import MoreInfoInput from '../../components/MoreInfoInput'
 import SaveBtn from '../../components/SaveBtn'
 import AdminDashUpdateFields from '../../components/AdminDashUpdateFields'
 import AdminNav from '../../components/AdminNav'
+import AdminHeader from '../../components/AdminHeader'
 import './index.css'
+import { useHistory } from 'react-router-dom'
 
 export default function PlantingInstructionsAdmin() {
 
@@ -13,7 +15,14 @@ export default function PlantingInstructionsAdmin() {
 
     const [moreInfo, setMoreInfo] = useState({})
 
+    let history = useHistory();
+
     useEffect(() => {
+        const token = localStorage.getItem("token");
+        // console.log(token);
+        if(!token){
+            history.push("/login")
+        }
         API.getInstructions().then(({ data }) => {
             // create object of instructions by their order
             const instructionsObj = {}
@@ -37,6 +46,9 @@ export default function PlantingInstructionsAdmin() {
             // set state to new objects
             setInstructions(instructionsObj)
             setMoreInfo(moreInfoObj)
+        }).catch(err => {
+            console.log(err);
+            history.push("/login")
         })
     }, [])
 
@@ -95,13 +107,15 @@ export default function PlantingInstructionsAdmin() {
 
     return (
         <>
+            <AdminHeader />
             <AdminNav />
             <AdminDashUpdateFields>
                 <h1 className='section-heading'>Planting Instructions</h1>
+                <hr />
                 {Object.keys(instructions).map((place) => {
                     const instruction = instructions[place]
                     return (
-                        <div>
+                        <div className='plantingText'>
                             <InstructionsInput
                                 place={place}
                                 heading={instruction.title}
@@ -116,7 +130,7 @@ export default function PlantingInstructionsAdmin() {
                 {Object.keys(moreInfo).map(place => {
                     const infoSection = moreInfo[place]
                     return (
-                        <div>
+                        <div className='plantingText'>
                             <MoreInfoInput
                                 place={place}
                                 heading={infoSection.title}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -14,7 +14,8 @@ const useStyles = makeStyles({
         marginTop: "3%",
         margin: "auto",
         marginBottom: "3%",
-        width: "50%"
+        width: "50%",
+        height: 475
     },
     media: {
         height: 140,
@@ -22,6 +23,13 @@ const useStyles = makeStyles({
 });
 
 function ProductResult(props) {
+
+
+     const addProduct = async () => {
+        let obj = await props.props
+        props.addToCart(obj)
+    }
+
     const classes = useStyles();
 
     return (
@@ -29,39 +37,45 @@ function ProductResult(props) {
             <CardActionArea>
                 <CardContent>
                     <Typography gutterBottom variant="h6" component="h2">
-                        {props.name}
+                        {props.props.name}
                     </Typography>
                 </CardContent>
                 <CardMedia
                     className={classes.media}
-                    image="https://image.freepik.com/free-vector/coming-soon-message-illuminated-with-light-projector_1284-3622.jpg"
-                    // image={props.image}
+                    image={props.props.image}
                     title="product Image"
                 />
-                <CardContent>
+                <CardContent className="cardComponents">
                     <Typography gutterBottom variant="p" component="h2">
-                        Category: {props.category}
+                        Category: {props.props.category}
                     </Typography>
                     <br />
                     <Typography gutterBottom variant="p" component="h2">
-                        Color: {props.color.map(element => element.length > 0 ?
+                        Color: {props.props.color.map(element => element.length > 0 ?
                             element + " " : "No Color Found"
                         )}
                     </Typography>
                     <br />
                     <Typography gutterBottom variant="p" component="h2">
-                        Planting Season: {props.planting}
+                        Planting Season: {props.props.planting}
                     </Typography>
+                    <br />
+                    {/* <Typography gutterBottom variant="p" component="h2">
+                        Description: {props.props.description}
+                    </Typography> */}
                     <Typography gutterBottom variant="h6" component="h2">
-                        $ {props.price}
+                        $ {props.props.price.toFixed(2)}
                     </Typography>
                 </CardContent>
             </CardActionArea>
-            <CardActions>
-                <Button size="small" color="primary">
-                    Product info
+            <CardActions className="cardComponents">
+                {props.props.inStock === true ? 
+                <Button size="small" color="primary" onClick={addProduct}>
+                    Add to Shopping Cart
                 </Button>
+                : null}
             </CardActions>
+           
         </Card>
     )
 }
