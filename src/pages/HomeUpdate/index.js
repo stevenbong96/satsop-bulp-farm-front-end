@@ -5,6 +5,7 @@ import AdminDashUpdateFields from '../../components/AdminDashUpdateFields'
 import AdminNav from '../../components/AdminNav'
 import AdminHeader from '../../components/AdminHeader'
 import './index.css'
+import { useHistory } from 'react-router-dom'
 
 export default function HomeUpdate() {
     const [homeText, setHomeText] = useState({
@@ -17,8 +18,15 @@ export default function HomeUpdate() {
 
     const { welcome, brief, aboutUsMain, aboutUsSub, salesInfo } = homeText
 
+    let history = useHistory();
+
     // on load, get all text displayed on home page and set the state
     useEffect(() => {
+        const token = localStorage.getItem("token");
+        // console.log(token);
+        if(!token){
+            history.push("/login")
+        }
         API.getHomePageText().then(res => {
             // filter through data for text we want displayed
             const acceptableTexts = ['welcome', 'brief', 'aboutUsMain', 'aboutUsSub', 'salesInfo']
@@ -33,6 +41,9 @@ export default function HomeUpdate() {
             })
             // set state to new array of texts
             setHomeText(textsObj)
+        }).catch(err => {
+            console.log(err);
+            history.push("/login")
         })
     }, [])
 

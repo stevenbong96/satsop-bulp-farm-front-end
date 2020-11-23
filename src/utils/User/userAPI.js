@@ -31,7 +31,11 @@ export default {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/PlantingInstructionText";
     return axios.get(BASEURL);
   },
-  getGoogleMaps: function () {
+  sendContactInfo: function (contactData) {
+    console.log(contactData);
+    return axios.post(`${apiURL}/api/email`, contactData);
+  },
+  getGoogleMaps: function() {
     const BASEURL = "";
     return axios.get(BASEURL);
   }
