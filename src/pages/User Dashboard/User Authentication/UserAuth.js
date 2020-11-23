@@ -57,19 +57,6 @@ function UserAuth() {
         isLoggedIn: false
     })
 
-    // const [setEmail, setEmailState] = useState("");
-    // const [setPassword, setPasswordState] = useState("");
-
-    // function handleEmailInput(event) {
-    //     const { name, value } = event.target;
-    //     setEmailState(value)
-    // }
-
-    // function handlePasswordInput(event) {
-    //     const { name, value } = event.target;
-    //     setPasswordState(value)
-    // }
-
     useEffect(() => {
         const token = localStorage.getItem("token");
         if(token){
@@ -114,16 +101,11 @@ function UserAuth() {
 
     function handleLoginForm(event) {
         event.preventDefault();
-        console.log("SUBMITTED")
-        //     axios.post("http://localhost:4000/api/login", { userEmail: setEmail, userPassword: setPassword }).then(data => {
-        //         console.log(data)
-        //         // Push to the admin dashboard
-        //         history.push("/admin/dashboard/basicinfo")
-        //     })
-        console.log(loginFormState);
+        // console.log("SUBMITTED")
+        // console.log(loginFormState);
         API.getLogin(loginFormState)
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 localStorage.setItem("token", res.data.token)
                 history.push("/admin/dashboard/basicinfo")
                 // API.getAdminInfo(res.data.token)

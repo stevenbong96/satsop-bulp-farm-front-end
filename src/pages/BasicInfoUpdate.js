@@ -17,12 +17,12 @@ export default function BasicInfo() {
     // on load, make request to server for basic info
     useEffect(() => {
         const token = localStorage.getItem("token");
-        console.log(token);
+        // console.log(token);
         if(!token){
             history.push("/login")
         }
         API.getBasicInfo(token).then(function (res) {    
-            console.log(res);
+            // console.log(res);
             setBasicInfo({
                 phone: res.data[0].phoneNumber,
                 email: res.data[0].companyEmail,

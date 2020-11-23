@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// const apiURL = "https://calm-brook-21723.herokuapp.com";
-const apiURL = "http://localhost:4000";
+const apiURL = "https://calm-brook-21723.herokuapp.com";
 
 export default {
   getAllFAQ: function () {
@@ -22,39 +21,10 @@ export default {
   },
   getLogin: function (userData) {
     return axios.post(`${apiURL}/api/login`, userData);
-    
-    // console.log(userData);
-    // return fetch(`${apiURL}/login`, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify(userData)
-    // })
-    //   .then(res => {
-    //     // console.log(res);
-    //     return res.json();
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   })
   },
   getAdminInfo: function (token) {
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     return axios.get(`${apiURL}/api/secrets`);
-
-    // return fetch(`${apiURL}/secrets`, {
-    //   headers: {
-    //     "authorization": `Bearer ${token}`
-    //   }
-    // })
-    //   .then(res => {
-    //     // console.log(res);
-    //     return res.json();
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   })
   },
   getAllPlantingInfo: function () {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/PlantingInstructionText";
