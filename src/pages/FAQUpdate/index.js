@@ -12,14 +12,25 @@ import AdminDashUpdateFields from '../../components/AdminDashUpdateFields'
 import AdminNav from '../../components/AdminNav'
 import AdminHeader from '../../components/AdminHeader'
 import './index.css'
+import { useHistory } from 'react-router-dom'
 
 export default function FAQUpdate() {
     const [questions, setQuestions] = useState([])
 
+    let history = useHistory();
+
     // on load, get all questions from server
     useEffect(() => {
+        const token = localStorage.getItem("token");
+        // console.log(token);
+        if(!token){
+            history.push("/login")
+        }
         API.getFAQ().then(res => {
             setQuestions(res.data)
+        }).catch(err => {
+            console.log(err);
+            history.push("/login")
         })
     }, [])
 

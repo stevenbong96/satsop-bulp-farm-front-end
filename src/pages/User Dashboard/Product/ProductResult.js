@@ -24,7 +24,6 @@ const useStyles = makeStyles({
 
 function ProductResult(props) {
 
-    // const [shoppingCartState, setShoppingCartState] = useState([]);
 
      const addProduct = async () => {
         let obj = await props.props
@@ -43,7 +42,6 @@ function ProductResult(props) {
                 </CardContent>
                 <CardMedia
                     className={classes.media}
-                    // image="https://image.freepik.com/free-vector/coming-soon-message-illuminated-with-light-projector_1284-3622.jpg"
                     image={props.props.image}
                     title="product Image"
                 />
@@ -71,15 +69,13 @@ function ProductResult(props) {
                 </CardContent>
             </CardActionArea>
             <CardActions className="cardComponents">
-                {/* <Button size="small" color="primary">
-                    Product info
-                </Button> */}
                 {props.props.inStock === true ? 
                 <Button size="small" color="primary" onClick={addProduct}>
                     Add to Shopping Cart
                 </Button>
                 : null}
             </CardActions>
+           
         </Card>
     )
 }
