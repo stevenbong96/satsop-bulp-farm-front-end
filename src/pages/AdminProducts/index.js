@@ -43,10 +43,10 @@ export default function AdminProducts() {
     useEffect(() => {
         // filter products to meet current filter
         let newProducts = []
-        if (filters.color !== '' && filters.plantingSeason !== '') {
-            newProducts = filteredProducts.filter(product => product.color.includes(filters.color) && product.plantingSeason === filters.plantingSeason)
-        } else if (filters.color !== '') {
-            newProducts = filteredProducts.filter(product => product.color.indexOf(filters.color) > -1)
+        if (filters.category !== '' && filters.plantingSeason !== '') {
+            newProducts = filteredProducts.filter(product => product.category === filters.category && product.plantingSeason === filters.plantingSeason)
+        } else if (filters.category !== '') {
+            newProducts = filteredProducts.filter(product => product.category === filters.category)
         } else if (filters.plantingSeason !== '') {
             newProducts = filteredProducts.filter(product => product.plantingSeason === filters.plantingSeason)
         } else {
@@ -115,9 +115,11 @@ export default function AdminProducts() {
     const handleFilterReset = event => {
         // set filters in state to empty strings
         setFilters({
-            color: '',
+            category: '',
             plantingSeason: ''
         })
+        // set filtered products back to original array of products
+        // setFilteredProducts(products)
     }
 
     // when user clicks update btn, pop up modal with info to be changed
@@ -214,9 +216,9 @@ export default function AdminProducts() {
                         <ProductSortDropdown />
                         <FilterDropdown
                             handleFilterChange={handleFilterChange}
-                            filterType='color'
-                            label='Color'
-                            options={['yellow', 'purple', 'blue', 'pink', 'white', 'red', 'orange', 'green']}
+                            filterType='category'
+                            label='Category'
+                            options={['Bulbs', 'Fresh Cut Flowers', 'Potted Plants', 'Extra Supplies', 'Floral Arrangements']}
                         />
                         <FilterDropdown
                             handleFilterChange={handleFilterChange}
