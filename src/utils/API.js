@@ -1,8 +1,10 @@
 import axios from 'axios'
 
 export default {
-    getBasicInfo: function () {
-        return axios.get('https://calm-brook-21723.herokuapp.com/api/companyInfoText')
+    getBasicInfo: function (token) {
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+        // return axios.get('https://calm-brook-21723.herokuapp.com/api/companyInfoText')
+        return axios.get('http://localhost:4000/api/companyInfoText')
     },
     updateBasicInfo: function (info) {
         return axios.put('https://calm-brook-21723.herokuapp.com/api/companyInfoText', info)

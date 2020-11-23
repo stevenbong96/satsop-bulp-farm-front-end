@@ -6,15 +6,23 @@ import UpdateInput from '../components/UpdateInput'
 import SaveBtn from '../components/SaveBtn'
 import CancelBtn from '../components/CancelBtn'
 import AdminDashUpdateFields from '../components/AdminDashUpdateFields'
+import { useHistory } from 'react-router-dom'
 
 export default function BasicInfo() {
 
     const [basicInfo, setBasicInfo] = useState({})
     
+    let history = useHistory();
 
     // on load, make request to server for basic info
     useEffect(() => {
-        API.getBasicInfo().then(function (res) {    
+        const token = localStorage.getItem("token");
+        console.log(token);
+        if(!token){
+            history.push("/login")
+        }
+        API.getBasicInfo(token).then(function (res) {    
+            console.log(res);
             setBasicInfo({
                 phone: res.data[0].phoneNumber,
                 email: res.data[0].companyEmail,
@@ -27,7 +35,9 @@ export default function BasicInfo() {
                 twitter: res.data[0].twitter,
                 hours: res.data[0].hours
             })
-            
+        }).catch(err => {
+            console.log(err);
+            history.push("/login")
         })
     },[])
 

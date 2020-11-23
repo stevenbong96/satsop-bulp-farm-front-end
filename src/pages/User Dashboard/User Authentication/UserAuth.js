@@ -71,7 +71,10 @@ function UserAuth() {
     // }
 
     useEffect(() => {
-        matchAdminData();
+        const token = localStorage.getItem("token");
+        if(token){
+            matchAdminData();
+        }
     }, [])
 
     function matchAdminData() {
@@ -121,22 +124,23 @@ function UserAuth() {
         API.getLogin(loginFormState)
             .then(res => {
                 console.log(res);
-                localStorage.setItem("token", res.token)
-                API.getAdminInfo(res.token)
-                    .then(adminRes => {
-                        console.log(adminRes);
-                        setAdminState({
-                            firstName: adminRes.firstName,
-                            lastName: adminRes.lastName,
-                            email: adminRes.email,
-                            token: adminRes.token,
-                            id: adminRes._id,
-                            isLoggedIn: true
-                        })
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    })
+                localStorage.setItem("token", res.data.token)
+                history.push("/admin/dashboard/basicinfo")
+                // API.getAdminInfo(res.data.token)
+                //     .then(adminRes => {
+                //         // console.log(adminRes);
+                //         // setAdminState({
+                //         //     firstName: adminRes.firstName,
+                //         //     lastName: adminRes.lastName,
+                //         //     email: adminRes.email,
+                //         //     token: adminRes.token,
+                //         //     id: adminRes._id,
+                //         //     isLoggedIn: true
+                //         // })
+                //     })
+                //     .catch(err => {
+                //         console.log(err);
+                //     })
             })
             .catch(err => {
                 console.log(err);
