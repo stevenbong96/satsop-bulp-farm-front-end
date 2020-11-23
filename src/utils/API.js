@@ -15,7 +15,8 @@ export default {
     updateHomePageText: function (id, text) {
         return axios.put('https://calm-brook-21723.herokuapp.com/api/homeText/' + id, text)
     },
-    getProducts: function () {
+    getProducts: function (token) {
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
         return axios.get('https://calm-brook-21723.herokuapp.com/api/products')
     },
     postProduct: function (productObj) {
