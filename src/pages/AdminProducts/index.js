@@ -171,17 +171,37 @@ export default function AdminProducts() {
         API.deleteProduct(id)
     }
 
-    const openWidget = () => {
 
-    }
 
-    let widget = window.cloudinary.createUploadWidget({
-        cloudName: "satstop-bubl-farm",
-        uploadPreset: "ml_default"
-    },
-        (err, result) => { })
+    const openCloudinaryWidget = (url) => {
+        // iterate over url to grab public id of image to be overwritten
+        let id = []
+        let slashCount = 0
+        for (let i = url.length - 1; true; i--) {
+            if (url[i] === '/') {
+                slashCount++
+            }
+            if (slashCount === 2) {
+                break;
+            }
 
-    const showWidget = (widget) => {
+            id.unshift(url[i])
+        }
+        // join id array
+        id = id.join('')
+        console.log(url)
+
+        let widget = window.cloudinary.createUploadWidget({
+            cloudName: "satstop-bubl-farm",
+            uploadPreset: "ml_default",
+            publicId: id,
+            apiKey: '149938291122592'
+        }, (error, result) => {
+            if (!error && result && result.event === 'success') {
+                console.log("Done!  Here is the image info: ", result.info)
+            }
+        })
+
         widget.open()
     }
 
@@ -244,7 +264,7 @@ export default function AdminProducts() {
                                 needsFullSun={needsFullSun}
                                 inStock={inStock}
                                 sale={sale}
-                                imageWidget={openWidget}
+                                imageWidget={openCloudinaryWidget}
                                 handleUpdateBtnClick={handleUpdateBtnClick}
                                 handleProductDelete={handleProductDelete}
                             />

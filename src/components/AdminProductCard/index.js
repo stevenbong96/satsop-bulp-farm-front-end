@@ -23,7 +23,7 @@ export default function AdminProductCard(props) {
                 </figure>
             </div>
             <div className='change-img-container'>
-                {/* <button id='upload_widget' className='cloudinary-button change-img-btn' onClick={props.imageWidget}>Change Image</button> */}
+                <button id='upload_widget' className='cloudinary-button change-img-btn' onClick={() => props.imageWidget(props.image)}>Change Image</button>
             </div>
             <div className="card-content">
                 <div className='product-name-container'>
