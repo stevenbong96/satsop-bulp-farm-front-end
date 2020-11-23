@@ -10,22 +10,7 @@ import Navbar from "../../../components/User Dashboard/Navbar/Navbar";
 import Footer from "../../../components/User Dashboard/Footer/Footer";
 
 function Home() {
-    // const [setAboutMain, setAboutMainState] = useState({
-    //     aboutUsMain: ""
-    // });
-    // const [setAboutSub, setAboutSubState] = useState({
-    //     aboutUsSub: ""
-    // });
-    // const [setSalesInfo, setSalesInfoState] = useState({
-    //     salesInfo: ""
-    // });
-    // const [setWelcome, setWelcomeState] = useState({
-    //     welcome: ""
-    // });
-    // const [setBrief, setBriefState] = useState({
-    //     brief: ""
-    // });
-
+    // Declare state
     const [currentHome, setCurrentHomeState] = useState({
         aboutUsMain: "",
         aboutUsSub: "",

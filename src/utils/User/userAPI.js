@@ -34,21 +34,6 @@ export default {
   sendContactInfo: function (contactData) {
     console.log(contactData);
     return axios.post(`${apiURL}/api/email`, contactData);
-
-    // return fetch(`${apiURL}/email`, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify(contactData)
-    // })
-    //   .then(res => {
-    //     console.log(res);
-    //     res.json();
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   })
   },
   getGoogleMaps: function() {
     const BASEURL = "";

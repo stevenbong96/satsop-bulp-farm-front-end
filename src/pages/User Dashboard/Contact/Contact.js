@@ -12,6 +12,7 @@ function Contact() {
         message: ""
     })
 
+
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFilledFormState({...filledForm, [name]: value});
@@ -19,10 +20,22 @@ function Contact() {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        console.log("SELECTED");
+        // console.log("SELECTED");
         API.sendContactInfo(filledForm)
         .then(res => {
-            console.log(res);
+            // console.log(res);
+            if (res.data.status === "success"){
+                alert("Message Sent!!!!!"); 
+                setFilledFormState({
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    inquiries: "",
+                    message: ""
+                })
+            }else if(res.data.status === "fail"){
+                alert("Message failed to send.")
+            }
         })
         .catch(err => {
             console.log(err);
@@ -87,7 +100,7 @@ function Contact() {
                 </form>
 
                 <div className="column is-7 imageStyle">
-                    <img src="https://res.cloudinary.com/satsop-bulb-farm/image/upload/v1605896250/Satsop%20Bulb%20Farm/Satsop%20Bulb%20Farm/sbf_front_page_3_tbty6r.jpg" alt="picture1" />
+                    <img className="contactImage" src="https://res.cloudinary.com/satsop-bulb-farm/image/upload/v1605896250/Satsop%20Bulb%20Farm/Satsop%20Bulb%20Farm/sbf_front_page_3_tbty6r.jpg" alt="picture1" />
                 </div>
             </div>
         </div>
