@@ -18,15 +18,15 @@ export default function HomeUpdate() {
 
     const { welcome, brief, aboutUsMain, aboutUsSub, salesInfo } = homeText
 
-    let history = useHistory();
+    // let history = useHistory();
 
     // on load, get all text displayed on home page and set the state
     useEffect(() => {
-        const token = localStorage.getItem("token");
-        // console.log(token);
-        if(!token){
-            history.push("/login")
-        }
+        // const token = localStorage.getItem("token");
+        // // console.log(token);
+        // if(!token){
+        //     history.push("/login")
+        // }
         API.getHomePageText().then(res => {
             // filter through data for text we want displayed
             const acceptableTexts = ['welcome', 'brief', 'aboutUsMain', 'aboutUsSub', 'salesInfo']
@@ -41,10 +41,11 @@ export default function HomeUpdate() {
             })
             // set state to new array of texts
             setHomeText(textsObj)
-        }).catch(err => {
-            console.log(err);
-            history.push("/login")
         })
+        // .catch(err => {
+        //     console.log(err);
+        //     history.push("/login")
+        // })
     }, [])
 
     // update state when user changes an input field

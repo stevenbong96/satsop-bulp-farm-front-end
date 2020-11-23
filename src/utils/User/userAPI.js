@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const apiURL = "https://calm-brook-21723.herokuapp.com";
-const apiURL = "http://localhost:4000";
+const apiURL = "https://calm-brook-21723.herokuapp.com";
+// const apiURL = "http://localhost:4000";
 
 export default {
   getAllFAQ: function () {
@@ -18,6 +18,7 @@ export default {
   },
   getAllHomeInfo: function () {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/homeText/";
+    // const BASEURL = "http://localhost:4000/api/homeText/";
     return axios.get(BASEURL);
   },
   getLogin: function (userData) {
