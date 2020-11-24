@@ -17,11 +17,11 @@ Family Owned 3 generation Bulb farm in a small town with no stoplight. The Bulb 
 ## Visuals 
 Home
 
-![Home Page](.png)
+![Home Page](./home.PNG)
 
 Products
 
-![Products](.png)
+![Products](./products.PNG)
 
 Online Sales
 
@@ -74,7 +74,7 @@ jaemclain-Front End
 
 ## License 
 
-![GitHub]() 
+![GitHub](https://img.shields.io/github/license/stevenbong96/satsop-bulp-farm-front-end) 
 
 MIT License
 
