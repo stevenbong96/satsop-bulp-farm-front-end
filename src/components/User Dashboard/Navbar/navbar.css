@@ -1,10 +1,17 @@
-.navbarStyle{
+/* .navbarStyle{
     display: block;
     text-align: center;
     margin: 0 auto;
     box-shadow: #255f01 ;
     background-color: #4c8c24;
     padding-left: 42.5%;
+} */
+
+.Navbar__brand {
+    font-size: 2rem;
+    font-weight: bold;
+    padding-left: 10px;
+    background-color: none;
 }
 
 .burgerStyle{

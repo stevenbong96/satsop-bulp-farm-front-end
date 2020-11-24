@@ -16,7 +16,10 @@ function Navbar() {
             </div>
         
             <div id="navbarBasicExample" className={`navbar-menu navbarStyle has-text-centered ${isActive ? "is-active" : ""}`}>
-                <div className="navbar-start has-text-centered">
+                <div className="navbar-start has-text-centered">    
+                    <h1 className="Navbar__brand">Satsop Bulb Farm</h1>
+                </div>
+                <div className="navbar-end has-text-centered">
                     <a className="navbar-item has-text-centered">
                         <Link className="has-text-black has-text-centered" to="/">Home</Link>
                     </a>

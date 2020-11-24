@@ -1,57 +1,72 @@
-import React , {useState, useEffect}from "react";
+import React, { useState, useEffect } from "react";
 // import MapView from "./mapView";
 import "./storeInfo.css";
 // import 'leaflet/dist/leaflet.css';
 // import {Link} from "react-router-dom";
 import API from "../../../utils/User/userAPI";
+import MapView from "../Direction/mapView";
 
 function StoreInfo(props) {
-    const [currentStoreInfo, setCurrentStoreInfo] = useState([]);
+  const [currentStoreInfo, setCurrentStoreInfo] = useState([]);
 
-    useEffect(() => {
-        loadStoreInfo();
-    }, [])
+  useEffect(() => {
+    loadStoreInfo();
+  }, []);
 
-    function loadStoreInfo(){
-        API.getStoreInfo()
-        .then(res => {
-            // console.log(res.data);
-            setCurrentStoreInfo(res.data)
-        })
-        .catch(err => {
-            console.log(err);
-        })
-    }
+  function loadStoreInfo() {
+    API.getStoreInfo()
+      .then((res) => {
+        // console.log(res.data);
+        setCurrentStoreInfo(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
+  // {currentStoreInfo.map(storeObj => {
+  //     console.log(storeObj)
+  //     return <phoneNumber={storeObj.phoneNumber} email={storeObj.companyEmail} hours={storeObj.hours}/>
+  // })}
 
-    // {currentStoreInfo.map(storeObj => {
-    //     console.log(storeObj)
-    //     return <phoneNumber={storeObj.phoneNumber} email={storeObj.companyEmail} hours={storeObj.hours}/>
-    // })}
+  return (
+    <div className="storeStyle">
+      <h2 className="section__title">Store Info</h2>
+      <hr></hr>
+      <h6 className="subtitle is-6 has-text-white">{props.storeText}</h6>
 
-    return (
-        <div className="storeStyle">
-            <h2 className="title is-2">Store Info</h2>
-            <br/>
-            <h6 className="subtitle is-6 storeText has-text-white">{props.storeText}</h6>
-            <div className="columns is-justify-content-center storeText">
-                <div className="column is-12">
-                    <h6 className="subtitle is-6 has-text-white">Phone Number: {currentStoreInfo.map(phoneObj => phoneObj.phoneNumber)}</h6>
-                </div>
-            </div>
-            <div className="columns is-justify-content-center storeText">
-                <div className="column is-12">
-                    <h6 className="subtitle is-6 has-text-white">Email: {currentStoreInfo.map(emailObj => emailObj.companyEmail)}</h6>
-                </div>
-            </div>
-            <div className="columns is-justify-content-center storeText">
-                <div className="column is-12">
-                    <h6 className="subtitle is-6 has-text-white">Store Hours: Monday-Friday 10AM - 5PM</h6>
-                    {/* <p>{currentStoreInfo.map(hoursObj => hoursObj.map(hoursObj2 => console.log(hoursObj2)))}</p> */}
-                </div>
-            </div>
+      <div className="columns is-justify-content-center storeText">
+        <div className="column is-4">
+          <h6 class="subtitle ">
+            Address: 980 Monte Elma Rd. <br /> Elma, WA 98541
+          </h6>
+          <form
+            class="directions-form"
+            action="https://www.google.com/maps/place/Satsop+Bulb+Farm/@47.0047691,-123.4744082,16.5z/data=!4m13!1m7!3m6!1s0x5492290aa727fdf9:0xf881983b2eecb0ec!2sSatsop,+WA+98541!3b1!8m2!3d47.0031512!4d-123.4834945!3m4!1s0x0:0xed9ea646b607879a!8m2!3d47.0038552!4d-123.4734468"
+            method="get"
+            target="_blank"
+          >
+            <button className="button is-rounded has-background-success">
+              Get Directions
+            </button>
+          </form>
+          <h6 className="subtitle has-text-white">
+            Phone Number:{" "}
+            {currentStoreInfo.map((phoneObj) => phoneObj.phoneNumber)}
+          </h6>
+          <h6 className="subtitle has-text-white">
+            Email: {currentStoreInfo.map((emailObj) => emailObj.companyEmail)}
+          </h6>
+          <h6 className="subtitle has-text-white">
+            Store Hours: Monday-Friday 10AM - 5PM
+          </h6>
         </div>
-    )
+        <div className="column is-8">
+          <MapView></MapView>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default StoreInfo
+export default StoreInfo;
