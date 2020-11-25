@@ -31,7 +31,7 @@ function StoreInfo(props) {
 
   return (
     <div className="storeStyle">
-      <h2 className="section__title">Store Info</h2>
+      <h2 className="section__title">STORE INFO</h2>
       <hr></hr>
       <h6 className="subtitle is-6 has-text-white">{props.storeText}</h6>
 
