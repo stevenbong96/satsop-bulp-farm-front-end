@@ -42,18 +42,18 @@ function Contact() {
   }
 
   return (
-    <div className="">
+    <div className="contact__container">
       <h2 className="section__title">CONTACT US</h2>
       <hr></hr>
       <div className="columns">
-        <div className="column is-6 imageStyle">
+        <div className="column is-4 imageStyle">
           <img
             className="contactImage"
             src="https://res.cloudinary.com/satsop-bulb-farm/image/upload/v1605896250/Satsop%20Bulb%20Farm/Satsop%20Bulb%20Farm/sbf_front_page_3_tbty6r.jpg"
             alt="picture1"
           />
         </div>
-        <form className="column is-6">
+        <form className="column is-8">
           <div className="column is-12">
             <div className="field">
               <label className="label">First Name</label>

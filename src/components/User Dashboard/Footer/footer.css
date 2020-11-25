@@ -1,9 +1,7 @@
 .footerStyle {
-    /* padding-bottom: 3%; */
-    /* padding-top: 3%; */
-    position: relative;
-    width: 100%;
-    height: 30vh;
-    bottom: 0;
-    overflow:hidden;
+  position: relative;
+  width: 100%;
+  /* height: 20vh; */
+  padding-bottom: 0 !important;
+  bottom: 0;
 }

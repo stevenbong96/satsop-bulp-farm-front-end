@@ -7,6 +7,7 @@ import {
   CloudinaryContext,
 } from "cloudinary-react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "./PhotoCarousel.css";
 
 function PhotoCarousel() {
   const photoArray = [
@@ -44,25 +45,23 @@ function PhotoCarousel() {
   ];
 
   return (
-    <div>
-      <div className="about__carousel">
-        <Carousel
-          infiniteLoop="true"
-          autoPlay="true"
-          interval="3000"
-          width="100%"
-          showArrows="false"
-          showStatus="false"
-          showIndicators="false"
-          showThumbs="false"
-        >
-          {photoArray.map((image) => (
-            <div style={{ height: 600 }}>
-              <Image cloudName="satsop-bulb-farm" publicId={image.image} />
-            </div>
-          ))}
-        </Carousel>
-      </div>
+    <div className="carousel__container">
+      <Carousel
+        infiniteLoop="true"
+        autoPlay="true"
+        interval="3000"
+        width="100%"
+        showArrows="false"
+        showStatus="false"
+        showIndicators="false"
+        showThumbs="false"
+      >
+        {photoArray.map((image) => (
+          <div style={{ height: 600 }}>
+            <Image cloudName="satsop-bulb-farm" publicId={image.image} />
+          </div>
+        ))}
+      </Carousel>
     </div>
   );
 }
