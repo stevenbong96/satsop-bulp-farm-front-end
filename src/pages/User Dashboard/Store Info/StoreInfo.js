@@ -30,10 +30,10 @@ function StoreInfo(props) {
   // })}
 
   return (
-    <div className="storeStyle">
+    <div className="storeInfo__container">
       <h2 className="section__title">STORE INFO</h2>
       <hr></hr>
-      <h6 className="subtitle is-6 has-text-white">{props.storeText}</h6>
+      <h6 className="subtitle is-6">{props.storeText}</h6>
 
       <div className="columns is-justify-content-center storeText">
         <div className="column is-4">
@@ -50,16 +50,14 @@ function StoreInfo(props) {
               Get Directions
             </button>
           </form>
-          <h6 className="subtitle has-text-white">
+          <h6 className="subtitle">
             Phone Number:{" "}
             {currentStoreInfo.map((phoneObj) => phoneObj.phoneNumber)}
           </h6>
-          <h6 className="subtitle has-text-white">
+          <h6 className="subtitle">
             Email: {currentStoreInfo.map((emailObj) => emailObj.companyEmail)}
           </h6>
-          <h6 className="subtitle has-text-white">
-            Store Hours: Monday-Friday 10AM - 5PM
-          </h6>
+          <h6 className="subtitle ">Store Hours: Monday-Friday 10AM - 5PM</h6>
         </div>
         <div className="column is-8">
           <MapView></MapView>
