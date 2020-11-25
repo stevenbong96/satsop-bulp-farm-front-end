@@ -22,13 +22,7 @@ function StoreInfo(props) {
             console.log(err);
         })
     }
-
-
-    // {currentStoreInfo.map(storeObj => {
-    //     console.log(storeObj)
-    //     return <phoneNumber={storeObj.phoneNumber} email={storeObj.companyEmail} hours={storeObj.hours}/>
-    // })}
-
+    
     return (
         <div className="storeStyle">
             <h2 className="title is-2">Store Info</h2>
@@ -46,8 +40,13 @@ function StoreInfo(props) {
             </div>
             <div className="columns is-justify-content-center storeText">
                 <div className="column is-12">
-                    <h6 className="subtitle is-6 has-text-white">Store Hours: Monday-Friday 10AM - 5PM</h6>
-                    {/* <p>{currentStoreInfo.map(hoursObj => hoursObj.map(hoursObj2 => console.log(hoursObj2)))}</p> */}
+                    <h6 className="subtitle is-6 has-text-white">Store Hours:</h6>
+                    {currentStoreInfo.map(hoursObj => 
+                        hoursObj.hours.map(hoursObj2 => 
+                        <ul>
+                            <li>{hoursObj2.day}    : {hoursObj2.startTime}AM - {hoursObj2.endTime}PM</li>
+                        </ul>
+                    ))}
                 </div>
             </div>
         </div>
