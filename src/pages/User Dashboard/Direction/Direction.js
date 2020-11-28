@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MapView from "./mapView";
 import "./direction.css";
 // import 'leaflet/dist/leaflet.css';
 // import {Link} from "react-router-dom";
+import API from "../../../utils/User/userAPI";
 
 function Direction() {
+    const [currentAddress, setCurrentAddressState] = useState([]);
+
+    useEffect(() => {
+        loadStoreAddress();
+    }, [])
+
+    function loadStoreAddress() {
+        API.getStoreInfo()
+            .then(res => {
+                // console.log(res.data);
+                setCurrentAddressState(res.data)
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
     return (
         <div className="directionStyle">
             <div className="columns is-justify-content-center is-mobile">
@@ -17,7 +35,13 @@ function Direction() {
 
                     <div className="columns">
                         <div className="column is-12 addresStyle">
-                            <h6 class="subtitle is-6">Address: 980 Monte Elma Rd.  <br /> Elma, WA  98541</h6>
+                            {/* <h6 class="subtitle is-6">Address: 980 Monte Elma Rd.  <br /> Elma, WA  98541</h6> */}
+                            {currentAddress.map(currentObj => {
+                                // console.log(currentObj);
+                                return (
+                                <h5 class="subtitle is-5">{currentObj.address} {currentObj.state}</h5>
+                                )
+                            })}
                         </div>
                     </div>
 
