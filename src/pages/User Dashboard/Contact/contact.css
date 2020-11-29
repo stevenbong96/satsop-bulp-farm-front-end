@@ -10,5 +10,23 @@
 .contact__container {
   background-color: white;
   padding: 30px;
-  margin-bottom: 25px;
+  margin-bottom: 100px;
+}
+
+.contact__button {
+  padding: 10px 20px;
+  color: white;
+  background-color: #283618;
+  border-radius: 10px;
+  border-style: none;
+  font-weight: 500;
+}
+
+.contact__button:hover {
+  background-color: #364921;
+  cursor: pointer;
+}
+
+.card {
+  width: 100%;
 }

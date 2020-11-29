@@ -5,6 +5,8 @@
   text-align: justify;
   justify-content: space-evenly;
   color: black;
+  margin-bottom: 100px;
+  margin-top: 25px;
 }
 
 .about__header {

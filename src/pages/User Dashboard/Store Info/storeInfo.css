@@ -2,7 +2,7 @@
   text-align: center;
   margin: 0 auto;
   margin-top: 3%;
-  margin-bottom: 3%;
+  margin-bottom: 100px;
   /* width: 70%; */
   color: whitesmoke;
 }
@@ -12,4 +12,25 @@
   text-align: center;
   /* background-color: #4c8c24; */
   /* box-shadow: 3px 3px 3px #255f01; */
+}
+
+.storeInfo__card {
+  padding: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px;
+}
+
+.storeInfo__button {
+  padding: 10px 20px;
+  color: white;
+  background-color: #283618;
+  border-radius: 10px;
+  border-style: none;
+  font-weight: 500;
+}
+
+.storeInfo__button:hover {
+  background-color: #364921;
+  cursor: pointer;
 }

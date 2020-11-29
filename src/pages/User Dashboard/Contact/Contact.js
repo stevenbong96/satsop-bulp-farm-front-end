@@ -42,7 +42,7 @@ function Contact() {
   }
 
   return (
-    <div className="contact__container">
+    <div className="contact__container card">
       <h2 className="section__title">CONTACT US</h2>
       <hr></hr>
       <div className="columns">
@@ -130,8 +130,8 @@ function Contact() {
 
             <div className="field is-grouped is-justify-content-center">
               <div className="control">
-                <button className="button is-link" onClick={handleFormSubmit}>
-                  Submit
+                <button className="contact__button" onClick={handleFormSubmit}>
+                  SUBMIT
                 </button>
               </div>
             </div>

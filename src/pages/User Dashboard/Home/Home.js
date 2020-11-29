@@ -10,7 +10,7 @@ import Navbar from "../../../components/User Dashboard/Navbar/Navbar";
 import Footer from "../../../components/User Dashboard/Footer/Footer";
 import PhotoCarousel from "../PhotoCarousel/PhotoCarousel";
 import Jumbotron from "../../../components/Jumbotron/Jumbotron";
-import homeBkg from "../../../images/bkg-5.jpg";
+import homeBkg from "../../../images/bkg-9.jpg";
 
 function Home() {
   // Declare state
