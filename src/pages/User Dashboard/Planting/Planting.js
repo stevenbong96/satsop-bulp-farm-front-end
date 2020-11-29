@@ -6,7 +6,7 @@ import Header from "../Header/Header";
 import Navbar from "../../../components/User Dashboard/Navbar/Navbar";
 import Footer from "../../../components/User Dashboard/Footer/Footer";
 import Jumbotron from "../../../components/Jumbotron/Jumbotron";
-import bkgImage from "../../../images/bkg-8.jpg";
+import bkgImage from "../../../images/bkg-7.jpg";
 
 function Planting() {
   const [currentPlantingResult, setCurrentPlantingResultState] = useState([]);
