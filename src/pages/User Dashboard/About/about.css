@@ -26,10 +26,10 @@
 .about__text {
   text-align: left;
   font-size: 1.25rem;
-  padding-bottom: 3%;
+  /* padding-bottom: 3%; */
   /* background-color: #4c8c24; */
-  margin: 5px;
-  border: 3px;
+  /* margin: 5px; */
+  /* border: 3px; */
   /* box-shadow: 3px 3px 3px #255f01; */
 }
 

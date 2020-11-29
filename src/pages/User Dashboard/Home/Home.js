@@ -9,6 +9,8 @@ import StoreInfo from "../Store Info/StoreInfo";
 import Navbar from "../../../components/User Dashboard/Navbar/Navbar";
 import Footer from "../../../components/User Dashboard/Footer/Footer";
 import PhotoCarousel from "../PhotoCarousel/PhotoCarousel";
+import Jumbotron from "../../../components/Jumbotron/Jumbotron";
+import homeBkg from "../../../images/bkg-5.jpg";
 
 function Home() {
   // Declare state
@@ -59,7 +61,12 @@ function Home() {
       <Header />
       <Navbar />
       <div className="homeStyle">
-        <PhotoCarousel />
+        {/* <PhotoCarousel /> */}
+        <Jumbotron
+          image={homeBkg}
+          headline="Welcome to Satsop Bulb Farm"
+          subtitle="Growing the finest bulbs for over 50 years"
+        ></Jumbotron>
         <div className="container">
           <About
             text1={currentHome.aboutUsMain.text}

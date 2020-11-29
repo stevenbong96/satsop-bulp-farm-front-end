@@ -7,20 +7,35 @@
     padding-left: 42.5%;
 } */
 
+.navbar {
+  margin-bottom: -75px;
+  background-color: rgba(255, 255, 255, 0) !important;
+  /* position: fixed !important; */
+  top: 0;
+  width: 100%;
+}
+
 .Navbar__brand {
-    font-size: 2rem;
-    font-weight: bold;
-    padding-left: 10px;
-    background-color: none;
+  font-size: 2rem;
+  font-weight: bold;
+  padding-left: 10px;
+  background-color: none;
 }
 
-.burgerStyle{
-    box-shadow: #255f01 ;
-    background-color: #4c8c24;
+.burgerStyle {
+  box-shadow: #255f01;
+  background-color: #4c8c24;
 }
 
-@media screen and (max-width: 800px){
-    .inputStyle{
-        padding-left: 35%;
-    }
+@media screen and (max-width: 800px) {
+  .inputStyle {
+    padding-left: 35%;
+  }
+}
+
+.navbar__logo {
+  height: 75px;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* padding-top: 10px; */
 }
