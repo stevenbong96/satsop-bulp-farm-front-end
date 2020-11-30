@@ -29,7 +29,7 @@ function Footer() {
         <div className="columns">
           {/* LEFT FOOTER COLUMN */}
           <div class="column is-4">
-            <h3>Contact Us</h3>
+            <h3 className="footer__sectionHeader">Contact Us</h3>
             {/* PHONE */}
             <p className="">
               <a
@@ -85,7 +85,7 @@ function Footer() {
 
           {/* RIGHT FOOTER COLUMN */}
           <div class="column is-4">
-            <h5>Site Links</h5>
+            <h3 className="footer__sectionHeader">Site Links</h3>
             <ul>
               <li>
                 <Link to="/">Home</Link>

@@ -11,3 +11,9 @@
   /* padding-left: 10px; */
   /* padding-right: 10px; */
 }
+
+.footer__sectionHeader {
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #283618;
+}
