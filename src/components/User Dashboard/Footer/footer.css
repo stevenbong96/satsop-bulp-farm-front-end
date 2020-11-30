@@ -5,3 +5,9 @@
   padding-bottom: 0 !important;
   bottom: 0;
 }
+
+.footer__logo {
+  height: 60px;
+  /* padding-left: 10px; */
+  /* padding-right: 10px; */
+}
