@@ -43,5 +43,10 @@ export default {
   getGoogleMaps: function() {
     const BASEURL = "";
     return axios.get(BASEURL);
+  },
+  sendOrderInfo: function(orderObj) {
+    console.log(orderObj)
+    const BASEURL = "https://calm-brook-21723.herokuapp.com/api/orders";
+    return axios.post(BASEURL, orderObj)
   }
 };

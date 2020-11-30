@@ -1,5 +1,6 @@
 import { PayPalButton } from "react-paypal-button-v2";
 import React, { useEffect, useState } from "react";
+import API from "../../../utils/User/userAPI"
 
 export default function PaywithPaypal(props) {
   const [totalState, setTotalState] = useState({
@@ -48,18 +49,30 @@ export default function PaywithPaypal(props) {
       onApprove={(data, actions) => {
         // Capture the funds from the transaction
         return actions.order.capture().then(function (details) {
+          console.log(details)
           // Show a success message to your buyer
           alert(
             `Thank you ${details.payer.name.given_name}! Your order of $${details.purchase_units[0].amount.value} has been placed.`
           );
 
           // OPTIONAL: Call your server to save the transaction
-          return fetch("/paypal-transaction-complete", {
-            method: "post",
-            body: JSON.stringify({
-              orderID: data.orderID,
-            }),
-          });
+          // return fetch("/paypal-transaction-complete", {
+          //   method: "post",
+          //   body: JSON.stringify({
+          //     orderID: data.orderID,
+          //   }),
+          // });
+          API.sendOrderInfo({
+            orderId: data.orderID,
+            customerTotalAmount: details.purchase_units[0].amount.value,
+            purchaseList: totalState.list,
+            customerEmail: details.payer.email_address,
+            customerAddress: details.purchase_units[0].shipping.address.address_line_1,
+            customerCity: details.purchase_units[0].shipping.address.admin_area_2,
+            customerState: details.purchase_units[0].shipping.address.admin_area_1,
+            customerZipCode: details.purchase_units[0].shipping.address.postal_code,
+            customerCountry: details.purchase_units[0].shipping.address.country_code,
+          })
         });
       }}
     />
