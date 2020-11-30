@@ -198,7 +198,7 @@ export default function AdminProducts() {
         API.deleteProduct(id)
     }
 
-    const openCloudinaryWidget = (id) => {
+    const openCloudinaryWidget = (id=null) => {
         let widget = window.cloudinary.createUploadWidget({
             cloudName: "satstop-bulb-farm",
             uploadPreset: "ml_default",
@@ -207,8 +207,13 @@ export default function AdminProducts() {
             if (!error && result && result.event === 'success') {
                 // console.log("Done!  Here is the image info: ", result.info)
                 console.log(result.info.secure_url)
-                // make call to update url of image to new image
-                API.updateProduct(id, { image: result.info.secure_url})
+                if (id) {
+                    // make call to update url of image to new image
+                    API.updateProduct(id, { image: result.info.secure_url})
+                } else {
+                    // if user is creating a new product, add image url to state
+                    productToUpdate.image = result.info.secure_url
+                }
             }
         })
 
@@ -284,6 +289,7 @@ export default function AdminProducts() {
                 </div>
             </AdminDashUpdateFields>
             <ProductUpdateModal
+                isNewProduct={productToUpdate._id ? false: true}
                 name={productToUpdate.name}
                 category={productToUpdate.category}
                 color={productToUpdate.color}
@@ -295,6 +301,7 @@ export default function AdminProducts() {
                 handleInputChange={handleInputChange}
                 handleProductUpdate={handleProductUpdate}
                 handleCheckboxClick={handleCheckboxClick}
+                imageWidget={openCloudinaryWidget}
             />
         </>
     )

@@ -30,7 +30,7 @@ export default function ProductUpdateModal(props) {
                 <section className="modal-card-body">
                     <div className='field'>
                         <div className='control modal-input-field'>
-                        <label className='label'>Product Name</label>
+                            <label className='label'>Product Name</label>
                             <input
                                 className='input'
                                 type='text'
@@ -107,6 +107,15 @@ export default function ProductUpdateModal(props) {
                                 value={props.description} >
                             </textarea>
                         </div>
+                    </div>
+                    <div className="change-img-container">
+                        <button
+                            id="upload_widget"
+                            className="cloudinary-button change-img-btn"
+                            onClick={() => props.imageWidget()}
+                        >
+                            Add Image
+                        </button>
                     </div>
                 </section>
                 <footer className="modal-card-foot">
