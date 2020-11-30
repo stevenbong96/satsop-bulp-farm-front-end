@@ -32,7 +32,9 @@ function Navbar() {
         }`}
       >
         <div className="navbar-start has-text-centered">
-          <img className="navbar__logo" src={logo} alt="satsop logo"></img>
+          <a className="navbar__logo" href="/">
+            <img className="navbar__logo" src={logo} alt="satsop logo"></img>
+          </a>
         </div>
         <div className="navbar-end has-text-centered">
           <a className="navbar-item has-text-centered">
