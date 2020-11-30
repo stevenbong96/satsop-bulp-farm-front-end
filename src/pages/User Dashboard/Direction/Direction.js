@@ -39,7 +39,7 @@ function Direction() {
                             {currentAddress.map(currentObj => {
                                 // console.log(currentObj);
                                 return (
-                                <h5 class="subtitle is-5">{currentObj.address} {currentObj.state}</h5>
+                                <h5 class="subtitle is-5">{currentObj.address} <br /> {currentObj.city} {currentObj.state}</h5>
                                 )
                             })}
                         </div>
