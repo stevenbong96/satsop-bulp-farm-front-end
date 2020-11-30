@@ -67,16 +67,18 @@ function Home() {
           headline="Welcome to Satsop Bulb Farm"
           subtitle="Growing the finest bulbs for over 50 years"
         ></Jumbotron>
-        <div className="container">
-          <About
-            text1={currentHome.aboutUsMain.text}
-            text2={currentHome.aboutUsSub.text}
-            text3={currentHome.welcome.text}
-            text4={currentHome.brief.text}
-          />
-          <StoreInfo storeText={currentHome.salesInfo.text} />
-          <Direction />
-          <Contact />
+        <div className="section">
+          <div className="container">
+            <About
+              text1={currentHome.aboutUsMain.text}
+              text2={currentHome.aboutUsSub.text}
+              text3={currentHome.welcome.text}
+              text4={currentHome.brief.text}
+            />
+            <StoreInfo storeText={currentHome.salesInfo.text} />
+            <Direction />
+            <Contact />
+          </div>
         </div>
       </div>
       <Footer />

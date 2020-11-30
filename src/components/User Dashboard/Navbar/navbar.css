@@ -23,8 +23,7 @@
 }
 
 .burgerStyle {
-  box-shadow: #255f01;
-  background-color: #4c8c24;
+  background-color: white;
 }
 
 @media screen and (max-width: 800px) {
