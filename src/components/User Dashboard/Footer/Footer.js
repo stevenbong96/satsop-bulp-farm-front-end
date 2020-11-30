@@ -6,10 +6,23 @@ import logo from "../../../images/satsop_logo_color-01.png";
 
 function Footer() {
   const [currentStoreInfo, setCurrentStoreInfo] = useState([]);
+  const [currentAddress, setCurrentAddressState] = useState([]);
 
   useEffect(() => {
     loadStoreInfo();
+    loadStoreAddress();
   }, []);
+
+  function loadStoreAddress() {
+    API.getStoreInfo()
+      .then((res) => {
+        // console.log(res.data);
+        setCurrentAddressState(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   function loadStoreInfo() {
     API.getStoreInfo()
@@ -62,9 +75,19 @@ function Footer() {
                 href={`https://www.google.com/maps/place/Satsop+Bulb+Farm/@47.0047691,-123.4744082,16.5z/data=!4m13!1m7!3m6!1s0x5492290aa727fdf9:0xf881983b2eecb0ec!2sSatsop,+WA+98541!3b1!8m2!3d47.0031512!4d-123.4834945!3m4!1s0x0:0xed9ea646b607879a!8m2!3d47.0038552!4d-123.4734468`}
                 target="_blank"
               >
-                <i class="fas fa-map-marker-alt"></i>
-                &nbsp; 980 Monte Elma Rd. <br />
-                &nbsp;&nbsp;&nbsp;&nbsp; Elma, WA 98541
+                <span>
+                  <i class="fas fa-map-marker-alt"></i>
+                  &nbsp;
+                  {currentAddress.map((currentObj) => {
+                    // console.log(currentObj);
+                    return (
+                      <span>
+                        {currentObj.address} <br /> {currentObj.city}{" "}
+                        {currentObj.state}
+                      </span>
+                    );
+                  })}
+                </span>
               </a>
             </p>
 

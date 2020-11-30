@@ -11,6 +11,7 @@
   background-color: white;
   padding: 30px;
   margin-bottom: 100px;
+  width: 100%;
 }
 
 .contact__button {
@@ -25,8 +26,4 @@
 .contact__button:hover {
   background-color: #364921;
   cursor: pointer;
-}
-
-.card {
-  width: 100%;
 }

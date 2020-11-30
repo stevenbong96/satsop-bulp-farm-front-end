@@ -8,10 +8,23 @@ import MapView from "../Direction/mapView";
 
 function StoreInfo(props) {
   const [currentStoreInfo, setCurrentStoreInfo] = useState([]);
+  const [currentAddress, setCurrentAddressState] = useState([]);
 
   useEffect(() => {
     loadStoreInfo();
+    loadStoreAddress();
   }, []);
+
+  function loadStoreAddress() {
+    API.getStoreInfo()
+      .then((res) => {
+        // console.log(res.data);
+        setCurrentAddressState(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   function loadStoreInfo() {
     API.getStoreInfo()
@@ -58,9 +71,30 @@ function StoreInfo(props) {
                 {currentStoreInfo.map((emailObj) => emailObj.companyEmail)}
               </a>
             </h6>
-            <h6 className="subtitle ">Store Hours: Monday-Friday 10AM - 5PM</h6>
+            <h6 className="subtitle ">Store Hours:</h6>
+            <p className="subtitle">
+              {currentStoreInfo.map((hoursObj) =>
+                hoursObj.hours.map((hoursObj2) => (
+                  <ul>
+                    <li>
+                      {hoursObj2.day} : {hoursObj2.startTime}AM -{" "}
+                      {hoursObj2.endTime}PM
+                    </li>
+                  </ul>
+                ))
+              )}
+            </p>
             <h6 class="subtitle ">
-              Address: 980 Monte Elma Rd. <br /> Elma, WA 98541
+              Address:
+              {currentAddress.map((currentObj) => {
+                // console.log(currentObj);
+                return (
+                  <h5 class="subtitle is-5">
+                    {currentObj.address} <br /> {currentObj.city}{" "}
+                    {currentObj.state}
+                  </h5>
+                );
+              })}
             </h6>
             <form
               class="directions-form"

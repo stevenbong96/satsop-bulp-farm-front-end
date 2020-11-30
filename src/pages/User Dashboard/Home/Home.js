@@ -76,7 +76,7 @@ function Home() {
               text4={currentHome.brief.text}
             />
             <StoreInfo storeText={currentHome.salesInfo.text} />
-            <Direction />
+            {/* <Direction /> */}
             <Contact />
           </div>
         </div>
