@@ -1,19 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 import "./navbar.css";
 
 function Navbar() {
+    const [isActive, setIsActiveState] = useState(false);
+
     return (
         <nav className="navbar" role="navigation" aria-label="main navigation">
-            <div className="navbar-brand">
-                <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true">Home</span>
-                    <span aria-hidden="true">Products</span>
-                    <span aria-hidden="true">FAQ</span>
+            <div className="navbar-brand burgerStyle">
+                <a onClick={() => {setIsActiveState(!isActive)}} role="button" className={`navbar-burger burger ${isActive ? "is-active"  : ""}`} aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
                 </a>
             </div>
         
-            <div id="navbarBasicExample" className="navbar-menu navbarStyle has-text-centered">
+            <div id="navbarBasicExample" className={`navbar-menu navbarStyle has-text-centered ${isActive ? "is-active" : ""}`}>
                 <div className="navbar-start has-text-centered">
                     <a className="navbar-item has-text-centered">
                         <Link className="has-text-black has-text-centered" to="/">Home</Link>

@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const apiURL = "https://calm-brook-21723.herokuapp.com";
-const apiURL = "http://localhost:4000";
+const apiURL = "https://calm-brook-21723.herokuapp.com";
+// const apiURL = "http://localhost:4000";
 
 export default {
   getAllFAQ: function () {
@@ -18,6 +18,7 @@ export default {
   },
   getAllHomeInfo: function () {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/homeText/";
+    // const BASEURL = "http://localhost:4000/api/homeText/";
     return axios.get(BASEURL);
   },
   getLogin: function (userData) {
@@ -34,6 +35,10 @@ export default {
   sendContactInfo: function (contactData) {
     console.log(contactData);
     return axios.post(`${apiURL}/api/email`, contactData);
+  },
+  getStoreInfo: function(){
+    const BASEURL = "https://calm-brook-21723.herokuapp.com/api/companyInfoText";
+    return axios.get(BASEURL);
   },
   getGoogleMaps: function() {
     const BASEURL = "";

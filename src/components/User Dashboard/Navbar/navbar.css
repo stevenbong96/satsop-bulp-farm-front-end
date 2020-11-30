@@ -4,5 +4,16 @@
     margin: 0 auto;
     box-shadow: #255f01 ;
     background-color: #4c8c24;
+    padding-left: 42.5%;
 }
 
+.burgerStyle{
+    box-shadow: #255f01 ;
+    background-color: #4c8c24;
+}
+
+@media screen and (max-width: 800px){
+    .inputStyle{
+        padding-left: 35%;
+    }
+}

@@ -126,7 +126,7 @@ function Product() {
             <Header />
             <Navbar />
             <form >
-                <div className="columns productStyle is-justify-content-center">
+                <div className="columns productStyle is-justify-content-center is-mobile">
                     <div className="column is-3">
                         <ProductSearchFilter onChange={handleSelect} value={stateValue} handleDropdownChange={handleSelect} />
                     </div>
@@ -141,12 +141,17 @@ function Product() {
                             </div>
                         </div>
                     </div>
-                    <IconContext.Provider value={{size:50}}>
-                        <div>
-                            <AiOutlineShoppingCart onClick={onClick} style={{cursor: "pointer"}}  />
+
+                    <div className="column is-3 chartStyle">
+                        <div className="chartStyle">
+                            <IconContext.Provider value={{size:50}}>
+                                <div>
+                                    <AiOutlineShoppingCart onClick={onClick} style={{cursor: "pointer"}}  />
+                                </div>
+                                    <h1>{shoppingCartState.length !== 0 ? shoppingCartState.length : null}</h1>
+                            </IconContext.Provider>
                         </div>
-                            <h1>{shoppingCartState.length !== 0 ? shoppingCartState.length : null}</h1>
-                    </IconContext.Provider>
+                    </div>
                 </div>
 
             </form>
