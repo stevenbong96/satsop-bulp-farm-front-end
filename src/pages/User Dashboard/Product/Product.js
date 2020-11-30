@@ -141,70 +141,88 @@ function Product() {
       <Header />
       <Navbar />
       <Jumbotron image={bkgImage} headline="Products"></Jumbotron>
-      <form>
-        <div className="columns productStyle is-justify-content-center is-mobile">
-          <div className="column is-3">
-            <ProductSearchFilter
-              onChange={handleSelect}
-              value={stateValue}
-              handleDropdownChange={handleSelect}
-            />
-          </div>
-
-          <div className="column is-3">
-            <div className="inputStyle">
-              <div className="control has-icons-left has-icons-right ">
-                <input
-                  className="input is-rounded"
-                  name="search"
-                  type="text"
-                  placeholder="Search Product"
-                  onChange={handleInputChange}
-                />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-search"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="column is-3 chartStyle">
-            <div className="chartStyle">
-              <IconContext.Provider value={{ size: 50 }}>
-                <div>
-                  <AiOutlineShoppingCart
-                    onClick={onClick}
-                    style={{ cursor: "pointer" }}
+      <div className="section">
+        <form>
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            spacing={3}
+          >
+            <Grid item xs={12} md={6}>
+              <div className="">
+                <div className="control has-icons-left has-icons-right ">
+                  <input
+                    className="input is-rounded"
+                    name="search"
+                    type="text"
+                    placeholder="Search Product"
+                    onChange={handleInputChange}
                   />
+                  <span className="icon is-small is-left">
+                    <i className="fas fa-search"></i>
+                  </span>
                 </div>
-                <h1>
-                  {shoppingCartState.length !== 0
-                    ? shoppingCartState.length
-                    : null}
-                </h1>
-              </IconContext.Provider>
-            </div>
-          </div>
-        </div>
-      </form>
+              </div>
+            </Grid>
+          </Grid>
 
-      <div className="resultStyle">
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          spacing={3}
-        >
-          {[...filtered]
-            .filter(
-              (item) => item.name.toLowerCase().indexOf(searchProduct) > -1
-            )
-            .map((searchObj) => {
-              // console.log(searchObj);
-              return <ProductResult props={searchObj} addToCart={addToCart} />;
-            })}
-        </Grid>
+          <Grid
+            container
+            direction="column"
+            justify="space-between"
+            alignItems="center"
+            spacing={3}
+          >
+            <Grid item xs={6} md={6}>
+              <ProductSearchFilter
+                onChange={handleSelect}
+                value={stateValue}
+                handleDropdownChange={handleSelect}
+              />
+            </Grid>
+
+            <Grid item xs={6} md={6}>
+              <div className="chartStyle">
+                <IconContext.Provider value={{ size: 50 }}>
+                  <div>
+                    <AiOutlineShoppingCart
+                      onClick={onClick}
+                      style={{ cursor: "pointer" }}
+                    />
+                  </div>
+                  <h1>
+                    {shoppingCartState.length !== 0
+                      ? shoppingCartState.length
+                      : null}
+                  </h1>
+                </IconContext.Provider>
+              </div>
+            </Grid>
+          </Grid>
+        </form>
+
+        <div className="resultStyle">
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            spacing={3}
+          >
+            {[...filtered]
+              .filter(
+                (item) => item.name.toLowerCase().indexOf(searchProduct) > -1
+              )
+              .map((searchObj) => {
+                // console.log(searchObj);
+                return (
+                  <ProductResult props={searchObj} addToCart={addToCart} />
+                );
+              })}
+          </Grid>
+        </div>
       </div>
       <ShoppingCart
         props={shoppingCartState}
