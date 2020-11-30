@@ -135,9 +135,21 @@ export default function AdminProducts() {
 
     // when user clicks update btn, pop up modal with info to be changed
     const handleUpdateBtnClick = id => {
-        const productToUpdate = products.filter(product => product._id === id)[0]
-        // assign values in state to have values of product
-        setProductToUpdate(productToUpdate)
+        if (id) {
+            const productToUpdate = products.filter(product => product._id === id)[0]
+            // assign values in state to have values of product
+            setProductToUpdate(productToUpdate)
+        } else {
+            setProductToUpdate({
+                name: '',
+                price: 0,
+                color: [],
+                plantingSeason: '',
+                sun: '',
+                description: '',
+                category: ''
+            })
+        }
 
         document.querySelector('.modal').className = 'modal is-active'
     }
@@ -171,10 +183,14 @@ export default function AdminProducts() {
         }
     }
 
-    const handleProductUpdate = () => {
-        console.log(productToUpdate._id)
-        console.log(productToUpdate)
-        API.updateProduct(productToUpdate._id, productToUpdate)
+    const handleProductUpdate = (isNew=null) => {
+        if (!isNew) {
+            API.updateProduct(productToUpdate._id, productToUpdate)
+        } else {
+            console.log('new product')
+            console.log(productToUpdate)
+            API.postProduct(productToUpdate)
+        }
     }
 
     const handleProductDelete = id => {
@@ -182,34 +198,17 @@ export default function AdminProducts() {
         API.deleteProduct(id)
     }
 
-
-
-    const openCloudinaryWidget = (url) => {
-        // iterate over url to grab public id of image to be overwritten
-        let id = []
-        let slashCount = 0
-        for (let i = url.length - 1; true; i--) {
-            if (url[i] === '/') {
-                slashCount++
-            }
-            if (slashCount === 2) {
-                break;
-            }
-
-            id.unshift(url[i])
-        }
-        // join id array
-        id = id.join('')
-        console.log(url)
-
+    const openCloudinaryWidget = (id) => {
         let widget = window.cloudinary.createUploadWidget({
-            cloudName: "satstop-bubl-farm",
+            cloudName: "satstop-bulb-farm",
             uploadPreset: "ml_default",
-            publicId: id,
             apiKey: '149938291122592'
         }, (error, result) => {
             if (!error && result && result.event === 'success') {
-                console.log("Done!  Here is the image info: ", result.info)
+                // console.log("Done!  Here is the image info: ", result.info)
+                console.log(result.info.secure_url)
+                // make call to update url of image to new image
+                API.updateProduct(id, { image: result.info.secure_url})
             }
         })
 
@@ -258,6 +257,7 @@ export default function AdminProducts() {
                             options={['Spring', 'Fall']}
                         />
                         <button className='button reset-filters-btn' onClick={handleFilterReset}>Reset Filters</button>
+                        <button className='button new-product-btn is-primary' onClick={() => handleUpdateBtnClick(null)}>New Product</button>
                     </div>
                 </div>
                 <hr />

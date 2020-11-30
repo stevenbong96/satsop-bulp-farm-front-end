@@ -22,7 +22,7 @@ export default {
         return axios.get('https://calm-brook-21723.herokuapp.com/api/products')
     },
     postProduct: function (productObj) {
-        // return axios.post('https://calm-brook-21723.herokuapp.com/api/product', productObj)
+        return axios.post('https://calm-brook-21723.herokuapp.com/api/product/create', productObj)
     },
     updateProduct: function (id, productObj) {
         return axios.put('https://calm-brook-21723.herokuapp.com/api/update/product/' + id, productObj)
