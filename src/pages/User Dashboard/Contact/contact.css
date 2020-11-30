@@ -1,19 +1,29 @@
-.contactStyle{
-    box-shadow: 3px 3px 3px #838386;
-    max-width: 65%;
-    margin: 0 auto;
-    padding: 20px 20px 20px 20px;
-    background-color:#e6e6f3;
+.contactImage {
+  height: 100%;
+  object-fit: cover;
 }
 
-.imageStyle{
-    /* height: 100%;
-    width: 65%; */
-    margin-left: 2%;
-    text-align: center;
+.section__title {
+  color: black;
 }
 
-.contactImage{
-    height: 55vh;
-    width: 90%
+.contact__container {
+  background-color: white;
+  padding: 30px;
+  margin-bottom: 100px;
+  width: 100%;
+}
+
+.contact__button {
+  padding: 10px 20px;
+  color: white;
+  background-color: #283618;
+  border-radius: 10px;
+  border-style: none;
+  font-weight: 500;
+}
+
+.contact__button:hover {
+  background-color: #364921;
+  cursor: pointer;
 }
