@@ -37,29 +37,30 @@ function Navbar() {
           </a>
         </div>
         <div className="navbar-end has-text-centered">
-          <a className="navbar-item has-text-centered">
-            <Link className="has-text-black has-text-centered" to="/">
-              Home
-            </Link>
-          </a>
+          <Link className="navbar-item has-text-black has-text-centered" to="/">
+            Home
+          </Link>
 
-          <a className="navbar-item has-text-centered">
-            <Link className="has-text-black has-text-centered" to="/products">
-              Products
-            </Link>
-          </a>
+          <Link
+            className="navbar-item has-text-black has-text-centered"
+            to="/products"
+          >
+            Products
+          </Link>
 
-          <a className="navbar-item has-text-centered">
-            <Link className="has-text-black has-text-centered" to="/faq">
-              FAQ
-            </Link>
-          </a>
+          <Link
+            className="navbar-item has-text-black has-text-centered"
+            to="/faq"
+          >
+            FAQ
+          </Link>
 
-          <a className="navbar-item has-text-centered">
-            <Link className="has-text-black has-text-centered" to="/planting">
-              Planting
-            </Link>
-          </a>
+          <Link
+            className="navbar-item has-text-black has-text-centered"
+            to="/planting"
+          >
+            Planting
+          </Link>
 
           {/* <a className="navbar-item">
                         <Link to="/login">Admin</Link>
