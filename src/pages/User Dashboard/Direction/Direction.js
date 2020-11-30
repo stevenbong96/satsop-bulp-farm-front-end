@@ -7,7 +7,7 @@ import "./direction.css";
 function Direction() {
     return (
         <div className="directionStyle">
-            <div className="columns is-justify-content-center">
+            <div className="columns is-justify-content-center is-mobile">
                 <div className="column is-3 storeInfo">
                     <div className="columns">
                         <div className="column is-12">
