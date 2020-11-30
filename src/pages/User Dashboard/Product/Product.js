@@ -142,7 +142,7 @@ function Product() {
                         </div>
                     </div>
                     <IconContext.Provider value={{size:50}}>
-                        <div>
+                        <div id="cart">
                             <AiOutlineShoppingCart onClick={onClick} style={{cursor: "pointer"}}  />
                         </div>
                             <h1>{shoppingCartState.length !== 0 ? shoppingCartState.length : null}</h1>
