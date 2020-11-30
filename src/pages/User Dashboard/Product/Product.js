@@ -141,7 +141,6 @@ function Product() {
                             </div>
                         </div>
                     </div>
-
                     <div className="column is-3 chartStyle">
                         <div className="chartStyle">
                             <IconContext.Provider value={{size:50}}>

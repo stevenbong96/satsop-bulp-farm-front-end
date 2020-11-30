@@ -27,7 +27,7 @@ export default {
         // return axios.get('http://localhost:4000/api/products')
     },
     postProduct: function (productObj) {
-        // return axios.post('https://calm-brook-21723.herokuapp.com/api/product', productObj)
+        return axios.post('https://calm-brook-21723.herokuapp.com/api/product/create', productObj)
     },
     updateProduct: function (id, productObj, token) {
         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;

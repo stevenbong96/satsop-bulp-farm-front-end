@@ -2,7 +2,7 @@ import { Category } from '@material-ui/icons'
 import React, { useState } from 'react'
 import './index.css'
 
-export default function ProductUpdateModal(props) {
+export default function NewProductModal(props) {
 
     const handleModalClose = event => {
         document.querySelector('.modal').className = 'modal'
@@ -15,9 +15,8 @@ export default function ProductUpdateModal(props) {
         // update state with new values
     }
 
-    // categories and colors for a product
+    // categories for a product
     const categories = ['Fresh Cut Flowers', 'Potted Plants', 'Bulbs', 'Extra Supplies', 'Floral Arrangements']
-    const colors = ['yellow', 'purple', 'blue', 'pink', 'white', 'red', 'orange', 'green']
 
     return (
         <div className="modal">
@@ -112,7 +111,7 @@ export default function ProductUpdateModal(props) {
                 <footer className="modal-card-foot">
                     <button className="button is-success" onClick={() => {
                         handleModalClose()
-                        props.handleProductUpdate(true)
+                        props.handleProductUpdate()
                     }}>Save changes</button>
                     <button className="button" onClick={handleModalClose}>Cancel</button>
                 </footer>
