@@ -1,19 +1,41 @@
-.navbarStyle{
+/* .navbarStyle{
     display: block;
     text-align: center;
     margin: 0 auto;
     box-shadow: #255f01 ;
     background-color: #4c8c24;
     padding-left: 42.5%;
+} */
+
+.navbar {
+  margin-bottom: -75px;
+  background-color: rgba(255, 255, 255, 0) !important;
+  /* position: fixed !important; */
+  top: 0;
+  width: 100%;
 }
 
-.burgerStyle{
-    box-shadow: #255f01 ;
-    background-color: #4c8c24;
+.Navbar__brand {
+  font-size: 2rem;
+  font-weight: bold;
+  padding-left: 10px;
+  background-color: none;
 }
 
-@media screen and (max-width: 800px){
-    .inputStyle{
-        padding-left: 35%;
-    }
+.burgerStyle {
+  background-color: white;
+}
+
+@media screen and (max-width: 800px) {
+  .inputStyle {
+    padding-left: 35%;
+  }
+}
+
+.navbar__logo {
+  height: 75px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  /* padding-top: 10px; */
 }

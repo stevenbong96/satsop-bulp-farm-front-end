@@ -1,78 +1,74 @@
 import { PayPalButton } from "react-paypal-button-v2";
-import React, {useEffect, useState} from "react"
-
+import React, { useEffect, useState } from "react";
 
 export default function PaywithPaypal(props) {
+  const [totalState, setTotalState] = useState({
+    total: "",
+    list: [],
+  });
 
-        const [totalState, setTotalState] = useState({
-        total: '',
-        list: []
-    })
-
-useEffect(() => {
+  useEffect(() => {
     setTotalState({
-        total: props.items.total,
-        list: (props.items.props.length !== 0 ?
-            (props.items.props.map(item => {
-                return {
-                    name: item.name,
-                    description: item.description,
-                    price: item.price,
-                    currency: "USD"
-                    }
-                }
-            )) 
-        : null)
-    })
-},[props])
+      total: props.items.total.toFixed(2),
+      list:
+        props.items.props.length !== 0
+          ? props.items.props.map((item) => {
+              return {
+                name: item.name,
+                description: item.description,
+                price: item.price,
+                currency: "USD",
+              };
+            })
+          : null,
+    });
+  }, [props]);
 
-    console.log(totalState)
+  console.log(totalState);
 
+  return (
+    <PayPalButton
+      createOrder={(data, actions) => {
+        return actions.order.create({
+          purchase_units: [
+            {
+              description: "Satsop Bulb Farm Online Purchase",
+              amount: {
+                currency_code: "USD",
+                value: totalState.total,
+              },
+              item_list: totalState.list,
+            },
+          ],
+          // application_context: {
+          //   shipping_preference: "NO_SHIPPING" // default is "GET_FROM_FILE"
+          // }
+        });
+      }}
+      onApprove={(data, actions) => {
+        // Capture the funds from the transaction
+        return actions.order.capture().then(function (details) {
+          // Show a success message to your buyer
+          alert(
+            `Thank you ${details.payer.name.given_name}! Your order of $${details.purchase_units[0].amount.value} has been placed.`
+          );
 
-    return (
-      <PayPalButton
-        createOrder={(data, actions) => {
-          return actions.order.create({
-            purchase_units: [{
-                description: "Satsop Bulb Farm Online Purchase",
-                amount: {
-                    currency_code: "USD",
-                    value: totalState.total
-                },
-                 item_list:  totalState.list
-                 
-            }],
-            // application_context: {
-            //   shipping_preference: "NO_SHIPPING" // default is "GET_FROM_FILE"
-            // }
+          // OPTIONAL: Call your server to save the transaction
+          return fetch("/paypal-transaction-complete", {
+            method: "post",
+            body: JSON.stringify({
+              orderID: data.orderID,
+            }),
           });
-        }}
-        onApprove={(data, actions) => {
-          // Capture the funds from the transaction
-          return actions.order.capture().then(function(details) {
-            // Show a success message to your buyer
-            alert("Transaction completed by " + details.payer.name.given_name);
- 
-            // OPTIONAL: Call your server to save the transaction
-            return fetch("/paypal-transaction-complete", {
-              method: "post",
-              body: JSON.stringify({
-                orderID: data.orderID
-              })
-            });
-          });
-        }}
-      />
-    );
-  }
-
-
-
-
+        });
+      }}
+    />
+  );
+}
 
 // import React from 'react';
 // import PaypalExpressBtn from 'react-paypal-express-checkout';
- 
+
 // export default class MyApp extends React.Component {
 //     render() {
 //         const onSuccess = (payment) => {
@@ -80,25 +76,25 @@ useEffect(() => {
 //             		console.log("The payment was succeeded!", payment);
 //             		// You can bind the "payment" object's value to your state or props or whatever here, please see below for sample returned data
 //         }
- 
+
 //         const onCancel = (data) => {
 //             // User pressed "cancel" or close Paypal's popup!
 //             console.log('The payment was cancelled!', data);
 //             // You can bind the "data" object's value to your state or props or whatever here, please see below for sample returned data
 //         }
- 
+
 //         const onError = (err) => {
 //             // The main Paypal's script cannot be loaded or somethings block the loading of that script!
 //             console.log("Error!", err);
 //             // Because the Paypal's main script is loaded asynchronously from "https://www.paypalobjects.com/api/checkout.js"
 //             // => sometimes it may take about 0.5 second for everything to get set, or for the button to appear
 //         }
- 
+
 //         let env = 'sandbox'; // you can set here to 'production' for production
 //         let currency = 'USD'; // or you can set this value from your props or state
 //         let total = 1; // same as above, this is the total amount (based on currency) to be paid by using Paypal express checkout
 //         // Document on Paypal's currency code: https://developer.paypal.com/docs/classic/api/currency_codes/
- 
+
 //         const client = {
 //             sandbox:    'YOUR-SANDBOX-APP-ID',
 //             production: 'YOUR-PRODUCTION-APP-ID',
@@ -108,7 +104,7 @@ useEffect(() => {
 //         //   => https://developer.paypal.com/docs/classic/lifecycle/sb_credentials/
 //         // For production app-ID:
 //         //   => https://developer.paypal.com/docs/classic/lifecycle/goingLive/
- 
+
 //         // NB. You can also have many Paypal express checkout buttons on page, just pass in the correct amount and they will work!
 //         return (
 //             <PaypalExpressBtn env={env} client={client} currency={currency} total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />
@@ -116,11 +112,7 @@ useEffect(() => {
 //     }
 // }
 
-
-
 // import React, {useState, useRef, useEffect } from "react";
-
-
 
 // function PaywithPaypal(props) {
 //     const [paidFor, setPaidFor] = useState(false)
@@ -134,7 +126,7 @@ useEffect(() => {
 //     const {items} = props
 //     console.log(items)
 
-//     // const checkoutList = 
+//     // const checkoutList =
 //     // (items.props.length !== 0 ?
 //     //     (items.props.map(item => {
 //     //         return {
@@ -146,19 +138,17 @@ useEffect(() => {
 //     //                 value: item.price
 //     //             }
 //     //         }
-//     //     })) 
+//     //     }))
 //     // : null)
-
-
 
 //     useEffect(() => {
 //         setState();
 //     },[items.props, items.total])
-    
+
 //     useEffect(() => {
 //         paypalRender()
 //     }, [])
-    
+
 //     async function setState() {
 //         await setTotalState({
 //                total: items.total,
@@ -172,12 +162,12 @@ useEffect(() => {
 //                                value: item.price
 //                            }
 //                        }
-//                    })) 
+//                    }))
 //                : null
 //            })
-        
+
 //     }
-    
+
 //  function paypalRender() {
 //         window.paypal
 //         .Buttons({
@@ -191,7 +181,7 @@ useEffect(() => {
 //                                 currency_code: "USD",
 //                                 value: totalState.total
 //                             }
-//                         // items: totalState.list 
+//                         // items: totalState.list
 //                         }]
 //                     })
 //                 },
