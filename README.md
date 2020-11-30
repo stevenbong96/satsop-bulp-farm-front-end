@@ -19,9 +19,9 @@ Home
 
 ![Home Page](.png)
 
-Admin 
+Products
 
-![Admin Page](.png)
+![Products](.png)
 
 Online Sales
 
@@ -32,21 +32,20 @@ Online Sales
 
 [Bulma](https://bulma.io/)
 
-[Node.js](https://nodejs.org/en/)
+[Matrial UI](https://material-ui.com/)
 
-[Express](https://expressjs.com/)
+[React Leaflet](https://react-leaflet.js.org/)
 
-[Express-handlebars](https://www.npmjs.com/package/express-handlebars)
+[Node Mailer ](https://nodemailer.com/)
 
-[mysql](https://www.mysql.com/)
+[Cloudinary](https://cloudinary.com/)
 
-[bcrypt](https://www.npmjs.com/package/bcrypt)
 
 ## Installation
 1. Clone this repository to your local machine. 
 1. Ensure node.js is enabled in the directory to which you have saved this repository. 
 1. Install all npm packages. Modify the config.json to work with your own sql.  
-1. Add a SESSION_SECRET in a .env file.
+
 
 ## Usage
 Anyone can use freely, according to the terms of the license.

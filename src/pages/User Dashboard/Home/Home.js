@@ -45,14 +45,18 @@ function Home() {
         })
     }
 
+
     return(
         <>
             <Header />
             <Navbar />
                 <div className="homeStyle">
                     <About text1={currentHome.aboutUsMain.text} text2={currentHome.aboutUsSub.text} text3={currentHome.welcome.text} text4={currentHome.brief.text}/>
-                    <StoreInfo storeText = {currentHome.salesInfo.text}/>
+                    <StoreInfo  storeText = {currentHome.salesInfo.text}/>
                     <Direction />
+                    <br />
+                    <br/>
+                    <br />
                     <Contact />
                 </div>
             <Footer />

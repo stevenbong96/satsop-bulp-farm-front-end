@@ -29,7 +29,7 @@ function Planting() {
         <>
             <Header />
             <Navbar />
-            <div className="faqStyle">
+            <div className="plantingStyle">
                 {/* {currentResult.length > 0 ? currentResult.map(resultObj => {
                 return <FaqResult question={resultObj.question} answer={resultObj.answer} />
             }) : <h1>Loading!</h1>} */}
