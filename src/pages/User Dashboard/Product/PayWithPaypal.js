@@ -73,6 +73,19 @@ export default function PaywithPaypal(props) {
             customerZipCode: details.purchase_units[0].shipping.address.postal_code,
             customerCountry: details.purchase_units[0].shipping.address.country_code,
           })
+
+          var setObjPurchase = {detailsKey: details, listKey: totalState.list}
+
+          API.orderNodemailer(setObjPurchase).then(res => {
+            console.log(res);
+            if (res.data.status === "success") {
+              alert("Message Sent!!!!!");
+            } else if (res.data.status === "fail") {
+              alert("Message failed to send.");
+            }
+          }).catch(err => {
+            console.log(err);
+          })
         });
       }}
     />

@@ -48,5 +48,9 @@ export default {
     console.log(orderObj)
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/orders";
     return axios.post(BASEURL, orderObj)
+  },
+  orderNodemailer: function(nodemailerObj){
+    console.log(nodemailerObj);
+    return axios.post("http://localhost:4000/api/orderDetails", nodemailerObj);
   }
 };
