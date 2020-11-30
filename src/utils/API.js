@@ -68,5 +68,8 @@ export default {
         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
         return axios.put('https://calm-brook-21723.herokuapp.com/api/PlantingInstructionText/' + id, obj)
         // return axios.put('http://localhost:4000/api/PlantingInstructionText/' + id, obj)
+    },
+    getOrders: function () {
+        return axios.get('https://calm-brook-21723.herokuapp.com/api/orders')
     }
 }
