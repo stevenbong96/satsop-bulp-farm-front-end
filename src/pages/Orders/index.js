@@ -7,6 +7,7 @@ import './index.css'
 import { useHistory } from 'react-router-dom'
 import OrderList from "./OrderList"
 
+
 export default function Orders() {
     const [pendingOrder, setPendingOrder] = useState()
     const [completedOrder, setcompletedOrder] = useState()
@@ -65,16 +66,20 @@ console.log(pendingOrder)
             <hr />
             <h1>Pending Orders</h1>
                 <ul>
-                    {pendingOrder.map(order => {
-                        <OrderList props={order} />
-                    })}
+                    {pendingOrder !== undefined ?
+                        pendingOrder.map(orderP => 
+                            <OrderList props={orderP} />
+                        )
+                    : null}
                 </ul>
                 <hr />
             <h1>Completed Orders</h1>
                 <ul>
-                    {completedOrder.map(order => {
-                        <OrderList props={order} />
-                })}
+                    {completedOrder !== undefined ?
+                        completedOrder.map(orderC => 
+                            <OrderList props={orderC} />
+                        )
+                    : null}
                 </ul>
             </AdminDashUpdateFields>
         </>
