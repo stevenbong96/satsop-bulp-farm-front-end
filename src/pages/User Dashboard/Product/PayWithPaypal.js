@@ -25,7 +25,7 @@ export default function PaywithPaypal(props) {
     });
   }, [props]);
 
-  console.log(totalState);
+  // console.log(totalState);
 
   return (
     <PayPalButton
@@ -49,7 +49,7 @@ export default function PaywithPaypal(props) {
       onApprove={(data, actions) => {
         // Capture the funds from the transaction
         return actions.order.capture().then(function (details) {
-          console.log(details)
+          // console.log(details)
           // Show a success message to your buyer
           alert(
             `Thank you ${details.payer.name.given_name}! Your order of $${details.purchase_units[0].amount.value} has been placed.`
@@ -77,7 +77,7 @@ export default function PaywithPaypal(props) {
           var setObjPurchase = {detailsKey: details, listKey: totalState.list}
 
           API.orderNodemailer(setObjPurchase).then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.data.status === "success") {
               alert("Message Sent!!!!!");
             } else if (res.data.status === "fail") {

@@ -35,7 +35,7 @@ const checkoutList = props.props.map(product => {
                 value: product.price
         }}
     })
-    console.log(checkoutList)
+    // console.log(checkoutList)
 
 
     return (
