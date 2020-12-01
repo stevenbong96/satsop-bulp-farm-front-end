@@ -1,22 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import API from '../../utils/API'
-import QuestionInput from '../../components/QuestionInput'
-import AnswerTextarea from '../../components/AnswerTextarea'
-import SaveBtn from '../../components/SaveBtn'
-import CancelBtn from '../../components/CancelBtn'
-import NewQuestionBtn from '../../components/NewQuestionBtn'
-import DeleteBtn from '../../components/DeleteBtn'
-import UpdateBtn from '../../components/UpdateBtn'
-import NewQuestionModal from '../../components/NewQuestionModal'
 import AdminDashUpdateFields from '../../components/AdminDashUpdateFields'
 import AdminNav from '../../components/AdminNav'
 import AdminHeader from '../../components/AdminHeader'
 import './index.css'
 import { useHistory } from 'react-router-dom'
+import OrderList from "./OrderList"
 
 export default function Orders() {
-    const [pendingOrder, setPendingOrder] = useState([])
-    const [completedOrder, setcompletedOrder] = useState([])
+    const [pendingOrder, setPendingOrder] = useState()
+    const [completedOrder, setcompletedOrder] = useState()
 
     let history = useHistory();
 
@@ -27,16 +20,26 @@ export default function Orders() {
         if(!token){
             history.push("/login")
         }
-        API.getOrders().then(res => {
-            res.data.map(order => order.completed !== false ? 
-                setcompletedOrder([...completedOrder, order])
-                : 
-                setPendingOrder([...pendingOrder, order]))
-        }).catch(err => {
-            console.log(err);
-            history.push("/login")
-        })
-    }, [])
+        let complete = []
+        let pending = []
+        API.getOrders().then( res => {
+            console.log(res.data)
+            for(let i = 0; i < res.data.length; i++) {
+                if(res.data[i].completed === true) {
+                    complete.push(res.data[i])
+                } else {
+                    pending.push(res.data[i])
+                }
+            }
+        }).then( data => {
+            setPendingOrder(pending)
+            setcompletedOrder(complete)
+        }
+        ).catch(err => {
+                console.log(err);
+                history.push("/login")
+                    })  
+        }, [])
 
     // const handleInputChange = (event) => {
     //     // grab index of changed question in state
@@ -52,7 +55,7 @@ export default function Orders() {
         document.querySelector('.modal').className = "modal is-active"
     }
 
-
+console.log(pendingOrder)
     return (
         <>
             <AdminHeader />
@@ -60,14 +63,19 @@ export default function Orders() {
             <AdminDashUpdateFields>
             <h1 className='page-heading'>Orders</h1>
             <hr />
-                <div className='questions-container'>
-                    {pendingOrder.map(pending =>
-                    <h1>{pending.orderId}</h1>)}
-                </div>
-                <div className='questions-container'>
-                    {completedOrder.map(completed =>
-                    <h1>{completed.orderId}</h1>)}
-                </div>
+            <h1>Pending Orders</h1>
+                <ul>
+                    {pendingOrder.map(order => {
+                        <OrderList props={order} />
+                    })}
+                </ul>
+                <hr />
+            <h1>Completed Orders</h1>
+                <ul>
+                    {completedOrder.map(order => {
+                        <OrderList props={order} />
+                })}
+                </ul>
             </AdminDashUpdateFields>
         </>
     )
