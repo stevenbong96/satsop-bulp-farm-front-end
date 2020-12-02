@@ -58,5 +58,9 @@ export default {
   updateOrderInfo: function(id, orderObj) {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/orders/" + id;
     return axios.put(BASEURL, orderObj)
+  },
+  sendOrderTracking: function(trackingObj){
+    console.log(trackingObj)
+    return axios.get('http://localhost:4000/api/orderTracking', trackingObj)
   }
 };
