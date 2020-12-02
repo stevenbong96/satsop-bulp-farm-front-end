@@ -49,9 +49,14 @@ export default {
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/orders";
     return axios.post(BASEURL, orderObj)
   },
+
   orderNodemailer: function(nodemailerObj){
     // console.log(nodemailerObj);
     // return axios.post("http://localhost:4000/api/orderDetails", nodemailerObj);
     return axios.post("https://calm-brook-21723.herokuapp.com/api/orderDetails", nodemailerObj);
+  },
+  updateOrderInfo: function(id, orderObj) {
+    const BASEURL = "https://calm-brook-21723.herokuapp.com/api/orders/" + id;
+    return axios.put(BASEURL, orderObj)
   }
 };
