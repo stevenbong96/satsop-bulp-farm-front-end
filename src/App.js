@@ -12,6 +12,7 @@ import UserAuth from "./pages/User Dashboard/User Authentication/UserAuth";
 import Product from "./pages/User Dashboard/Product/Product";
 import Home from "./pages/User Dashboard/Home/Home";
 import Planting from "./pages/User Dashboard/Planting/Planting";
+import Orders from "./pages/Orders"
 
 function App() {
   return (
@@ -50,6 +51,9 @@ function App() {
           </Route>
           <Route exact path='/admin/dashboard/products'>
             <AdminProducts />
+          </Route>
+          <Route exact path='/admin/dashboard/orders'>
+            <Orders />
           </Route>
         </Switch>
       </Router>

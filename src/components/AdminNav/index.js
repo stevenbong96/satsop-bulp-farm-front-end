@@ -10,6 +10,7 @@ export default function AdminNav() {
             <a className="button is-light" href='/admin/dashboard/products'>Products Page</a>
             <a className="button is-light" href='/admin/dashboard/planting'>Planting Instructions Page</a>
             <a className="button is-light" href='/admin/dashboard/faq'>FAQ Page</a>
+            <a className="button is-light" href='/admin/dashboard/orders'>Orders</a>
         </div>
     )
 }
