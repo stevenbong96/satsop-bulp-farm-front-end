@@ -9,7 +9,7 @@ function OrderList(props) {
 
 
     const showModal = (event) => {
-        document.querySelector('.modal').className = "modal is-active"
+        document.querySelector(`.modal${props.props._id}`).className = `modal is-active modal${props.props._id}`
     }
 
     const completeOrder = () => {
