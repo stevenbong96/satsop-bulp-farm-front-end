@@ -1,36 +1,30 @@
-.productStyle{
-    /* border: 1px solid black; */
-    /* text-align: center; */
-    /* display: flex; */
-    margin: 0 auto;
-    /* width: 65%; */
-    margin-top: 3%;
-    padding-top: 3%;
-    display: inline-block;
+.productStyle {
+  /* border: 1px solid black; */
+  /* text-align: center; */
+  /* display: flex; */
+  margin: 0 auto;
+  /* width: 65%; */
+  margin-top: 3%;
+  padding-top: 3%;
+  display: inline-block;
 }
 
-.resultStyle{
-    width: 65%;
-    margin: 0 auto;
-    display: flex;
-    /* align-content: center; */
-    margin-top: 3%;
-    margin-bottom: 3%;
-}
-
-.inputStyle{
-    padding-top: 6.2%;
-    /* margin-top: 3%; */
+.resultStyle {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  /* align-content: center; */
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 
 .chartStyle {
-    padding-top: 5%;
+  padding-top: 5%;
 }
 
-.cardComponents{
-    position: relative;
+.cardComponents {
+  position: relative;
 }
-
 
 /* @media screen and (max-width: 1000px){
     .inputStyle{
@@ -38,17 +32,16 @@
     }
 } */
 
-@media screen and (max-width: 800px){
-    .inputStyle{
-        padding-top: 15%;
-    }
+@media screen and (max-width: 800px) {
+  .inputStyle {
+    padding-top: 15%;
+  }
 }
 
-@media screen and (max-width: 400px){
-    .inputStyle{
-        padding-top: 6.2%;
-        width: 65%;
-        margin: 0 auto;
-    }
+@media screen and (max-width: 400px) {
+  .inputStyle {
+    padding-top: 6.2%;
+    width: 65%;
+    margin: 0 auto;
+  }
 }
-

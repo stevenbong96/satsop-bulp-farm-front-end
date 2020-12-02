@@ -1,12 +1,42 @@
 import React from "react"
 import ShoppingCartList from "./shoppingCartList"
+import PayWithPaypal from "./PayWithPaypal"
 
 
 
 function ShoppingCart(props) {
+   
 const handleModalClose = event => {
         document.querySelector('.modal').className='modal'
 }
+
+
+
+// const createOrder = (data, actions) => {
+//     return actions.order.create({
+//         purchase_units: props.props.map(product => {
+//             return {
+//                name: product.name,
+//                description: product.description,
+//                amount: {
+//                    currency_code: "USD",
+//                    value: product.price.toFixed(2)
+//            }}
+//        })
+//       });
+// }
+
+const checkoutList = props.props.map(product => {
+         return {
+            name: product.name,
+            description: product.description,
+            amount: {
+                currency_code: "USD",
+                value: product.price
+        }}
+    })
+    // console.log(checkoutList)
+
 
     return (
         <div class="modal">
@@ -18,13 +48,13 @@ const handleModalClose = event => {
                 </header>
                 <section class="modal-card-body">
                     <div className='field'>
-                        {props.props != undefined ? 
+                        {props.props.length != 0 ? 
                             <div>
-                                {props.props.map(item => 
-                                    <ShoppingCartList props={item} remove={props.remove} />
+                                {props.props.map((item, i) => 
+                                    <ShoppingCartList props={item} remove={props.remove} index={i} />
                                 )}
                             </div> 
-                            : "Nothing in your cart yet, Keep Shopping!"}
+                            : <h1>Nothing in your cart yet, Keep Shopping!</h1>}
                             <hr />
                         <div>
                             <h1>Total Price: ${props.total.toFixed(2)}</h1>
@@ -32,7 +62,8 @@ const handleModalClose = event => {
                     </div>
                 </section>
                 <footer class="modal-card-foot">
-                    <button class="button is-success"></button>
+                    <PayWithPaypal items={props} />
+    
                     
                 </footer>
             </div>

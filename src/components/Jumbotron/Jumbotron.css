@@ -1,0 +1,45 @@
+.jumbotron__main {
+  position: relative;
+  /* background-image: url("../../images/jumbo_bkg.jpg"); */
+  height: 90vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.jumbotron__content {
+  position: absolute;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  text-align: center;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.jumbotron__title {
+  font-size: 5rem;
+  font-weight: 700;
+  color: black !important;
+  font-family: "Anton", sans-serif;
+}
+
+.jumbotron__subtitle {
+  font-size: 2rem;
+  color: #283618;
+  font-family: "Dosis", sans-serif;
+}
+
+@media screen and (max-width: 800px) {
+  .jumbotron__title {
+    font-size: 3rem;
+  }
+  .jumbotron__subtitle {
+    font-size: 1.5rem;
+  }
+  .jumbotron__content {
+    top: 50%;
+  }
+}

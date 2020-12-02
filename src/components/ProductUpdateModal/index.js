@@ -1,5 +1,6 @@
 import { Category } from '@material-ui/icons'
 import React, { useState } from 'react'
+import './index.css'
 
 export default function ProductUpdateModal(props) {
 
@@ -28,7 +29,8 @@ export default function ProductUpdateModal(props) {
                 </header>
                 <section className="modal-card-body">
                     <div className='field'>
-                        <div className='control'>
+                        <div className='control modal-input-field'>
+                            <label className='label'>Product Name</label>
                             <input
                                 className='input'
                                 type='text'
@@ -37,14 +39,20 @@ export default function ProductUpdateModal(props) {
                                 onChange={props.handleInputChange}
                                 placeholder='Product Name'
                             />
+                        </div>
+                        <div className='control modal-input-field'>
+                            <label className='label'>Price</label>
                             <input
                                 className='input'
-                                type='text'
+                                type='number'
                                 value={props.price}
                                 name='price'
                                 onChange={props.handleInputChange}
                                 placeholder='Product Price'
                             />
+                        </div>
+                        <div className='control modal-input-field'>
+                            <label className='label'>Category</label>
                             <select name='category' className='select' onChange={props.handleInputChange}>
                                 {categories.map(category => {
                                     if (props.category === category) {
@@ -58,25 +66,9 @@ export default function ProductUpdateModal(props) {
                                     }
                                 })}
                             </select>
-                            {/* <div className='color-checkboxes'>
-                                {colors.map(color => {
-                                    if (props.color.includes(color)) {
-                                        return (
-                                            <label name='color' className='checkbox'>
-                                                {color}
-                                                <input type='checkbox' name='color' value={color} onClick={props.handleInputChange} checked />
-                                            </label>
-                                        )
-                                    } else {
-                                        return (
-                                            <label name='color' className='checkbox'>
-                                                {color}
-                                                <input type='checkbox' name='color' value={color} onClick={props.handleInputChange}/>
-                                            </label>
-                                        )
-                                    }
-                                })}
-                            </div> */}
+                        </div>
+                        <div className='control modal-input-field'>
+                            <label className='label'>Planting Season</label>
                             <select className='select' name='plantingSeason' onChange={props.handleInputChange} >
                                 {['Fall', 'Spring'].map(season => {
                                     if (props.plantingSeason === season) {
@@ -96,12 +88,17 @@ export default function ProductUpdateModal(props) {
 
 
                             </select>
+                        </div>
+                        <div className='control modal-input-field'>
                             <div className="in-stock-check-container">
                                 <label>
                                     In Stock
-                                    {props.inStock ? <input type='checkbox' className='checkbox instock-check' onClick={props.handleCheckboxClick} checked/> : <input type='checkbox' className='checkbox instock-check' onClick={props.handleCheckboxClick} />}
+                                    {props.inStock ? <input type='checkbox' className='checkbox instock-check' onClick={props.handleCheckboxClick} checked /> : <input type='checkbox' className='checkbox instock-check' onClick={props.handleCheckboxClick} />}
                                 </label>
                             </div>
+                        </div>
+                        <div className='control modal-input-field'>
+                            <label className='label'>Description</label>
                             <textarea
                                 className="textarea"
                                 placeholder="Product Description"
@@ -111,11 +108,20 @@ export default function ProductUpdateModal(props) {
                             </textarea>
                         </div>
                     </div>
+                    <div className="change-img-container">
+                        <button
+                            id="upload_widget"
+                            className="cloudinary-button change-img-btn"
+                            onClick={() => props.imageWidget()}
+                        >
+                            Add Image
+                        </button>
+                    </div>
                 </section>
                 <footer className="modal-card-foot">
                     <button className="button is-success" onClick={() => {
                         handleModalClose()
-                        props.handleProductUpdate()
+                        props.handleProductUpdate(true)
                     }}>Save changes</button>
                     <button className="button" onClick={handleModalClose}>Cancel</button>
                 </footer>

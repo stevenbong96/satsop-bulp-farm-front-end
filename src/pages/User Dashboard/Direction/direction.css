@@ -1,10 +1,10 @@
-.directionStyle{
-    margin-bottom: 3%;
-    text-align: center;
-    max-width: 65%;
-    margin: 0 auto;
-    margin-top: 3%;
-    margin-bottom: 8%;
+.directionStyle {
+  margin-bottom: 3%;
+  text-align: center;
+  /* max-width: 65%; */
+  margin: 0 auto;
+  /* margin-top: 3%;
+  margin-bottom: 8%; */
 }
 
 /* .storeInfo{
@@ -18,23 +18,23 @@
     padding-left: 5%;
 } */
 
-.mapStyle{
+/* .mapStyle{
     margin-left: 2%;
-}
+} */
 
-#mapid { 
-    height: 100px; 
-}
+/* #mapid {
+  height: 100px;
+} */
 
 .leaflet-container {
-    height: 300px;
-    width: 80%;
-    margin: 0 auto;
+  height: 400px;
+  width: 80%;
+  margin: 0 auto;
 }
 
-@media screen and (max-width: 400px){
-    .directionStyle{
-        margin-bottom: 3%;
-        padding-bottom: 3%;
-    }
+@media screen and (max-width: 400px) {
+  .directionStyle {
+    margin-bottom: 3%;
+    padding-bottom: 3%;
+  }
 }

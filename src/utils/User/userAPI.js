@@ -33,7 +33,7 @@ export default {
     return axios.get(BASEURL);
   },
   sendContactInfo: function (contactData) {
-    console.log(contactData);
+    // console.log(contactData);
     return axios.post(`${apiURL}/api/email`, contactData);
   },
   getStoreInfo: function(){
@@ -43,5 +43,20 @@ export default {
   getGoogleMaps: function() {
     const BASEURL = "";
     return axios.get(BASEURL);
+  },
+  sendOrderInfo: function(orderObj) {
+    // console.log(orderObj)
+    const BASEURL = "https://calm-brook-21723.herokuapp.com/api/orders";
+    return axios.post(BASEURL, orderObj)
+  },
+
+  orderNodemailer: function(nodemailerObj){
+    // console.log(nodemailerObj);
+    // return axios.post("http://localhost:4000/api/orderDetails", nodemailerObj);
+    return axios.post("https://calm-brook-21723.herokuapp.com/api/orderDetails", nodemailerObj);
+  },
+  updateOrderInfo: function(id, orderObj) {
+    const BASEURL = "https://calm-brook-21723.herokuapp.com/api/orders/" + id;
+    return axios.put(BASEURL, orderObj)
   }
 };
