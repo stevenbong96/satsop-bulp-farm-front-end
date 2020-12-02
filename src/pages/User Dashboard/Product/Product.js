@@ -123,7 +123,7 @@ function Product() {
   };
   const getTotal = () => {
     let price1 = 0;
-    console.log(totalPrice);
+    // console.log(totalPrice);
     for (let i = 0; i < shoppingCartState.length; i++) {
       price1 = price1 + shoppingCartState[i].price;
     }
