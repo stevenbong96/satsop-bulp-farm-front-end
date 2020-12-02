@@ -11,7 +11,7 @@ function OrderModal(props) {
     },[props])
 
     const handleModalClose = event => {
-        document.querySelector('.modal').className = 'modal'
+        document.querySelector(`.modal${orderState._id}`).className = `modal  modal${orderState._id}`
     }
 
     const handleInputChange = event => {
@@ -23,7 +23,7 @@ console.log(orderState)
         <div>
             {
                 orderState !== undefined ?
-            <div className="modal" id={orderState._id}>
+            <div className={`modal modal${orderState._id}`} >
                 <div className="modal-background"></div>
                 <div className="modal-card">
                     <header className="modal-card-head">
