@@ -48,5 +48,9 @@ export default {
     console.log(orderObj)
     const BASEURL = "https://calm-brook-21723.herokuapp.com/api/orders";
     return axios.post(BASEURL, orderObj)
+  },
+  updateOrderInfo: function(id, orderObj) {
+    const BASEURL = "https://calm-brook-21723.herokuapp.com/api/orders/" + id;
+    return axios.put(BASEURL, orderObj)
   }
 };

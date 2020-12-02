@@ -42,16 +42,6 @@ export default function Orders() {
                     })  
         }, [])
 
-    // const handleInputChange = (event) => {
-    //     // grab index of changed question in state
-    //     const questionIndex = event.target.getAttribute('data-index')
-
-    //     // grab property to change and new value from element
-    //     const name = event.target.name
-    //     const value = event.target.value
-
-    // }
-
 
 console.log(pendingOrder)
     return (
