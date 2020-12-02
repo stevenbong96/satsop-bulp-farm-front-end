@@ -52,9 +52,6 @@ export default function Orders() {
 
     // }
 
-    const showModal = (event) => {
-        document.querySelector('.modal').className = "modal is-active"
-    }
 
 console.log(pendingOrder)
     return (
@@ -66,6 +63,34 @@ console.log(pendingOrder)
             <hr />
             <h1>Pending Orders</h1>
                 <ul>
+                <li className="tile is-parent">
+                    <div className="tile is-child is-3">
+                        <span>
+                            Order Id
+                        </span>
+                    </div>
+                    <div className="tile is-child is-3">       
+                        <span>
+                            Date Ordered
+                        </span>
+                    </div>    
+                    <div className="tile is-child is-3">       
+                        <span>
+                            Tracking Number
+                        </span>
+                    </div>
+                    <div className="tile is-child is-3">
+                        <span>
+                            Total Order Amount
+                        </span>
+                    </div>
+                    <div className="tile is-child is-3">
+                        <span>
+                            Press to complete!
+                        </span>
+                    </div>
+                    <hr />
+                </li>
                     {pendingOrder !== undefined ?
                         pendingOrder.map(orderP => 
                             <OrderList props={orderP} />
@@ -75,6 +100,34 @@ console.log(pendingOrder)
                 <hr />
             <h1>Completed Orders</h1>
                 <ul>
+                <li className="tile is-parent">
+                    <div className="tile is-child is-3">
+                        <span>
+                            Order Id
+                        </span>
+                    </div>
+                    <div className="tile is-child is-3">       
+                        <span>
+                            Date Completed
+                        </span>
+                    </div>    
+                    <div className="tile is-child is-3">       
+                        <span>
+                            Tracking Number
+                        </span>
+                    </div>
+                    <div className="tile is-child is-3">
+                        <span>
+                            Total Order Amount
+                        </span>
+                    </div>
+                    <div className="tile is-child is-3">
+                        <span>
+                            Update
+                        </span>
+                    </div>
+                    <hr />
+                </li>
                     {completedOrder !== undefined ?
                         completedOrder.map(orderC => 
                             <OrderList props={orderC} />
