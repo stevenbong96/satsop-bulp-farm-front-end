@@ -37,6 +37,12 @@ function OrderList(props) {
         setTrackingNumber({[name]: value})
     }
 
+    const shipping =[
+        'USPS',
+        'UPS',
+        'FedEx',
+        'DHL',
+    ]
 
     console.log(props)
     return (
@@ -61,7 +67,7 @@ function OrderList(props) {
         </div>
         <div className="tile is-child is-3">
             <span>
-                ${props.props.customerTotalAmount}
+                ${props.props.customerTotalAmount.toFixed(2)}
             </span>
         </div>
         <div className="tile is-child is-3">
