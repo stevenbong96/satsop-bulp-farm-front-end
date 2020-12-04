@@ -63,7 +63,7 @@ console.log(orderState)
                                             {item.description}  
                                         </span>
                                         <span style={{float: 'right'}}>
-                                            ${item.price}
+                                            ${item.price.toFixed(2)}
                                         </span>
                                     </li>
                                 )}
@@ -73,7 +73,7 @@ console.log(orderState)
                                 Total Amount: 
                             </span>
                             <span style={{float: 'right'}}>
-                                ${orderState.customerTotalAmount}
+                                ${orderState.customerTotalAmount.toFixed(2)}
                             </span>
                             <br />
                             <hr />
