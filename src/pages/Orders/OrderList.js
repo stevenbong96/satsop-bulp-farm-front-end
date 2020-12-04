@@ -50,7 +50,7 @@ function OrderList(props) {
     }
 
 
-    console.log(props)
+    // console.log(props)
     return (
         <li className="tile is-parent">
             <div className="tile is-child is-3">

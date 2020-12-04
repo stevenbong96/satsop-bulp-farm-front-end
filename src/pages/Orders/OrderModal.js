@@ -18,7 +18,7 @@ function OrderModal(props) {
         // grab name of property to be changed and new value
         const { name, value } = event.target
     }
-console.log(orderState)
+// console.log(orderState)
     return (
         <div>
             {

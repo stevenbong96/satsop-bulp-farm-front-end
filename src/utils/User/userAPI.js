@@ -60,7 +60,7 @@ export default {
     return axios.put(BASEURL, orderObj)
   },
   sendOrderTracking: function(trackingObj){
-    console.log(trackingObj)
+    // console.log(trackingObj)
     return axios.post('http://localhost:4000/api/orderTracking', trackingObj)
   }
 };
