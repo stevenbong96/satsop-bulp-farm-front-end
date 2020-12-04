@@ -20,22 +20,21 @@ function OrderList(props) {
                     completed: true
                 }).then(data => {
                     //send Email to customer with tracking information 
-                    // var trackingStatus = {trackStatus: trackingNumberState.trackingNumber, userInfo: props.props}
-                    // console.log(trackingStatus);
-                    // console.log(data);
-                    // API.sendOrderTracking(trackingStatus)
-                    //     .then(res => {
-                    //         console.log(res);
-                    //         if (res.data.status === "success") {
-                    //             alert("Message Sent!!!!!");
-                    //         } else if (res.data.status === "fail") {
-                    //             alert("Message failed to send.");
-                    //         }
-                    //     }).catch(err => {
-                    //         console.log(err);
-                    //     })
+                    var trackingStatus = {trackStatus: trackingNumberState.trackingNumber, userInfo: props.props}
+                    API.sendOrderTracking(trackingStatus)
+                        .then(res => {
+                            console.log(res);
+                            if (res.data.status === "success") {
+                                alert("Message Sent!!!!!");
+                            } else if (res.data.status === "fail") {
+                                alert("Message failed to send.");
+                            }
+                        }).catch(err => {
+                            console.log(err);
+                        })
                 })
                 .then(data => {
+                    // console.log("HELLO this is after .then")
                     window.location.reload()
                 })
             :
