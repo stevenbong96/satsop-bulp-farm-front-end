@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import OrderModal from "./OrderModal"
 import API from "../../utils/User/userAPI"
-
 import './index.css'
 
 function OrderList(props) {
@@ -23,7 +22,7 @@ function OrderList(props) {
                     var trackingStatus = {trackStatus: trackingNumberState.trackingNumber, userInfo: props.props}
                     API.sendOrderTracking(trackingStatus)
                         .then(res => {
-                            console.log(res);
+                            // console.log(res);
                             if (res.data.status === "success") {
                                 alert("Message Sent!!!!!");
                             } else if (res.data.status === "fail") {
@@ -34,7 +33,6 @@ function OrderList(props) {
                         })
                 })
                 .then(data => {
-                    // console.log("HELLO this is after .then")
                     window.location.reload()
                 })
             :
