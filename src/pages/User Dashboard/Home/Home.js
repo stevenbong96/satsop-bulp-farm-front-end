@@ -69,15 +69,15 @@ function Home() {
         ></Jumbotron>
         <div className="section">
           <div className="container">
+            <StoreInfo storeText={currentHome.salesInfo.text} />
+            {/* <Direction /> */}
+            <Contact />
             <About
               text1={currentHome.aboutUsMain.text}
               text2={currentHome.aboutUsSub.text}
               text3={currentHome.welcome.text}
               text4={currentHome.brief.text}
             />
-            <StoreInfo storeText={currentHome.salesInfo.text} />
-            {/* <Direction /> */}
-            <Contact />
           </div>
         </div>
       </div>
