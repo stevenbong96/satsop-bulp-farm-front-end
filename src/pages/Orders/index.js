@@ -79,7 +79,11 @@ console.log(pendingOrder)
                         onChange={handleInputChange}
                     />
                 <button
+<<<<<<< HEAD
                 className='column is-2'
+=======
+                className='column is-rounded is-2'
+>>>>>>> dev
                 onClick={handleSubmit}>
                     Search
                 </button>

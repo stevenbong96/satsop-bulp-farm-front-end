@@ -1,7 +1,6 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import OrderModal from "./OrderModal"
 import API from "../../utils/User/userAPI"
-
 import './index.css'
 
 function OrderList(props) {
@@ -14,19 +13,30 @@ function OrderList(props) {
 
     const completeOrder = () => {
         trackingNumberState.trackingNumber !== "" ?
-        API.updateOrderInfo(props.props._id, 
-            {
-                trackingNumber: trackingNumberState.trackingNumber,
-                completed: true
-            }).then(data => {
-                //send Email to customer with tracking information 
-                //Add that code Here
-            })
-            .then(data => {
-                window.location.reload()
-            })
-        :
-        alert("Please Enter Tracking Information")
+            API.updateOrderInfo(props.props._id,
+                {
+                    trackingNumber: trackingNumberState.trackingNumber,
+                    completed: true
+                }).then(data => {
+                    //send Email to customer with tracking information 
+                    var trackingStatus = {trackStatus: trackingNumberState.trackingNumber, userInfo: props.props}
+                    API.sendOrderTracking(trackingStatus)
+                        .then(res => {
+                            // console.log(res);
+                            if (res.data.status === "success") {
+                                alert("Message Sent!!!!!");
+                            } else if (res.data.status === "fail") {
+                                alert("Message failed to send.");
+                            }
+                        }).catch(err => {
+                            console.log(err);
+                        })
+                })
+                .then(data => {
+                    window.location.reload()
+                })
+            :
+            alert("Please Enter Tracking Information")
     }
 
     const handleInputChange = event => {
@@ -34,11 +44,17 @@ function OrderList(props) {
         const name = event.target.name
         const value = event.target.value
 
-        setTrackingNumber({[name]: value})
+        setTrackingNumber({ [name]: value })
     }
 
+    const shipping =[
+        'USPS',
+        'UPS',
+        'FedEx',
+        'DHL',
+    ]
 
-    console.log(props)
+    // console.log(props)
     return (
     <li className="tile is-parent">
         <div className="tile is-child is-3">
@@ -61,7 +77,7 @@ function OrderList(props) {
         </div>
         <div className="tile is-child is-3">
             <span>
-                ${props.props.customerTotalAmount}
+                ${props.props.customerTotalAmount.toFixed(2)}
             </span>
         </div>
         <div className="tile is-child is-3">
@@ -74,7 +90,7 @@ function OrderList(props) {
         <OrderModal props={props} />
     </li>
 
-    )      
+    )
 }
 
 export default OrderList
