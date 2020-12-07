@@ -47,42 +47,48 @@ function OrderList(props) {
         setTrackingNumber({ [name]: value })
     }
 
+    const shipping =[
+        'USPS',
+        'UPS',
+        'FedEx',
+        'DHL',
+    ]
 
     // console.log(props)
     return (
-        <li className="tile is-parent">
-            <div className="tile is-child is-3">
-                <button style={{ background: 'none', border: 'none', padding: 0, textDecoration: 'underline', cursor: 'pointer', color: '#069' }} onClick={showModal}>
-                    {props.props.orderId}
-                </button>
-            </div>
-            <div className="tile is-child is-3">
-                <span>
-                    {props.props.updatedAt}
-                </span>
-            </div>
-            <div className="tile is-child is-3">
-                {props.props.trackingNumber !== undefined ?
-                    <span>
-                        {props.props.trackingNumber}
-                    </span>
-                    :
-                    <input placeholder="Tracking Number" name="trackingNumber" onChange={handleInputChange} ></input>}
-            </div>
-            <div className="tile is-child is-3">
-                <span>
-                    ${props.props.customerTotalAmount}
-                </span>
-            </div>
-            <div className="tile is-child is-3">
-                {props.props.completed !== false ?
-                    <button>Update Order</button>
-                    :
-                    <button onClick={completeOrder}>Complete Order</button>}
-            </div>
-            <hr />
-            <OrderModal props={props} />
-        </li>
+    <li className="tile is-parent">
+        <div className="tile is-child is-3">
+            <button style={{background: 'none', border: 'none', padding: 0, textDecoration: 'underline', cursor: 'pointer', color: '#069'}} onClick={showModal}>
+                {props.props.orderId}
+            </button>
+        </div>
+        <div className="tile is-child is-3">
+            <span>
+                {props.props.updatedAt}
+            </span>
+        </div>    
+        <div className="tile is-child is-3"> 
+        {props.props.trackingNumber !== undefined ?
+            <span>
+                {props.props.trackingNumber}
+            </span> 
+        :
+            <input placeholder="Tracking Number" name="trackingNumber" onChange={handleInputChange} ></input>}      
+        </div>
+        <div className="tile is-child is-3">
+            <span>
+                ${props.props.customerTotalAmount.toFixed(2)}
+            </span>
+        </div>
+        <div className="tile is-child is-3">
+            {props.props.completed !== false ?
+            <button>Update Order</button>
+            :
+            <button onClick={completeOrder}>Complete Order</button>}
+        </div>
+        <hr />
+        <OrderModal props={props} />
+    </li>
 
     )
 }

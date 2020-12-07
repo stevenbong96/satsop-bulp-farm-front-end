@@ -63,7 +63,7 @@ function OrderModal(props) {
                                             {item.description}  
                                         </span>
                                         <span style={{float: 'right'}}>
-                                            ${item.price}
+                                            ${item.price.toFixed(2)}
                                         </span>
                                     </li>
                                 )}
@@ -73,7 +73,7 @@ function OrderModal(props) {
                                 Total Amount: 
                             </span>
                             <span style={{float: 'right'}}>
-                                ${orderState.customerTotalAmount}
+                                ${orderState.customerTotalAmount.toFixed(2)}
                             </span>
                             <br />
                             <hr />
