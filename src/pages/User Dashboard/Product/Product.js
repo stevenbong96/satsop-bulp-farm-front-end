@@ -119,7 +119,7 @@ function Product() {
     setShoppingCartState([...shoppingCartState, obj]);
   };
   const showCart = (event) => {
-    document.querySelector(".modal").className = "modal is-active";
+    document.querySelector(".Cart").className = "modal is-active Cart";
   };
   const getTotal = () => {
     let price1 = 0;
