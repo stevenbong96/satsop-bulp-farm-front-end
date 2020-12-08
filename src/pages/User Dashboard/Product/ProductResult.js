@@ -8,6 +8,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import ProductModal from "./ProductModal";
 
 const useStyles = makeStyles({
   root: {
@@ -30,9 +31,17 @@ function ProductResult(props) {
   };
 
   const classes = useStyles();
+console.log(props.props)
+  const showModal = (event) => {
+    document.querySelector(`.modal${props.props._id}`).className = `modal is-active modal${props.props._id}`
+}
+
 
   return (
+    
+
     <Grid item xs={12} sm={6} md={3}>
+      <ProductModal props={props} />
       <Card className={classes.root} elevation={3}>
         <CardActionArea>
           <CardContent>
@@ -44,26 +53,28 @@ function ProductResult(props) {
             className={classes.media}
             image={props.props.image}
             title="product Image"
-          />
+            onClick={showModal}
+            />
           <CardContent className="cardComponents">
-            <Typography gutterBottom variant="p" component="h2">
+            {/* <Typography gutterBottom variant="p" component="h2">
               Category: {props.props.category}
-            </Typography>
-            <br />
+              </Typography>
+            <br /> */}
             <Typography gutterBottom variant="p" component="h2">
               Color:{" "}
               {props.props.color.map((element) =>
                 element.length > 0 ? element + " " : "No Color Found"
-              )}
-            </Typography>
-            <br />
-            <Typography gutterBottom variant="p" component="h2">
-              Planting Season: {props.props.planting}
+                )}
             </Typography>
             <br />
             {/* <Typography gutterBottom variant="p" component="h2">
-                        Description: {props.props.description}
-                    </Typography> */}
+              Planting Season: {props.props.planting}
+              </Typography>
+            <br /> */}
+            <Typography gutterBottom variant="p" component="h2">
+              Description: {props.props.description}
+            </Typography>
+            <br />
             <Typography gutterBottom variant="h6" component="h2">
               $ {props.props.price.toFixed(2)}
             </Typography>
@@ -78,6 +89,9 @@ function ProductResult(props) {
         </CardActions>
       </Card>
     </Grid>
+
+
+
   );
 }
 

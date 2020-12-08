@@ -32,6 +32,10 @@ function OrderModal(props) {
                     </header>
                     <section className="modal-card-body">
                             <span>
+                                Customer Name: {orderState.firstName} {orderState.lastName}
+                            </span>
+                            <br />
+                            <span>
                                 Customers Email: {orderState.customerEmail}
                             </span>
                             <br />
@@ -79,7 +83,7 @@ function OrderModal(props) {
                             <hr />
                             {orderState.trackingNumber !== undefined ?
                                 <span>
-                                    {orderState.trackingNumber}
+                                    Tracking Number: {orderState.trackingNumber}
                                 </span> 
                             :
                                 <input placeholder="Tracking Number" name="trackingNumber" ></input>} 

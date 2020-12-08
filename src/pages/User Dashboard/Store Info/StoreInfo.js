@@ -44,9 +44,9 @@ function StoreInfo(props) {
 
   return (
     <div className="storeInfo__container">
-      <h2 className="section__title">STORE INFO</h2>
+      <h2 className="section__title Title is-1">STORE INFO</h2>
       <hr></hr>
-      <h6 className="subtitle is-6">{props.storeText}</h6>
+      <h3 className="subtitle is-4">{props.storeText}</h3>
 
       <div className="columns is-justify-content-center storeText">
         <div className="column is-4 has-text-left">
