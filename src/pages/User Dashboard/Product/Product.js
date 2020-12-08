@@ -27,10 +27,17 @@ function Product() {
   });
   const [shoppingCartState, setShoppingCartState] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [bannerText, setBannerText] = useState({
+    banner: '',
+});
+const [noteText, setNoteText] = useState({
+    note: '',
+});
 
   // Use Effect
   useEffect(() => {
-    loadAllProducts();
+    loadAllProducts()
+    loadText();
   }, []);
   useEffect(() => {
     getTotal();
@@ -49,6 +56,15 @@ function Product() {
         console.log(err);
       });
   }
+    //load banner text
+    function loadText() {
+      API.getAllHomeInfo().then(res => {
+          res.data.map(text => text.title === "Product Banner" ? setBannerText({banner: text.text}) : null)
+          res.data.map(text => text.title === "Product Note" ? setNoteText({note: text.text}) : null)
+      }).catch((err) => {
+        console.log(err);
+      });
+    }
 
   // Handle Input Change
   function handleInputChange(event) {
@@ -60,7 +76,7 @@ function Product() {
   function handleSelect(event) {
     const { name, value } = event.target;
     // console.log("SELECTED");
-    console.log({ name, value });
+    // console.log({ name, value });
     setValue({ ...stateValue, [name]: value });
 
     if (value === "") {
@@ -142,6 +158,11 @@ function Product() {
       <Navbar />
       <Jumbotron image={bkgImage} headline="Products"></Jumbotron>
       <div className="section">
+        <div className="productBanner has-text-centered m-4">
+          <h3 className="title 3">{bannerText.banner}</h3>
+          <h5 className="subtitle 6">{noteText.note}</h5>
+        </div>
+        <hr />
         <form>
           <Grid
             container
