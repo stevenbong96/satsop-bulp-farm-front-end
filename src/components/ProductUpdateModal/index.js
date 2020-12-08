@@ -92,7 +92,7 @@ export default function ProductUpdateModal(props) {
                         <div className='control modal-input-field'>
                             <div className="in-stock-check-container">
                                 <label>
-                                    In Stock
+                                    Available Online
                                     {props.inStock ? <input type='checkbox' className='checkbox instock-check' onClick={props.handleCheckboxClick} checked /> : <input type='checkbox' className='checkbox instock-check' onClick={props.handleCheckboxClick} />}
                                 </label>
                             </div>

@@ -88,27 +88,32 @@ console.log(pendingOrder)
             <h1>Pending Orders</h1>
                 <ul>
                 <li className="tile is-parent">
-                    <div className="tile is-child is-3">
+                    <div className="tile is-child is-2">
                         <span>
                             Order Id
                         </span>
                     </div>
-                    <div className="tile is-child is-3">       
+                    <div className="tile is-child is-2">       
                         <span>
                             Date Ordered
                         </span>
+                    </div>
+                    <div className="tile is-child is-2">       
+                        <span>
+                            Shipper
+                        </span>
                     </div>    
-                    <div className="tile is-child is-3">       
+                    <div className="tile is-child is-2">       
                         <span>
                             Tracking Number
                         </span>
                     </div>
-                    <div className="tile is-child is-3">
+                    <div className="tile is-child is-2">
                         <span>
                             Total Order Amount
                         </span>
                     </div>
-                    <div className="tile is-child is-3">
+                    <div className="tile is-child is-2">
                         <span>
                             Press to complete!
                         </span>
@@ -125,27 +130,32 @@ console.log(pendingOrder)
             <h1>Completed Orders</h1>
                 <ul>
                 <li className="tile is-parent">
-                    <div className="tile is-child is-3">
+                    <div className="tile is-child is-2">
                         <span>
                             Order Id
                         </span>
                     </div>
-                    <div className="tile is-child is-3">       
+                    <div className="tile is-child is-2">       
                         <span>
                             Date Completed
                         </span>
-                    </div>    
-                    <div className="tile is-child is-3">       
+                    </div>
+                    <div className="tile is-child is-2">       
+                        <span>
+                            Shipper
+                        </span>
+                    </div>     
+                    <div className="tile is-child is-2">       
                         <span>
                             Tracking Number
                         </span>
                     </div>
-                    <div className="tile is-child is-3">
+                    <div className="tile is-child is-2">
                         <span>
                             Total Order Amount
                         </span>
                     </div>
-                    <div className="tile is-child is-3">
+                    <div className="tile is-child is-2">
                         <span>
                             Update
                         </span>

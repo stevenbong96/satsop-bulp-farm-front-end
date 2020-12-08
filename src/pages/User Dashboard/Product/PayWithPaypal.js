@@ -68,6 +68,8 @@ export default function PaywithPaypal(props) {
             orderId: data.orderID,
             customerTotalAmount: details.purchase_units[0].amount.value,
             purchaseList: totalState.list,
+            firstName: details.payer.name.given_name,
+            lastName: details.payer.name.surname,
             customerEmail: details.payer.email_address,
             customerAddress: details.purchase_units[0].shipping.address.address_line_1,
             customerCity: details.purchase_units[0].shipping.address.admin_area_2,
