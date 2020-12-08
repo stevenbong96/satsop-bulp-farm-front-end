@@ -32,7 +32,7 @@ function ProductResult(props) {
 
   const classes = useStyles();
 console.log(props.props)
-  const showModal = (event) => {
+  const showModals = (event) => {
     document.querySelector(`.modal${props.props._id}`).className = `modal is-active modal${props.props._id}`
 }
 
@@ -53,7 +53,7 @@ console.log(props.props)
             className={classes.media}
             image={props.props.image}
             title="product Image"
-            onClick={showModal}
+            onClick={showModals}
             />
           <CardContent className="cardComponents">
             {/* <Typography gutterBottom variant="p" component="h2">

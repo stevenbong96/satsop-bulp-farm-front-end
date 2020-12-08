@@ -7,7 +7,7 @@ import PayWithPaypal from "./PayWithPaypal"
 function ShoppingCart(props) {
    
 const handleModalClose = event => {
-        document.querySelector('.modal').className='modal'
+        document.querySelector('.Cart').className='modal Cart'
 }
 
 
@@ -39,7 +39,7 @@ const checkoutList = props.props.map(product => {
 
 
     return (
-        <div class="modal">
+        <div class="modal Cart">
             <div class="modal-background"></div>
             <div class="modal-card">
                 <header class="modal-card-head">
