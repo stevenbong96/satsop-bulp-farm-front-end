@@ -31,7 +31,7 @@ function ProductResult(props) {
   };
 
   const classes = useStyles();
-console.log(props.props)
+// console.log(props.props)
   const showModals = (event) => {
     document.querySelector(`.modal${props.props._id}`).className = `modal is-active modal${props.props._id}`
 }

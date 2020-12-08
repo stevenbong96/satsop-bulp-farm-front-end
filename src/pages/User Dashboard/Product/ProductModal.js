@@ -18,7 +18,7 @@ function ProductModal(props) {
         // grab name of property to be changed and new value
         const { name, value } = event.target
     }
-    console.log(props)
+    // console.log(props)
 // console.log(productState)
     return (
         <div>

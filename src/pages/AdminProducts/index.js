@@ -11,6 +11,8 @@ import ProductUpdateModal from '../../components/ProductUpdateModal'
 import { colors } from '@material-ui/core'
 import SearchBar from '../../components/SearchBar'
 import { useHistory } from 'react-router-dom'
+import PageSectionTextarea from '../../components/PageSectionTextarea'
+import userAPI from '../../utils/User/userAPI'
 
 export default function AdminProducts() {
     const [products, setProducts] = useState([])
@@ -30,6 +32,13 @@ export default function AdminProducts() {
         description: '',
         category: ''
     })
+    const [allText, setAllText] = useState()
+    const [bannerText, setBannerText] = useState({
+        banner: '',
+    });
+    const [noteText, setNoteText] = useState({
+        note: '',
+    });
 
     let history = useHistory();
 
@@ -52,6 +61,7 @@ export default function AdminProducts() {
 
     // when user updates the filters for their search, filter the products to meet the new filters
     useEffect(() => {
+        loadText();
         // filter products to meet current filter
         let newProducts = []
         if (filters.category !== '' && filters.plantingSeason !== '') {
@@ -235,12 +245,56 @@ export default function AdminProducts() {
         })
     }
 
+    //load banner text
+  function loadText() {
+    userAPI.getAllHomeInfo().then(res => {
+        res.data.map(text => text.title === "Product Banner" ? setBannerText({banner: text.text}) : null)
+        res.data.map(text => text.title === "Product Note" ? setNoteText({note: text.text}) : null)
+        setAllText(res.data)
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+  // update state when user changes an input field
+  const inputChange = event => {
+    // grab name of property to change and value
+    const { name, value } = event.target
+    // update state with new value
+    setBannerText({[name] : value})
+}
+const noteInputChange = event => {
+    // grab name of property to change and value
+    const { name, value } = event.target
+    // update state with new value
+    setNoteText({[name] : value})
+}
+
+// make request to save new text to db when user clicks save
+const handleSave = (event) => {
+    const textNode = event.target.parentElement.parentElement.children[1].children[0]
+    // grab id of text to change and its value
+    const textId = textNode.getAttribute('data-textId')
+    const text = textNode.value
+
+    // make request to update text in db
+    API.updateHomePageText(textId, { text: text }).then(res => {
+        alert("Save Complete")
+    }
+
+    )
+}
+
+    
     return (
         <>
             <AdminHeader />
             <AdminNav />
             <AdminDashUpdateFields>
                 <h1 className='page-heading'>Products Page</h1>
+                <PageSectionTextarea className='homeText'  id="5fcfcf926075720017c7c565" text={bannerText.banner} name='banner' heading="Product Banner" handleInputChange={inputChange} handleSave={handleSave} />
+                <PageSectionTextarea className='homeText'  id="5fcfcf9d6075720017c7c566" text={noteText.note} name='note' heading="Product Note" handleInputChange={noteInputChange} handleSave={handleSave} />
+                <hr />
+                <h1 className='page-heading' >All Products</h1>
                 <div className='search-filters'>
                     <SearchBar
                         value={searchQuery}
