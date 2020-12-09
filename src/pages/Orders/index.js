@@ -9,8 +9,11 @@ import OrderList from "./OrderList"
 
 
 export default function Orders() {
-    const [pendingOrder, setPendingOrder] = useState()
-    const [completedOrder, setcompletedOrder] = useState()
+    const [pendingOrder, setPendingOrder] = useState();
+    const [completedOrder, setcompletedOrder] = useState();
+    const [filteredpendingOrder, setFilteredPendingOrder] = useState();
+    const [filteredcompletedOrder, setFilteredcompletedOrder] = useState();
+    const [orderIdState, setOrderIdState] = useState({});
 
     let history = useHistory();
 
@@ -34,13 +37,29 @@ export default function Orders() {
             }
         }).then( data => {
             setPendingOrder(pending)
+            setFilteredPendingOrder(pending)
             setcompletedOrder(complete)
+            setFilteredcompletedOrder(complete)
         }
         ).catch(err => {
                 console.log(err);
                 history.push("/login")
                     })  
         }, [])
+
+          // Handle Input Change
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    
+    setOrderIdState({[name] : value});
+  }
+  function handleSubmit(event) {
+      let filterP = pendingOrder.filter(item => item.orderId === orderIdState.search)
+      let filterC = completedOrder.filter(item => item.orderId === orderIdState.search)
+
+      setFilteredPendingOrder(filterP);
+      setFilteredcompletedOrder(filterC);
+  }
 
 
 console.log(pendingOrder)
@@ -50,39 +69,59 @@ console.log(pendingOrder)
             <AdminNav />
             <AdminDashUpdateFields>
             <h1 className='page-heading'>Orders</h1>
+            <div className='columns'>
+                <input
+                        className="input is-rounded column is-10"
+                        name="search"
+                        type="text"
+                        placeholder="OrderId"
+                        onSubmit={handleSubmit}
+                        onChange={handleInputChange}
+                    />
+                <button
+                className='column is-rounded is-2'
+                onClick={handleSubmit}>
+                    Search
+                </button>
+            </div>
             <hr />
             <h1>Pending Orders</h1>
                 <ul>
                 <li className="tile is-parent">
-                    <div className="tile is-child is-3">
+                    <div className="tile is-child is-2">
                         <span>
                             Order Id
                         </span>
                     </div>
-                    <div className="tile is-child is-3">       
+                    <div className="tile is-child is-2">       
                         <span>
                             Date Ordered
                         </span>
+                    </div>
+                    <div className="tile is-child is-2">       
+                        <span>
+                            Shipper
+                        </span>
                     </div>    
-                    <div className="tile is-child is-3">       
+                    <div className="tile is-child is-2">       
                         <span>
                             Tracking Number
                         </span>
                     </div>
-                    <div className="tile is-child is-3">
+                    <div className="tile is-child is-2">
                         <span>
                             Total Order Amount
                         </span>
                     </div>
-                    <div className="tile is-child is-3">
+                    <div className="tile is-child is-2">
                         <span>
                             Press to complete!
                         </span>
                     </div>
                     <hr />
                 </li>
-                    {pendingOrder !== undefined ?
-                        pendingOrder.map(orderP => 
+                    {filteredpendingOrder !== undefined ?
+                        filteredpendingOrder.map(orderP => 
                             <OrderList props={orderP} />
                         )
                     : null}
@@ -91,35 +130,40 @@ console.log(pendingOrder)
             <h1>Completed Orders</h1>
                 <ul>
                 <li className="tile is-parent">
-                    <div className="tile is-child is-3">
+                    <div className="tile is-child is-2">
                         <span>
                             Order Id
                         </span>
                     </div>
-                    <div className="tile is-child is-3">       
+                    <div className="tile is-child is-2">       
                         <span>
                             Date Completed
                         </span>
-                    </div>    
-                    <div className="tile is-child is-3">       
+                    </div>
+                    <div className="tile is-child is-2">       
+                        <span>
+                            Shipper
+                        </span>
+                    </div>     
+                    <div className="tile is-child is-2">       
                         <span>
                             Tracking Number
                         </span>
                     </div>
-                    <div className="tile is-child is-3">
+                    <div className="tile is-child is-2">
                         <span>
                             Total Order Amount
                         </span>
                     </div>
-                    <div className="tile is-child is-3">
+                    <div className="tile is-child is-2">
                         <span>
                             Update
                         </span>
                     </div>
                     <hr />
                 </li>
-                    {completedOrder !== undefined ?
-                        completedOrder.map(orderC => 
+                    {filteredcompletedOrder !== undefined ?
+                        filteredcompletedOrder.map(orderC => 
                             <OrderList props={orderC} />
                         )
                     : null}

@@ -18,7 +18,7 @@ function OrderModal(props) {
         // grab name of property to be changed and new value
         const { name, value } = event.target
     }
-console.log(orderState)
+// console.log(orderState)
     return (
         <div>
             {
@@ -31,6 +31,10 @@ console.log(orderState)
                         <button className="delete" aria-label="close" onClick={handleModalClose} ></button>
                     </header>
                     <section className="modal-card-body">
+                            <span>
+                                Customer Name: {orderState.firstName} {orderState.lastName}
+                            </span>
+                            <br />
                             <span>
                                 Customers Email: {orderState.customerEmail}
                             </span>
@@ -63,7 +67,7 @@ console.log(orderState)
                                             {item.description}  
                                         </span>
                                         <span style={{float: 'right'}}>
-                                            ${item.price}
+                                            ${item.price.toFixed(2)}
                                         </span>
                                     </li>
                                 )}
@@ -73,13 +77,13 @@ console.log(orderState)
                                 Total Amount: 
                             </span>
                             <span style={{float: 'right'}}>
-                                ${orderState.customerTotalAmount}
+                                ${orderState.customerTotalAmount.toFixed(2)}
                             </span>
                             <br />
                             <hr />
                             {orderState.trackingNumber !== undefined ?
                                 <span>
-                                    {orderState.trackingNumber}
+                                    Tracking Number: {orderState.trackingNumber}
                                 </span> 
                             :
                                 <input placeholder="Tracking Number" name="trackingNumber" ></input>} 

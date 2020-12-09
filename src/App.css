@@ -1,7 +1,16 @@
+@font-face {
+  font-family: "GutterRust";
+  font-style: normal;
+  font-weight: 400;
+  src: local("GutterRust"), local("GutterRust"),
+    url("/src/fonts/Gutter\ Rust.ttf") format("truetype"); /* Safari, Android, iOS */
+}
+
 .section__title {
   text-align: center;
   font-size: 4rem;
   font-weight: bold;
-  font-family: "Poppins", sans-serif;
+  font-family: "GutterRust";
+  /* font-family: "Poppins", sans-serif; */
   /* color: #4c8c24; */
 }

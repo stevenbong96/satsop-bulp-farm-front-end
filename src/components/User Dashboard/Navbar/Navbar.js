@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import logo from "../../../images/satsop_logo_color-01.png";
@@ -7,7 +7,7 @@ function Navbar() {
   const [isActive, setIsActiveState] = useState(false);
 
   return (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
+    <nav className={`navbar`} role="navigation" aria-label="main navigation">
       <div className="navbar-brand burgerStyle">
         <a
           onClick={() => {
