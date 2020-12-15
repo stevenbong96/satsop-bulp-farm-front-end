@@ -57,7 +57,7 @@ function Footer() {
             </p>
 
             {/* EMAIL */}
-            <p className="">
+            {/* <p className="">
               <a
                 href={`mailto:${currentStoreInfo.map(
                   (emailObj) => emailObj.companyEmail
@@ -67,7 +67,7 @@ function Footer() {
                 &nbsp;
                 {currentStoreInfo.map((emailObj) => emailObj.companyEmail)}
               </a>
-            </p>
+            </p> */}
 
             {/* ADDRESS */}
             <p class=" ">
