@@ -126,6 +126,13 @@ const [noteText, setNoteText] = useState({
       console.log(newFilter);
       setFiltered(newFilter);
     }
+    else if (value === "Available to Ship") {
+      const newFilter = currentSearch.filter(
+        (product) => product.inStock === true
+      );
+      console.log(newFilter);
+      setFiltered(newFilter);
+    }
   }
 
   const onClick = (event) => {
