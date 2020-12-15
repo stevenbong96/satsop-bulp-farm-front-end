@@ -58,6 +58,7 @@ function ProductSearchFilter(props) {
     const [sale, setSale] = React.useState('');
     const [sun, setSun] = React.useState('');
     const [category, setCategory] = React.useState('');
+    const [availableToShip, setavailableToShip] = React.useState('');
 
     // const handleChange = (value) => {
     //     props.handleDropdownChange(value);
@@ -91,6 +92,8 @@ function ProductSearchFilter(props) {
                         <option value="Floral Arrangements">Floral Arrangements</option>
                         <option value="Fall">Fall</option>
                         <option value="Spring">Spring</option>
+                        <option value="Available to Ship">Available to Ship</option>
+
                     </NativeSelect>
                 </FormControl>
                 {/* <FormControl className={classes.margin}>
