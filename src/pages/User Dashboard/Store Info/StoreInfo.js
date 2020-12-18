@@ -61,7 +61,7 @@ function StoreInfo(props) {
                 {currentStoreInfo.map((phoneObj) => phoneObj.phoneNumber)}
               </a>
             </h6>
-            <h6 className="subtitle">
+            {/* <h6 className="subtitle">
               Email:{" "}
               <a
                 href={`mailto:${currentStoreInfo.map(
@@ -70,7 +70,7 @@ function StoreInfo(props) {
               >
                 {currentStoreInfo.map((emailObj) => emailObj.companyEmail)}
               </a>
-            </h6>
+            </h6> */}
             <h6 className="subtitle ">Store Hours:</h6>
             <p className="subtitle">
               {currentStoreInfo.map((hoursObj) =>

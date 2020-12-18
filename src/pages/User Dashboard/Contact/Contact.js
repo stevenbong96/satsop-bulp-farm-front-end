@@ -46,14 +46,14 @@ function Contact() {
       <h2 className="section__title">CONTACT US</h2>
       <hr></hr>
       <div className="columns">
-        <div className="column is-4 imageStyle">
+        <div className="column is-7 imageStyle">
           <img
             className="contactImage"
-            src="https://res.cloudinary.com/satsop-bulb-farm/image/upload/v1605896250/Satsop%20Bulb%20Farm/Satsop%20Bulb%20Farm/sbf_front_page_3_tbty6r.jpg"
+            src="https://res.cloudinary.com/satsop-bulb-farm/image/upload/v1605897599/Satsop%20Bulb%20Farm/Satsop%20Bulb%20Farm/sbf5_rkemhu.jpg"
             alt="picture1"
           />
         </div>
-        <form className="column is-8">
+        <form className="column is-">
           <div className="column is-12">
             <div className="field">
               <label className="label">First Name</label>

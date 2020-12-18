@@ -12,21 +12,22 @@ function About(props) {
       <h6 class="title is-6 has-text-white">{props.text3}</h6>
 
       <div className="columns about__text">
-        <div className="column is-4">
+        <div className="column is-5">
           <img
-            src="https://res.cloudinary.com/satsop-bulb-farm/image/upload/v1605897599/Satsop%20Bulb%20Farm/Satsop%20Bulb%20Farm/sbf5_rkemhu.jpg"
+            // src="https://res.cloudinary.com/satsop-bulb-farm/image/upload/v1605897599/Satsop%20Bulb%20Farm/Satsop%20Bulb%20Farm/sbf5_rkemhu.jpg"
+            src="https://res.cloudinary.com/satsop-bulb-farm/image/upload/v1608239269/Satsop%20Bulb%20Farm/Satsop%20Bulb%20Farm/zvhbjclnmps37cny4xol.jpg"
             alt="Garden"
             className="about__image"
           />
         </div>
-        <div className="column is-8">{props.text1}</div>
+        <div className="column is-7">{props.text1}</div>
       </div>
 
       <div className="columns about__text">
-        <div className="column is-8">{props.text2}</div>
-        <div className="column is-4">
+        <div className="column is-7">{props.text2}</div>
+        <div className="column is-5">
           <img
-            src="https://res.cloudinary.com/satsop-bulb-farm/image/upload/v1605896239/Satsop%20Bulb%20Farm/Satsop%20Bulb%20Farm/sbf_front_page1_a59pz4.jpg"
+            src="https://res.cloudinary.com/satsop-bulb-farm/image/upload/v1605896250/Satsop%20Bulb%20Farm/Satsop%20Bulb%20Farm/sbf_front_page_3_tbty6r.jpg"
             alt="Flowers"
             className="about__image"
           />
@@ -34,22 +35,22 @@ function About(props) {
       </div>
 
       <div className="columns about__text">
-        <div className="column is-4">
+        <div className="column is-5">
           <img
             src="https://res.cloudinary.com/satsop-bulb-farm/image/upload/v1605897806/Satsop%20Bulb%20Farm/Satsop%20Bulb%20Farm/sbf_front_page_6_punomc.jpg"
             alt="Flowers"
             className="about__image"
           />
         </div>
-        <div className="column is-8">
+        <div className="column is-7">
           <p>
-            Even though our business is a year round operation our retail
-            facility is open to the public only 5 months of the year. Our farm
-            store is open from March 1st through May 15th for the cut flower
-            market as well as a great selection of annuals, perennials, garden
-            tools, and general spring gardening supplies . We reopen September
-            15th through October 31st for the fall bulb market including other
-            winter plants.{" "}
+          Our business is a year round operation, but our retail facility is 
+          only open to the public only 5 months of the year 
+          (during growing seasons). Our farm store is open March 1st - May 15th 
+          for the cut flower market as well as a great selection of annuals, 
+          perennials, garden tools, and various gardening supplies. We reopen 
+          September 15th - October 31st for the fall bulb market and also feature 
+          a selection of winter plants.{" "}
           </p>
         </div>
       </div>
@@ -58,3 +59,5 @@ function About(props) {
 }
 
 export default About;
+
+// edit photos
